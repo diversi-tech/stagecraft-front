@@ -1,0 +1,42 @@
+<!-- <div *ngFor="let course of listCourse">
+
+    <h3>{{ course.courseName}}  שם קורס</h3>
+    
+    <p>{{ course.price }} מחיר</p>
+    <p>{{ course.NumberOfEpisodes }} כמות פרקים</p>
+    <p>להוסיף פרטים על הקורס</p>
+
+    </div> -->
+
+    <div class="container">
+            <div *ngFor="let course of listCourse">
+
+    <div class="container">
+
+        <div class="card" style="width:400px">
+          <img class="card-img-top" src="img_avatar1.png" alt="Card image" style="width:100%">
+          <div class="card-body">
+            <h4 class="card-title">{{ course.courseName}}</h4>
+            <p class="card-text">{{ course.price }} מחיר</p>
+            <p class="card-text">{{ course.NumberOfEpisodes }} כמות פרקים</p>
+            <p class="card-text">להוסיף</p>
+
+            <a href="#" class="btn btn-primary">See Profile</a>
+          </div>
+        </div>
+        <br>
+    </div>
+</div> 
+        
+   
+    <!-- ,public courseName?:string//שם קורס
+    ,public NumberOfEpisodes?:number//כמות פרקים
+    ,public price?:number//מחיר
+    ,public recommendations?:string //המלצות
+    ,public length?:number//אורך
+    ,public numberOfViewers?:number//כמות צופים
+    ,public productionDate?:Date//תאריך יצירה
+    ,public lastEntry?:Date//כניסה אחרונה
+    ,public CourseDescription?:string//תאור קורס
+   ,public lastModifiedDate?:Date){};//תאריך שינוי אחרון -->
+    

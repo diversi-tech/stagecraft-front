@@ -1,0 +1,12 @@
+<p>dfg</p>
+<div>
+  <form [formGroup]="emailForm">
+    <input type="email" formControlName="email" placeholder="הזן כתובת מייל">
+    <div *ngIf="emailForm.get('email').invalid && (emailForm.get('email').dirty || emailForm.get('email').touched)">
+      <div *ngIf="emailForm.get('email').errors?.['email'] !==null">כתובת המייל אינה תקינה.</div>
+      <div *ngIf="emailForm.get('email').errors?.['required'] !==null">שדה זה הינו שדה חובה.</div>
+    </div>
+  </form>
+  <input type="password" placeholder="סיסמא" class="form-control" name="pass" [(ngModel)]="userenter.password_hash">
+  <button (click)="f1()">שלח</button>
+</div>

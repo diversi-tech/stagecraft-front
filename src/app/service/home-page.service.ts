@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { UserDetails } from '../models/user-details'; // ניתן ליצור מודל נפרד עבור UserDetails
+import { users } from '../class/User'; // ניתן ליצור מודל נפרד עבור UserDetails
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +24,7 @@ export class HomePageService {
     return this.http.get(this.baseUrl);
   }
 
-  signUp(userDetails: UserDetails): Observable<any> {
+  signUp(userDetails: users): Observable<any> {
     return this.http.post(this.baseUrl, userDetails);
   }
 

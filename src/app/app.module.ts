@@ -6,19 +6,26 @@ import { AppComponent } from './app.component';
 import { CourseListComponent } from './components/course-list/course-list.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { LoginComponent } from './components/login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
+import { QuestionsComponent } from './components/questions/questions.component';
+import { QuestionsRepositoryComponent } from './components/questions-repository/questions-repository.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     CourseListComponent,
     MenuComponent,
-    LoginComponent
+    LoginComponent,
+    QuestionsComponent,
+    QuestionsRepositoryComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

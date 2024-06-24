@@ -1,5 +1,17 @@
-<div class="progress-bar-container">
+<!-- <div class="progress-bar-container">
     <div class="progress-bar" [style.width.%]="progress"></div>
   </div>
   <div class="progress-text">{{ progress.toFixed(2) }}%</div>
-  
+   -->
+
+   <circle-progress
+  [percent]="progress"
+  [radius]="60"
+  [outerStrokeWidth]="10"
+  [innerStrokeWidth]="5"
+  [outerStrokeColor]="'#78C000'"
+  [innerStrokeColor]="'#C7E596'"
+  [animation]="true"
+  [animationDuration]="300"
+></circle-progress>
+<div class="progress-text">{{ progress.toFixed(2) }}%</div>

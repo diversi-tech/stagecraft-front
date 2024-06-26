@@ -10,6 +10,9 @@ import { UserCoursesComponent } from './components/user-courses/user-courses.com
 import { HttpClientModule } from '@angular/common/http';
 import { CourseListComponent } from './components/course-list/course-list.component';
 import { progressbarComponent } from './components/progressbar/progressbar.component';
+import { FeedbackComponent } from './components/feedback/feedback.component';
+import { TaskFilesComponent } from './components/task-files/task-files.component';
+
 // import { CourseService } from './service/course.service'; 
 
 @NgModule({
@@ -19,7 +22,9 @@ import { progressbarComponent } from './components/progressbar/progressbar.compo
     CourseListComponent,
     LoginComponent,
     UserCoursesComponent,
-    progressbarComponent
+    progressbarComponent,
+    FeedbackComponent,
+    TaskFilesComponent
   ],
   imports: [
     BrowserModule,

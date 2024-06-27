@@ -11,6 +11,6 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   title = 'project';
-  // totalParts: number = 10;
-  // watchedParts: number = 7;
+  totalParts: number = 30;
+  watchedParts: number = 19;
 }

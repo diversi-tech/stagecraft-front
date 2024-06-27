@@ -4,20 +4,26 @@
   <div class="progress-text">{{ progress.toFixed(2) }}%</div>
    -->
    <circle-progress
+   [backgroundColor]="'#98863b'"
+  [backgroundOpacity]="30"
   [percent]="progress"
   [radius]="60"
-  [outerStrokeWidth]="10"
+  [outerStrokeWidth]="5"
   [innerStrokeWidth]="5"
-  [outerStrokeColor]="'#78C000'"
-  [innerStrokeColor]="'#C7E596'"
+  [outerStrokeColor]="'#FFC0CB'"
+  [innerStrokeColor]="'#FFC0CB'"
   [animation]="true"
-  [animationDuration]="300"
+  [animationDuration]="900"
  
 >
-<ng-template #contentTemplate>
+<!-- <ng-template #contentTemplate>
   <div class="inner-text">
     <div>{{ progress.toFixed(2) }}%</div>
     <div>אחוזים מהקורס הושלמו</div>
   </div>
-</ng-template>
-</circle-progress>
+</ng-template> -->
+<!-- </circle-progress>
+<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+  <div>{{ progress.toFixed(2) }}%</div>
+  <div>אחוזים מהקורס הושלמו</div>
+</div> -->

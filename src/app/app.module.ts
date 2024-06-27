@@ -34,10 +34,10 @@ import { TaskFilesComponent } from './components/task-files/task-files.component
     NgCircleProgressModule.forRoot({
       // הגדרות ברירת מחדל לרכיב המעגלי
       radius: 60,
-      outerStrokeWidth: 10,
-      innerStrokeWidth: 5,
-      outerStrokeColor: "#78C000",
-      innerStrokeColor: "#C7E596",
+      outerStrokeWidth: 510,
+      innerStrokeWidth: 30,
+      outerStrokeColor: "'#FFC0CB'",
+      innerStrokeColor: "#e06133",
       animationDuration: 300
     })
 

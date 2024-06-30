@@ -26,9 +26,9 @@ export class QuestionsComponent {
   selectedAnswer!:string;
   @Input() QuestionIndex!: number;
 
-  setSelectedAnswer(answer: string) {
-    this.selectedAnswer = answer;
-  }
+  // setSelectedAnswer(answer: string) {
+  //   this.selectedAnswer = answer;
+  // }
 
   sendDataToParent(){
     

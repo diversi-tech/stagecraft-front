@@ -7,7 +7,7 @@
     <ul>
       <div *ngFor="let str of (currentQuestion.AnswerList)">
         <label>
-       <input type="radio" name="selectedText" (click)="setSelectedAnswer(str)">
+       <input type="radio" name="selectedText">
         {{ str }}
       </label>
       </div>

@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output ,EventEmitter} from '@angular/core';
+import { Question } from 'src/app/class/Question';
 
 @Component({
   selector: 'app-questions',
@@ -17,7 +18,24 @@ export class QuestionsComponent {
 
   // child.component.ts
 
-  @Input() name!: string;
-  @Input() questionIndex!: number[];
+  // @Input() name: string='';
+  // @Input() items: string[]=[];
+  
+  @Input() currentQuestion!: Question;
+  selectedIndex: number = -1;
+  selectedAnswer!:string;
+  @Input() QuestionIndex!: number;
+
+  setSelectedAnswer(answer: string) {
+    this.selectedAnswer = answer;
+  }
+
+  sendDataToParent(){
+    
+    this.QuestionIndex += 1;
+    this.childOutput.emit(this.QuestionIndex); 
+
+  }
+  @Output() childOutput=new EventEmitter<number>();
 
 }

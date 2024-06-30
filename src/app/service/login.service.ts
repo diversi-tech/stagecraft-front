@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { users } from '../class/User';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +12,17 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  // פונקציה לבדיקת קיום משתמש לפי מייל וסיסמה
-  checkUserExists(email: string, password: string): Observable<boolean> {
+  // checkUserExistence(username: users): Observable<boolean> {
+  //   return this.http.get<boolean>(`${this.apiUrl}/users/${username}/exists`);
+  // }
 
-    return this.http.post<boolean>(`${this.apiUrl}/checkUser`, { email, password });
+  checkIfUserExists(user: users): Observable<boolean> {
+    const url = `${this.apiUrl}?email=${user.Email}&password=${user.password_has}`;
+    return this.http.get<boolean>(url);
   }
+
+
 }
+
+
+

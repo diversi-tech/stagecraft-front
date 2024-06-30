@@ -1,13 +1,17 @@
-
 <!-- <div *ngFor="let item of age"></div> -->
 
 
-<div>
-    <p>question :{{name}}</p>
-    <h2>Choose the correct answer</h2>
+
+  <div>
+    <h5>שאלה :{{currentQuestion.QuestionText}}</h5>
     <ul>
-      <li *ngFor="let str of questionIndex">{{ str }}</li>
+      <div *ngFor="let str of (currentQuestion.AnswerList)">
+        <label>
+       <input type="radio" name="selectedText" (click)="setSelectedAnswer(str)">
+        {{ str }}
+      </label>
+      </div>
     </ul>
+    <button (click)="sendDataToParent()">Send Data to Parent</button>
   </div>
   
-

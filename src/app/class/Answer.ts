@@ -1,7 +1,6 @@
 export class Answer {
     constructor(
         public IdAnswer?: number,
-       public AnswerTest?: string,
-       
+        public AnswerTest?: string,
     ) { };
 }

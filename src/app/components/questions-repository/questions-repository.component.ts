@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Answer } from 'src/app/class/Answer';
 import { Question } from 'src/app/class/Question';
 
 @Component({
@@ -9,12 +10,22 @@ import { Question } from 'src/app/class/Question';
 
 
 export class QuestionsRepositoryComponent {
-AllQuestion! :  Question[];
-questionIndex : number = 0;
+  parentName: string = "dtygi";
+  AllQuestion: string[] = ['gu', 'fuyv', 'tgfy'];
+
+  QuestionList: Question[] =[
+    new Question(1, "How r u?", [new Answer(12, "ds"), new Answer(33, "dfsfdf"),new Answer(24, "wq5eutryi")]),
+    new Question(3, "hfghjgjlkjhgfdchgvjh r u?", [new Answer(12, "ds"), new Answer(33, "dfsfdf"),new Answer(24, "wq5eutryi")])
+  ];
+  QuestionIndex: number = 0;
+
+  onChildOutput(newFatherValue:number){
+  this.QuestionIndex=newFatherValue;
+  }
+  
+
+  //questionIndex: number = 0;
   // parent.component.ts
-
-  parentName: string = '';
-
   // parentAge: number;
 
 }

@@ -1,6 +1,7 @@
-<div>
-<h2>questions-repository works!</h2>
-<!-- <app-questions [name]="" ></app-questions> -->
+<!-- <p>Message from Child: {{ QuestionIndex }}</p>
+    <app-child ></app-child> -->
 
-</div>
 
+<app-questions [currentQuestion]="QuestionList[QuestionIndex]" [QuestionIndex]="QuestionIndex"
+(childOutput)="onChildOutput($event)"></app-questions>
+<!-- <app-questions [name]="parentName" [items]="AllQuestion"></app-questions> -->

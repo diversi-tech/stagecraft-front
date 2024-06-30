@@ -7,18 +7,22 @@ import { CourseListComponent } from './components/course-list/course-list.compon
 import { MenuComponent } from './components/menu/menu.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
+import { AdminCustomerApprovalComponent } from './components/admin-customer-approval/admin-customer-approval.component';
+import { HttpClientModule } from '@angular/common/http'; // ייבוא HttpClientModule
 
 @NgModule({
   declarations: [
     AppComponent,
     CourseListComponent,
     MenuComponent,
-    LoginComponent
+    LoginComponent,
+    AdminCustomerApprovalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

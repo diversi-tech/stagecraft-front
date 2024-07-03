@@ -17,6 +17,7 @@ import { TaskFilesComponent } from './components/task-files/task-files.component
 import { AdminCustomerApprovalComponent } from './components/admin-customer-approval/admin-customer-approval.component';
 import { CourseOverviewComponent } from './components/course-overview/course-overview.component';
 import { LessonComponent } from './components/lesson/lesson.component';
+import { AdminCoursForUserComponent } from './components/admin-cours-for-user/admin-cours-for-user.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { LessonComponent } from './components/lesson/lesson.component';
     TaskFilesComponent,
     AdminCustomerApprovalComponent,
     CourseOverviewComponent,
-    LessonComponent
+    LessonComponent,
+    AdminCoursForUserComponent
   ],
   imports: [
     BrowserModule,

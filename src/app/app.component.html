@@ -1,6 +1,8 @@
 
 <app-menu></app-menu>
-
+<app-progressbar *ngIf="userCourse" [userId]="userCourse.userId" [courseId]="userCourse.coursesId"></app-progressbar>
+     
+    <!-- <app-progressbar *ngIf="userCourse" [userId]="userCourse.userId" [courseId]="userCourse.coursesId"></app-progressbar>  -->
 <!-- <app-course-list></app-course-list>
 <app-admin-customer-approval></app-admin-customer-approval>
 <div>
@@ -10,7 +12,8 @@
     <app-feedback [userId]="123"></app-feedback>
   </div>
   <div>
-    <app-progressbar [totalParts]="totalParts" [watchedParts]="watchedParts"></app-progressbar> -->
+
+    -->
     <!-- <app-progressbar></app-progressbar> -->
      <!-- <app-admin-cours-for-user></app-admin-cours-for-user> -->
     <!-- <app-course-list></app-course-list> -->

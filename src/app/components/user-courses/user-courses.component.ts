@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { userCourse } from 'src/app/class/userCourse';
 import { CourseService } from 'src/app/service/course.service';
 
 
@@ -12,15 +13,15 @@ import { CourseService } from 'src/app/service/course.service';
 })
 export class UserCoursesComponent implements OnInit {
 
-
-  userId: number = 1;  // נניח שזהו ה-ID של המשתמש
-  courses: any[] = [];
+  userCourse!: userCourse;
+  userId: number = 0;  // נניח שזהו ה-ID של המשתמש
+  courseId: number = 0;
 
   // constructor(private CourseService:CourseService) { }
 constructor(private CourseService:CourseService){}
   ngOnInit(): void {
     this.CourseService.getCoursesForUser(this.userId).subscribe(data => {
-      this.courses = data;
+      this.userCourse = data;
     });
   }
 }

@@ -12,15 +12,16 @@ import { CourseListComponent } from './components/course-list/course-list.compon
 import { progressbarComponent } from './components/progressbar/progressbar.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { TaskFilesComponent } from './components/task-files/task-files.component';
+import { VideoTranscriptionComponent } from './components/video-transcription/video-transcription.component';
+import { TranscriptionService } from './service/transcription.service';
 import { ForumComponent } from './components/forum/forum.component';
 import { AdminForumComponent } from './components/admin-forum/admin-forum.component';
-
-
 // import { CourseService } from './service/course.service'; 
-// const routes: Routes = [
-//   { path: '', component: ForumComponent },
-//   // Add more routes here if needed
-// ];
+import { AdminCustomerApprovalComponent } from './components/admin-customer-approval/admin-customer-approval.component';
+import { CourseOverviewComponent } from './components/course-overview/course-overview.component';
+import { LessonComponent } from './components/lesson/lesson.component';
+import { AdminCoursForUserComponent } from './components/admin-cours-for-user/admin-cours-for-user.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +32,11 @@ import { AdminForumComponent } from './components/admin-forum/admin-forum.compon
     progressbarComponent,
     FeedbackComponent,
     TaskFilesComponent,
+    VideoTranscriptionComponent,
+    AdminCustomerApprovalComponent,
+    CourseOverviewComponent,
+    LessonComponent,
+    AdminCoursForUserComponent,
     ForumComponent,
     AdminForumComponent,
 
@@ -50,8 +56,9 @@ import { AdminForumComponent } from './components/admin-forum/admin-forum.compon
       animationDuration: 300
     })
 
+     
   ],
-  providers: [],
+  providers: [TranscriptionService],
   bootstrap: [AppComponent]
   
   

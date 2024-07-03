@@ -14,3 +14,4 @@ export class AppComponent {
   totalParts: number = 30;
   watchedParts: number = 19;
 }
+

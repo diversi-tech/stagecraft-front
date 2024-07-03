@@ -12,6 +12,8 @@ import { CourseListComponent } from './components/course-list/course-list.compon
 import { progressbarComponent } from './components/progressbar/progressbar.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { TaskFilesComponent } from './components/task-files/task-files.component';
+import { VideoTranscriptionComponent } from './components/video-transcription/video-transcription.component';
+import { TranscriptionService } from './service/transcription.service';
 
 // import { CourseService } from './service/course.service'; 
 import { AdminCustomerApprovalComponent } from './components/admin-customer-approval/admin-customer-approval.component';
@@ -29,10 +31,12 @@ import { AdminCoursForUserComponent } from './components/admin-cours-for-user/ad
     progressbarComponent,
     FeedbackComponent,
     TaskFilesComponent,
+    VideoTranscriptionComponent,
     AdminCustomerApprovalComponent,
     CourseOverviewComponent,
     LessonComponent,
     AdminCoursForUserComponent
+
   ],
   imports: [
     BrowserModule,
@@ -51,7 +55,7 @@ import { AdminCoursForUserComponent } from './components/admin-cours-for-user/ad
 
      
   ],
-  providers: [],
+  providers: [TranscriptionService],
   bootstrap: [AppComponent]
   
   

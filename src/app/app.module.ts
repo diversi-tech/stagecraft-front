@@ -12,9 +12,15 @@ import { CourseListComponent } from './components/course-list/course-list.compon
 import { progressbarComponent } from './components/progressbar/progressbar.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { TaskFilesComponent } from './components/task-files/task-files.component';
+import { ForumComponent } from './components/forum/forum.component';
+import { AdminForumComponent } from './components/admin-forum/admin-forum.component';
+
 
 // import { CourseService } from './service/course.service'; 
-
+// const routes: Routes = [
+//   { path: '', component: ForumComponent },
+//   // Add more routes here if needed
+// ];
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +30,10 @@ import { TaskFilesComponent } from './components/task-files/task-files.component
     UserCoursesComponent,
     progressbarComponent,
     FeedbackComponent,
-    TaskFilesComponent
+    TaskFilesComponent,
+    ForumComponent,
+    AdminForumComponent,
+
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,22 @@
+.admin-forum-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .question {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+  }
+  
+  .answer {
+    padding-left: 20px;
+  }
+  
+  button {
+    margin: 5px;
+  }
+  

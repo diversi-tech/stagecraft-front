@@ -1,16 +1,16 @@
 
 export class users {
     constructor(
-        public Email: string,// אימייל
-       public password_hash: string,// ססמא
-        public UserId?: number,//     קוד משתמש
-        public Username?: string,// שם משתמש
-        public coursesAmount?: number,// כמות קורסים
-        public is_approved?: boolean,// מאושר
+        public email: string,// אימייל
+       public password: string,// ססמא
+        public code?: number,//     קוד משתמש
+        public name?: string,// שם משתמש
+        public coursesNum?: number,// כמות קורסים
+        public isConfirmed?: boolean,// מאושר
         public lastView?: string,// צפיה אחרונה
         public status?: boolean,// סטטוס
-        public create_at?: Date,// תאריך יצירה
+        public registrationDate?: Date,// תאריך יצירה
         // שינוי תאריך אחרון
-        public last_login?: Date// כניסה אחרונה
+        public LastModifiedDate?: Date// כניסה אחרונה
     ) { };
 }

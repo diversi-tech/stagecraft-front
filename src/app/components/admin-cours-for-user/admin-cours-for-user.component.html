@@ -1,8 +1,12 @@
-<!-- <p>admin-cours-for-user works!</p>
-<input type="text" [(ngModel)]="searchTerm" placeholder="Search...">
-    <ul>
-      <li *ngFor="let item of searchItems()">{{ item }}</li>
-    </ul> -->
+
+<div class="mb-4">
+  <div class="form-group row">
+    <label for="searchTerm" class="col-sm-2 col-form-label">חיפוש משתמש:</label>
+    <div class="col-sm-4">
+      <input type="text" id="searchTerm" [(ngModel)]="searchTerm" (input)="onSearchTermChange()" class="form-control" placeholder="הזן שם או אימייל  ">
+    </div>
+  </div>
+</div>
 
     <div class="container mt-5">
       <h2 class="mb-4">רשימת משתמשים</h2>
@@ -15,7 +19,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of userService.userList">
+      <tr *ngFor="let user of filteredUsers">
         <td>{{ user.code }}</td>
         <td>{{ user.name }}</td>
         <td>{{ user.email }}</td>

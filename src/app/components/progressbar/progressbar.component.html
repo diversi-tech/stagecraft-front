@@ -1,0 +1,33 @@
+<!-- <div class="progress-bar-container">
+    <div class="progress-bar" [style.width.%]="progress"></div>
+  </div>
+  <div class="progress-text">{{ progress.toFixed(2) }}%</div>
+   -->
+   <div class="circle-progress-container">
+   <circle-progress
+   [backgroundColor]="'#98863b'"
+  [backgroundOpacity]="30"
+  [percent]="progress"
+  [radius]="70"
+  [outerStrokeWidth]="4"
+  [innerStrokeWidth]="3"
+  [outerStrokeColor]="'#FFC0CB'"
+  [innerStrokeColor]="'#FFC0CB'"
+  [animation]="true"
+  [animationDuration]="900"
+  [titleColor]="'#FFC0CB'"
+  [titleFontSize]="'35'"
+  [subtitleColor]="'#FFC0CB'"
+  [subtitle]="' אחוזים מהקורס הושלמו'"
+  [subtitleFontSize]="'11'" 
+
+></circle-progress>
+
+
+
+<!-- <div class="circle-progress-text">
+  <div class="title">{{ progress.toFixed(2) }}%</div>
+  <div class="subtitle"> אחוזים מהקורס<br>הושלמו </div>
+</div>
+</div> -->
+

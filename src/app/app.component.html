@@ -1,2 +1,16 @@
+
 <app-menu></app-menu>
+
 <app-course-list></app-course-list>
+<app-admin-customer-approval></app-admin-customer-approval>
+<div>
+    <h1>הורדת קבצי משימה</h1>
+    
+    <app-task-files [videoId]="1"></app-task-files>
+    <app-feedback [userId]="123"></app-feedback>
+  </div>
+  <div>
+    <app-progressbar [totalParts]="totalParts" [watchedParts]="watchedParts"></app-progressbar>
+    <!-- <app-progressbar></app-progressbar> -->
+    <app-course-list></app-course-list>
+

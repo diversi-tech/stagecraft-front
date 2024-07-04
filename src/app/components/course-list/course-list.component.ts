@@ -15,6 +15,9 @@ export class CourseListComponent {
     
   if(this.homePageService.listCourse.length==0)
     this.homePageService.loudCourses();
+  if(this.homePageService.listClasses.length==0)
+    this.homePageService.loudClasses();
+  
 }
 
   // courses = [

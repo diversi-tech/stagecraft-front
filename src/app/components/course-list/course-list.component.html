@@ -25,7 +25,10 @@
         <br>
     </div>
 </div> 
-        
+        <div *ngFor="let class of homePageService.listClasses">
+          {{class.class_id}}
+        </div>
+
    
     <!-- ,public courseName?:string//שם קורס
     ,public NumberOfEpisodes?:number//כמות פרקים

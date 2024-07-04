@@ -1,0 +1,5 @@
+<div *ngFor="let course of courses">
+    <h2>{{ course.title }}</h2>
+    <p>{{ course.description }}</p>
+    <button (click)="viewCourse(course.id)">לצפייה בקורס</button>
+  </div>

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { classes } from '../class/Classes';
 
 
 @Injectable({
@@ -15,4 +16,5 @@ export class CourseService {
   getCoursesForUser(userId: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/user/${userId}`);
   }
+
 }

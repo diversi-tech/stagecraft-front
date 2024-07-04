@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import  {users}  from '../class/User'; 
 import { course } from '../class/Course';
+import { classes } from '../class/Classes';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,8 @@ export class HomePageService {
 
   constructor(private http: HttpClient) { }
   listCourse:Array<course>=new Array<course>();
+  listClasses:Array<classes>=new Array<classes>();
+
  
   getCourseDetails(id: number): Observable<any> {
     debugger;
@@ -26,9 +29,20 @@ export class HomePageService {
   getAvailableCourse(): Observable<Array<course>> {
     return this.http.get<Array<course>> (this.baseUrl+"/GetAllCourses");
   }
+
+  GetAllClass(): Observable<Array<classes>> {
+    return this.http.get<Array<classes>> (this.baseUrl+"/GetAllClass");
+  }
+
   loudCourses()
   { this.getAvailableCourse().subscribe(response => {
     this.listCourse=response}, error => {
+      console.error('Failed to show data:', error);
+    });}
+
+    loudClasses()
+  { this.GetAllClass().subscribe(response => {
+    this.listClasses=response}, error => {
       console.error('Failed to show data:', error);
     });}
 

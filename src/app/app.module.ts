@@ -17,6 +17,7 @@ import { TaskFilesComponent } from './components/task-files/task-files.component
 import { AdminCustomerApprovalComponent } from './components/admin-customer-approval/admin-customer-approval.component';
 import { CourseOverviewComponent } from './components/course-overview/course-overview.component';
 import { LessonComponent } from './components/lesson/lesson.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,10 @@ import { LessonComponent } from './components/lesson/lesson.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    CommonModule,
+
     HttpClientModule,
+    
     NgCircleProgressModule.forRoot({
       // הגדרות ברירת מחדל לרכיב המעגלי
       radius: 60,

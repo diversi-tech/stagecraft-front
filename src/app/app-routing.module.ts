@@ -6,6 +6,11 @@ import { FeedbackComponent } from './components/feedback/feedback.component';
 import { progressbarComponent } from './components/progressbar/progressbar.component';
 import { TaskFilesComponent } from './components/task-files/task-files.component';
 import { UserCoursesComponent } from './components/user-courses/user-courses.component';
+import { LessonComponent } from './components/lesson/lesson.component';
+import { CoursesComponent } from './components/courses/courses.component';
+import { LessonDetailComponent } from './components/lesson-detail/lesson-detail.component';
+import { CourseDetailComponent } from './components/course-detail/course-detail.component';
+import { CourseOverviewComponent } from './components/course-overview/course-overview.component';
 
 const routes: Routes = [
   // {path:"myHome-שם שבחרתי",component:HomeComponentשם המחלקה של הקומפוננטה}
@@ -15,6 +20,11 @@ const routes: Routes = [
 {path:"progressBar",component:progressbarComponent},
 {path:"taskFiles",component:TaskFilesComponent},
 {path:"userCourses",component:UserCoursesComponent},
+{ path: 'course/:id', component: CourseOverviewComponent },
+{ path: 'course/:courseId/lesson/:lessonId', component: LessonComponent },
+{ path: '', component: CoursesComponent },
+{ path: 'course/:id', component: CourseDetailComponent },
+{ path: 'lesson/:id', component: LessonDetailComponent }
 
 ];
 

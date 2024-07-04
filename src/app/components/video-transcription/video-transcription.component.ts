@@ -23,7 +23,7 @@ export class VideoTranscriptionComponent implements OnInit {
   }
 
   loadTranscript(): void {
-    const videoId = 2; // ניתן לשנות לפי הצורך
+    const videoId = 1; // ניתן לשנות לפי הצורך
     this.transcriptionService.getTranscript(videoId).subscribe(
       response => {
         this.transcriptSegments = response;

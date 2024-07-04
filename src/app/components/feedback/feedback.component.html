@@ -1,11 +1,9 @@
 
-<br>
 <div *ngIf="isSubscriptionValid(); else noAccess">
     <h3>העלאת קבצים למשוב</h3>
     <input type="file" (change)="onFileChange($event)">
     <button (click)="uploadFeedback()">העלאה</button>
   </div>
-  <br>  
   <ng-template #noAccess>
     <p>אין לך גישה להעלאת קבצים</p>
   </ng-template>

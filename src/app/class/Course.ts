@@ -1,6 +1,6 @@
 export class course{
-    constructor(public courses_id :number//קוד קורס
-         ,public courses_name:string//שם קורס
+    constructor(public courseCode :number//קוד קורס
+         ,public courseName:string//שם קורס
          ,public NumberOfEpisodes:number//כמות פרקים
          ,public price:number//מחיר
          ,public recommendations:string //המלצות

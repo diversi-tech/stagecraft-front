@@ -4,7 +4,7 @@
       <li *ngFor="let file of taskFiles">
         <a [href]="file.url" download>{{ file.name }}</a>
       </li>
-    </ul>  
+    </ul>
   </div>
   <ng-template #noFiles>
     <p>אין קבצים זמינים להורדה עבור סרטון זה.</p>

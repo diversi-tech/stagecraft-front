@@ -10,10 +10,10 @@
     </thead>
     <tbody>
       <tr *ngFor="let user of users">
-        <td>{{ user.code }}</td>
-        <td>{{ user.email }}</td>
-        <td>{{ user.password ? 'Approved' : 'Not Approved' }}</td>
-        <td><input type="checkbox" [ngModel]="user.password" (ngModelChange)="user.isConfirmed = !user.isConfirmed"></td>
+        <td>{{ user.UserId }}</td>
+        <td>{{ user.Email }}</td>
+        <td>{{ user.is_approved ? 'Approved' : 'Not Approved' }}</td>
+        <td><input type="checkbox" [ngModel]="user.is_approved" (ngModelChange)="user.is_approved = !user.is_approved"></td>
 
          <!-- <td><input type="checkbox" [(ngModel)]="user.is_approved"></td> -->
       </tr>

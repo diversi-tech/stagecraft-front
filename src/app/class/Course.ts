@@ -9,6 +9,5 @@ export class course{
          ,public productionDate:Date//תאריך יצירה
          ,public lastEntry:Date//כניסה אחרונה
          ,public CourseDescription:string//תאור קורס
-        ,public lastModifiedDate:Date
-        ,public expanded:boolean){};//תאריך שינוי אחרון
+        ,public lastModifiedDate:Date){};//תאריך שינוי אחרון
 }

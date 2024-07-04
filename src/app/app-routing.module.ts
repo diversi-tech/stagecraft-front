@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+<<<<<<< HEAD
 import { LoginComponent } from './components/login/login.component';
 import { CourseListComponent } from './components/course-list/course-list.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
@@ -27,6 +28,10 @@ const routes: Routes = [
 { path: 'lesson/:id', component: LessonDetailComponent }
 
 ];
+=======
+
+const routes: Routes = [];
+>>>>>>> 5756ca7181482737e48525b5e5c61408e9a795fd
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,0 +1,44 @@
+/* table {
+    width: 80%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    border: 1px solid black;
+    padding: 0.5%; /* זה מוסיף רווח פנימי בתוך התאים 
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  td {
+    text-align: left;
+  }
+  
+   */
+   .table-container {
+    display: flex;
+    justify-content: center; /* מרכז את הטבלה אופקית */
+    align-items: center; /* מרכז את הטבלה אנכית */
+    height: 100vh; /* גובה המסך */
+  }
+  
+  table {
+    width: 80%; /* שינוי לפי הצורך, כדי שהטבלה לא תשתמש בכל רוחב הדף */
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    border: 1px solid black;
+    padding: 10px; /* מוסיף רווח פנימי בתוך התאים */
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  td {
+    text-align: left;
+  }
+  

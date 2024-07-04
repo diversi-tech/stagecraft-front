@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { course } from 'src/app/class/Course';
-import { HomePageService } from 'src/app/service/home-page.service';
 
 @Component({
   selector: 'app-course-list',
@@ -9,15 +8,26 @@ import { HomePageService } from 'src/app/service/home-page.service';
 })
 export class CourseListComponent {
 
-  constructor(public homePageService:HomePageService) { }
+  listCourse:Array<course>=[]
 
   ngOnInit() {
+<<<<<<< HEAD
     
   if(this.homePageService.listCourse.length==0)
     this.homePageService.loudCourses();
   if(this.homePageService.listClasses.length==0)
     this.homePageService.loudClasses();
   
+=======
+    this.listCourse.push(new course(1,"קורס1",23,100,"המלצות",1.50,30,new Date(),new Date(),"תאור1",new Date()));
+    this.listCourse.push(new course(2,"קורס2",23,200,"המלצות",2.50,20,new Date(),new Date(),"תאור2",new Date()));
+    this.listCourse.push(new course(4,"קורס1",23,300,"המלצות",1.50,30,new Date(),new Date(),"תאור1",new Date()));
+    this.listCourse.push(new course(5,"קורס2",23,400,"המלצות",2.50,20,new Date(),new Date(),"תאור2",new Date()));
+
+
+
+
+>>>>>>> 5756ca7181482737e48525b5e5c61408e9a795fd
 }
 
   // courses = [
@@ -47,5 +57,5 @@ export class CourseListComponent {
     
   //   ];
 
-    
-}  
+    constructor() { }
+}

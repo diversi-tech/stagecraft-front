@@ -1,0 +1,25 @@
+
+<div class="container">
+<table>
+    <thead>
+      <tr>
+        <th>ID משתמש</th>
+        <th>קבצי משימה</th>
+        <th>משוב מנהל</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.IdUser }}</td>
+        <td>
+          <a [href]="user.file" download>הורד קובץ</a>
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="user.feedback">
+          <button (click)="saveFeedback(user.IdUser!)">שמור</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+</div>

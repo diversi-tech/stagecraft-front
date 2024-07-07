@@ -1,7 +1,5 @@
-<div *ngFor="let course in userCourse">
+<div *ngFor="let course of courses">
     <h3>{{ course.name }}</h3>
-    <app-progressbar *ngIf="userCourse" [userId]="userCourse.userId" [courseId]="userCourse.coursesId"></app-progressbar>
-     
-<!-- <app-progressbar [totalParts]="course.totalParts" [watchedParts]="course.watchedParts"></app-progressbar> -->
+<app-progressbar [totalParts]="course.totalParts" [watchedParts]="course.watchedParts"></app-progressbar>
      
   </div>    

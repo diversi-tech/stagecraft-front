@@ -1,0 +1,50 @@
+<div class="forum-container">
+  <h2>פורום</h2>
+
+  <div class="question-form">
+    <h3>מה יש לך לומר?.....</h3>
+    <form (ngSubmit)="submitQuestion()">
+      <div>
+        <input type="text" id="question" [(ngModel)]="newQuestion" name="question" required placeholder="שאלה">
+      </div>
+      <button type="submit" class="btn btn-outline-success">שליחה</button>
+    </form>
+  </div>
+
+  <div class="questions-list">
+    <h3>שאלות</h3>
+    <div *ngFor="let question of questions">
+      <div class="question">
+        <p><strong>{{ question.text }}</strong></p>
+        <div *ngFor="let answer of question.answers" class="answer">
+          
+          <p>{{ answer.text }}</p>
+          <div *ngIf="answer.files && answer.files.length > 0">
+            <p>Files:</p>
+            <ul>
+              <li *ngFor="let file of answer.files">
+                <a [href]="file.url" download>{{ file.name }}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <form (ngSubmit)="submitAnswer(question)">
+          <input type="text" [(ngModel)]="question.newAnswer" name="answer" placeholder="תשובה" required>
+          <p><input type="file" (change)="onFileSelected($event, question)" multiple>
+            <button type="submit" class="btn btn-outline-success">שליחה</button></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+  

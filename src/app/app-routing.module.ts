@@ -9,6 +9,7 @@ import { UserCoursesComponent } from './components/user-courses/user-courses.com
 import { AchievementsComponent } from './components/achievements/achievements.component';
 import { ForumComponent } from './components/forum/forum.component';
 import { AdminForumComponent } from './components/admin-forum/admin-forum.component';
+import { CourseOverviewComponent } from './components/course-overview/course-overview.component';
 
 const routes: Routes = [
   // {path:"myHome-שם שבחרתי",component:HomeComponentשם המחלקה של הקומפוננטה}
@@ -20,9 +21,10 @@ const routes: Routes = [
 {path:"userCourses",component:UserCoursesComponent},
 { path: 'forum', component: ForumComponent },
 { path: 'admin-forum', component: AdminForumComponent },
-{ path: '', redirectTo: '/forum', pathMatch: 'full' },
-{ path: '**', redirectTo: '/forum' },
-{ path: 'Achievements', component: AchievementsComponent }
+// { path: '', redirectTo: '/forum', pathMatch: 'full' },
+// { path: '**', redirectTo: '/forum' },
+{ path: 'Achievements', component: AchievementsComponent },
+{ path: 'myCourse', component: CourseOverviewComponent }
 
 ];
 

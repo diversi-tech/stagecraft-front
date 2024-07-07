@@ -9,23 +9,20 @@
     </div> -->
 
     <div class="container">
-            <div *ngFor="let course of homePageService.listCourse">
-
-    <div class="container">
-
-        <div class="card" style="width:400px">
-          <img class="card-img-top" src="img_avatar1.png" alt="Card image" style="width:100%">
-          <div class="card-body">
-            <h4 class="card-title">{{course.courses_name}}</h4>
-            <p class="card-text">{{course.price}} מחיר</p>
-            
-            <a href="#" class="btn btn-primary">See Profile</a>
+      <p style="font-size: 3cm;font-family:Summer Crab;text-align: center; color: rgb(194, 12, 76);">Online courses</p>
+      <div class="row" style="justify-content: center;">
+          <div *ngFor="let course of homePageService.listCourse" class="col-md-4">
+              <div class="card mb-4">
+                  <img class="card-img-top" src="../../../assets/pic/pic1.jpg" alt="Card image" style="width:100%">
+                  <div class="card-body">
+                      <h4 class="card-title">{{ course.courses_name }}</h4>
+                      <p class="card-text">{{ course.price }} מחיר</p>
+                      <a href="#" class="btn btn-pink">See Profile</a>
+                  </div>
+              </div>
           </div>
-        </div>
-        <br>
-    </div>
-</div> 
-        
+      </div>
+  </div>
    
     <!-- ,public courseName?:string//שם קורס
     ,public NumberOfEpisodes?:number//כמות פרקים

@@ -1,0 +1,94 @@
+/* .progress-container {
+  position: relative;
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  height: 20px;
+  margin: 20px 0;
+}
+
+.progress-bar {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  border-radius: 10px;
+}
+
+.progress-bar.current {
+  background-color: #3b82f6;
+  z-index: 1;
+}
+
+.progress-bar.pass {
+  background-color: #f59e0b;
+  z-index: 0;
+}
+
+.progress-label {
+  position: absolute;
+  top: -25px;
+  transform: translateX(-50%);
+  font-size: 14px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #000;
+  color: #fff;
+}
+
+.current-label {
+  background-color: #3b82f6;
+}
+
+.pass-label {
+  background-color: #f59e0b;
+}
+
+   */
+
+
+   .progress-container {
+    position: relative;
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    height: 20px;
+    margin: 20px 0;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    border-radius: 10px;
+  }
+  
+  .progress-bar.current {
+    background-color: #3b82f6;
+    z-index: 1;
+  }
+  
+  .progress-bar.pass {
+    background-color: #f59e0b;
+    z-index: 0;
+  }
+  
+  .progress-label {
+    position: absolute;
+    top: -25px;
+    transform: translateX(-50%);
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    white-space: nowrap; /* ensures the text doesn't wrap */
+  }
+  
+  .current-label {
+    background-color: #3b82f6;
+  }
+  
+  .pass-label {
+    background-color: #f59e0b;
+  }
+  

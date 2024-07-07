@@ -20,6 +20,8 @@ import { AdminCustomerApprovalComponent } from './components/admin-customer-appr
 import { CourseOverviewComponent } from './components/course-overview/course-overview.component';
 import { LessonComponent } from './components/lesson/lesson.component';
 import { AdminCoursForUserComponent } from './components/admin-cours-for-user/admin-cours-for-user.component';
+import { AchievementsComponent } from './components/achievements/achievements.component';
+//import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { AdminCoursForUserComponent } from './components/admin-cours-for-user/ad
     AdminCustomerApprovalComponent,
     CourseOverviewComponent,
     LessonComponent,
-    AdminCoursForUserComponent
+    AdminCoursForUserComponent,
+    AchievementsComponent
 
   ],
   imports: [
@@ -43,6 +46,7 @@ import { AdminCoursForUserComponent } from './components/admin-cours-for-user/ad
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    //NgxChartsModule,//רכיב גרפי
     NgCircleProgressModule.forRoot({
       // הגדרות ברירת מחדל לרכיב המעגלי
       radius: 60,

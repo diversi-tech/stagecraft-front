@@ -1,0 +1,36 @@
+<div>
+    <h2>Select a Course</h2>
+    <ul>
+      <li *ngFor="let course of courses" (click)="openCourseDetails(course.id)">
+        {{ course.name }}
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="selectedCourse">
+    <h2>{{ selectedCourse.name }}</h2>
+    
+      <h3>Achievements</h3>
+      <br><br>
+      <div>
+        <div class="progress-container">
+            <!-- הקו של הציון הנוכחי -->
+            <div class="progress-bar current" [style.width.%]="selectedCourse.currentScore"></div>
+            <!-- הקו של ציון העובר -->
+            <div class="progress-bar pass" [style.width.%]="selectedCourse.passScore"></div>
+            <!-- התגית של הציון הנוכחי -->
+            <span class="progress-label current-label" [style.left.%]="selectedCourse.currentScore">
+              {{ selectedCourse.currentScore }}%
+            </span>
+            <!-- התגית של ציון העובר -->
+            <span class="progress-label pass-label" [style.left.%]="selectedCourse.passScore">
+              {{ selectedCourse.passScore }}%
+            </span>
+          </div>
+    </div>
+    <div>
+        <br>
+      <h3>Admin Feedback</h3>
+      <p>{{ selectedCourse.feedback }}</p>
+    </div>
+  </div>
+  

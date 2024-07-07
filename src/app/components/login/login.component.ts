@@ -1,51 +1,86 @@
+// import { Component } from '@angular/core';
+// import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+// import { users } from 'src/app/class/User';
+// import { sessionService } from 'src/app/service/session.service';
 
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+// @Component({
+//   selector: 'app-login',
+//   templateUrl: './login.component.html',
+//   styleUrls: ['./login.component.css']
+// })
+// export class LoginComponent {
+//   message: string | null = null;
+//   emailForm: FormGroup;
+
+//   constructor(private sessionService: sessionService) {
+//     this.emailForm = new FormGroup({
+//       email: new FormControl('', [Validators.required, Validators.email])
+//     });
+//   }
+
+//   login() {
+//     if (this.emailForm.valid) {
+//       this.sessionService.login(this.emailForm.value.email).subscribe(
+//         response => {
+//           this.message = 'Logged in successfully';
+//         },
+//         error => {
+//           this.message = 'User already logged in.';
+//         }
+//       );
+//     } else {
+//       this.message = 'Please enter a valid email.';
+//     }
+//   }
+// }
+
+import { Component } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { users } from 'src/app/class/User';
-import { UserService } from 'src/app/service/login.service'; // ניתן להניח שיש לך סרוויס כזה
+import { sessionService } from 'src/app/service/session.service';
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
-  userForm!: FormGroup;
-  user: users = {
-    Email: '',
-    password_has: ''
-  };
-  constructor(public userService: UserService, private formBuilder: FormBuilder,) { }
+export class LoginComponent {
+  message: string | null = null;
+  emailForm = new FormGroup({
+    email: new FormControl('', Validators.compose([
+      Validators.required,
+      Validators.email
+    ]))
+  });
 
-  ngOnInit(): void {
-    this.userForm = this.formBuilder.group({
-      Email: ['', [Validators.required, Validators.email]],
-      password_has: ['', [Validators.required, Validators.minLength(6)]]
-    });
+  userenter: users = new users(" ", " ");
+  constructor(private fb: FormBuilder,private sessionService: sessionService) {
 
   }
-
-  checkUser(): void {
-    if (this.userForm.valid) {
-      this.userService.checkIfUserExists(this.userForm.value as users).subscribe(
-        exists => {
-          if (exists) {
-            console.log('User exists');
-          } else {
-            console.log('User does not exist');
-          }
-        },
-        error => {
-          console.error('Error checking user:', error);
-        }
-      );
-    }
-    else {
-      console.log('Form is invalid');
-    }
-  }
+  // login() {
+  //   this.sessionService.login(emailForm:FormGroup).subscribe(
+  //     response => {
+  //       this.message = 'Logged in successfully';
+  //     },
+  //     error => {
+  //       this.message = 'User already logged in.';
+  //     }
+  //   );
+  // }
 
 }
 
+//  @Component({
+//    selector: 'app-login',
+//   template: `
+//      <div>
+//        <input [(ngModel)]="email" placeholder="Enter email">
+//        <button (click)="login()">Login</button>
+//        <button (click)="logout()">Logout</button>
+//      </div>
+//      <div *ngIf="message">{{ message }}</div>
+//   `
+//  })
 
-
+//קוד TypeScript של ה-component שלך צריך להכיל פונקציות ליצירת ה־form control וה־validation:

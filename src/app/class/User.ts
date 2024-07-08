@@ -1,8 +1,8 @@
 
 export class users {
     constructor(
-        public Email: string,// אימייל
-       public password_has: string,// ססמא
+        public email: string,// אימייל
+        public password: string,// ססמא
         public code?: number,//     קוד משתמש
         public name?: string,// שם משתמש
         public coursesNum?: number,// כמות קורסים

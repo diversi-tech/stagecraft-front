@@ -12,15 +12,15 @@ import { UserService } from 'src/app/service/login.service'; // ניתן להנ�
 export class LoginComponent implements OnInit {
   userForm!: FormGroup;
   user: users = {
-    Email: '',
-    password_has: ''
+    email: '',
+    password: ''
   };
-  constructor(public userService: UserService, private formBuilder: FormBuilder,) { }
+  constructor(public userService: UserService, private formBuilder: FormBuilder, ) { }
 
   ngOnInit(): void {
     this.userForm = this.formBuilder.group({
-      Email: ['', [Validators.required, Validators.email]],
-      password_has: ['', [Validators.required, Validators.minLength(6)]]
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
     });
 
   }

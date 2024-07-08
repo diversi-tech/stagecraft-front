@@ -1,22 +1,19 @@
 
-
-
 <div>
   <h2>Check User Existence</h2>
   <form [formGroup]="userForm" (ngSubmit)="checkUser()">
     <label>Email:</label>
-    <input type="email" formControlName="Email">
-    <div *ngIf="userForm.get('Email')?.invalid && (userForm.get('Email')?.dirty || userForm.get('Email')?.touched)">
-      <div *ngIf="userForm.get('Email')?.errors?.['required']">Email is required.</div>
-      <div *ngIf="userForm.get('Email')?.errors?.['email']">Please enter a valid email address.</div>
+    <input type="email" formControlName="email">
+    <div *ngIf="userForm.get('email')?.invalid && (userForm.get('email')?.dirty || userForm.get('email')?.touched)">
+      <div *ngIf="userForm.get('email')?.errors?.['required']">Email is required.</div>
+      <div *ngIf="userForm.get('email')?.errors?.['email']">Please enter a valid email address.</div>
     </div>
     <br>
     <label>Password:</label>
-    <input type="password" formControlName="password_has">
-    <div
-      *ngIf="userForm.get('password_has')?.invalid && (userForm.get('password_has')?.dirty || userForm.get('password_has')?.touched)">
-      <div *ngIf="userForm.get('password_has')?.errors?.['required']">Password is required.</div>
-      <div *ngIf="userForm.get('password_has')?.errors?.['minlength']">Password must be at least 6 characters long.
+    <input type="password" formControlName="password">
+    <div *ngIf="userForm.get('password')?.invalid && (userForm.get('password')?.dirty || userForm.get('password')?.touched)">
+      <div *ngIf="userForm.get('password')?.errors?.['required']">Password is required.</div>
+      <div *ngIf="userForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters long.
       </div>
     </div>
     <br>

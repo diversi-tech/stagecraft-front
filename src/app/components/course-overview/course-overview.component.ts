@@ -98,4 +98,8 @@ export class CourseOverviewComponent implements OnInit  {
 // הפונקציה הזו יכולה לכלול כל פעולה אחרת שנדרשת לפני הניווט
     this.router.navigate(['/task-files']);
   }
+  UploadFilesForFeedback( feedback: any) { 
+    // הפונקציה הזו יכולה לכלול כל פעולה אחרת שנדרשת לפני הניווט
+        this.router.navigate(['/feedback']);
+      }
 }

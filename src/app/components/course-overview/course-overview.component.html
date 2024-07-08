@@ -19,6 +19,7 @@
         <!-- </div> -->
             <div *ngIf="lesson.expanded" class="lesson-details">
               <p>{{ lesson.transcript }}</p>
+<app-progressbar></app-progressbar>
               <div class="video-container">
                 <video width="320" height="240" controls>
                   <source [src]="lesson.video_url" type="video/mp4">
@@ -26,6 +27,7 @@
                 </video>
               </div>
               <br>
+              
               <a [href]="lesson.video_url"download> </a>
               <a (click)="downloadAndNavigate(lesson)">הורדת קבצי משימה</a>
             </div>

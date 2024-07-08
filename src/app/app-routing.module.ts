@@ -24,7 +24,8 @@ const routes: Routes = [
 // { path: '', redirectTo: '/forum', pathMatch: 'full' },
 // { path: '**', redirectTo: '/forum' },
 { path: 'Achievements', component: AchievementsComponent },
-{ path: 'myCourse', component: CourseOverviewComponent }
+{ path: 'myCourse', component: CourseOverviewComponent },
+{path:'task-files',component:TaskFilesComponent}
 
 ];
 

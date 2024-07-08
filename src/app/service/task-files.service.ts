@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TaskFileService {
-  private baseUrl = 'http://your-api-url.com/api/task-files'; // שנה לכתובת ה-API שלך
+  private baseUrl = 'http://localhost:5128/api/Files/'; // שנה לכתובת ה-API שלך
 
   constructor(private http: HttpClient) {}
 

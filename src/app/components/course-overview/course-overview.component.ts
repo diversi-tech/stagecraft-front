@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+// import { Router } from 'express';
+import { Router } from '@angular/router';
 import { HomePageService } from 'src/app/service/home-page.service';
 
 @Component({
@@ -6,7 +8,7 @@ import { HomePageService } from 'src/app/service/home-page.service';
   templateUrl: './course-overview.component.html',
   styleUrls: ['./course-overview.component.css']
 })
-export class CourseOverviewComponent {
+export class CourseOverviewComponent implements OnInit  {
   
   // courses = [
   //   {
@@ -63,7 +65,7 @@ export class CourseOverviewComponent {
 
   // courses: course[] = [];
 
-  constructor(public homePageService: HomePageService) {}
+  constructor(public homePageService: HomePageService, private router: Router) {}
   ngOnInit() {
     debugger
     if(this.homePageService.listCourse.length==0)
@@ -92,5 +94,8 @@ export class CourseOverviewComponent {
     }
   
   }
-  
+  downloadAndNavigate( file: any) { 
+// הפונקציה הזו יכולה לכלול כל פעולה אחרת שנדרשת לפני הניווט
+    this.router.navigate(['/task-files']);
+  }
 }

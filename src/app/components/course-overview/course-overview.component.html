@@ -26,7 +26,8 @@
                 </video>
               </div>
               <br>
-              <a [href]="lesson.video_url" download>Download PDF</a>
+              <a [href]="lesson.video_url"download> </a>
+              <a (click)="downloadAndNavigate(lesson)">הורדת קבצי משימה</a>
             </div>
           </div>
         </div>

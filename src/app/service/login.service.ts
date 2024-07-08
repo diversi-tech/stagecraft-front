@@ -17,7 +17,7 @@ export class UserService {
   // }
 
   checkIfUserExists(user: users): Observable<boolean> {
-    const url = `${this.apiUrl}?email=${user.Email}&password=${user.password_has}`;
+    const url = `${this.apiUrl}?email=${user.email}&password=${user.password}`;
     return this.http.get<boolean>(url);
   }
 

@@ -11,6 +11,7 @@ import { UserService } from 'src/app/service/login.service'; // ניתן להנ�
 })
 export class LoginComponent implements OnInit {
   userForm!: FormGroup;
+  
   user: users = {
     email: '',
     password: ''

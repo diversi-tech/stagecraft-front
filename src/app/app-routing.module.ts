@@ -10,6 +10,7 @@ import { AchievementsComponent } from './components/achievements/achievements.co
 import { ForumComponent } from './components/forum/forum.component';
 import { AdminForumComponent } from './components/admin-forum/admin-forum.component';
 import { CourseOverviewComponent } from './components/course-overview/course-overview.component';
+import { CourseDetailsComponent } from './components/course-details/course-details.component';
 
 const routes: Routes = [
   // {path:"myHome-שם שבחרתי",component:HomeComponentשם המחלקה של הקומפוננטה}
@@ -26,7 +27,9 @@ const routes: Routes = [
 { path: 'Achievements', component: AchievementsComponent },
 { path: 'myCourse', component: CourseOverviewComponent },
 {path:'task-files',component:TaskFilesComponent},
-{path:'feedback',component:FeedbackComponent}
+{path:'feedback',component:FeedbackComponent},
+{ path: '', component: CourseListComponent },
+{ path: 'course/:id', component: CourseDetailsComponent }
 
 ];
 

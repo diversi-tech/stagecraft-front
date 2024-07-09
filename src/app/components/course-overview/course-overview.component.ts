@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // import { Router } from 'express';
 import { Router } from '@angular/router';
+import { CourseService } from 'src/app/service/course.service';
 import { HomePageService } from 'src/app/service/home-page.service';
 
 @Component({
@@ -65,41 +66,54 @@ export class CourseOverviewComponent implements OnInit  {
 
   // courses: course[] = [];
 
-  constructor(public homePageService: HomePageService, private router: Router) {}
+  userCourses: any[] = [];
+  userId: number = 4; // Replace with actual user ID
+
+  constructor(
+    public homePageService: HomePageService,
+    private courseService: CourseService,
+    private router: Router
+  ) {}
+
   ngOnInit() {
     debugger
-    if(this.homePageService.listCourse.length==0)
+    this.courseService.getCoursesForUser(this.userId).subscribe(
+      (courses) => {
+        this.userCourses = courses;
+      },
+      (error) => {
+      }
+    );
+
+    if (this.homePageService.listCourse.length == 0)
       this.homePageService.loudCourses();
-    if(this.homePageService.listClasses.length==0)
-      this.homePageService.loudClasses();
-    
+
+    if (this.homePageService.listClasses.length == 0)
+      this.homePageService.loudCourses();
+
+    console.log('User courses:', this.userCourses); // הדפסה לקונסול לבדיקה
+
   }
 
   toggleCourse(courseId: number): void {
-    debugger
-    const course = this.homePageService.listCourse.find(c => c.courses_id === courseId);
+    const course = this.userCourses.find(c => c.courses_id === courseId);
     if (course) {
       course.expanded = !course.expanded;
     }
   }
 
-  toggleLesson(courseId: number, lessonId: number ): void {
-    
-    // const lesson = course?.lessons.find(l => l.class_id === lessonId);
-    
-    const course =  this.homePageService.listCourse.find(c => c.courses_id === courseId);
+  toggleLesson(courseId: number, lessonId: number): void {
     const lesson = this.homePageService.listClasses.find(l => l.class_id === lessonId);
     if (lesson) {
       lesson.expanded = !lesson.expanded;
     }
-  
   }
-  downloadAndNavigate( file: any) { 
-// הפונקציה הזו יכולה לכלול כל פעולה אחרת שנדרשת לפני הניווט
+
+  downloadAndNavigate(file: any) {
     this.router.navigate(['/task-files']);
   }
-  UploadFilesForFeedback( feedback: any) { 
-    // הפונקציה הזו יכולה לכלול כל פעולה אחרת שנדרשת לפני הניווט
-        this.router.navigate(['/feedback']);
-      }
+
+  UploadFilesForFeedback(feedback: any) {
+    this.router.navigate(['/feedback']);
+  }
 }

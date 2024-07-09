@@ -19,7 +19,6 @@ import { TranscriptionService } from './service/transcription.service';
 import { AdminCustomerApprovalComponent } from './components/admin-customer-approval/admin-customer-approval.component';
 import { CourseOverviewComponent } from './components/course-overview/course-overview.component';
 import { LessonComponent } from './components/lesson/lesson.component';
-import { AdminCoursForUserComponent } from './components/admin-cours-for-user/admin-cours-for-user.component';
 import { AchievementsComponent } from './components/achievements/achievements.component';
 //import { NgxChartsModule } from '@swimlane/ngx-charts';
 
@@ -37,8 +36,8 @@ import { AchievementsComponent } from './components/achievements/achievements.co
     AdminCustomerApprovalComponent,
     CourseOverviewComponent,
     LessonComponent,
-    AdminCoursForUserComponent,
     AchievementsComponent
+  
 
   ],
   imports: [

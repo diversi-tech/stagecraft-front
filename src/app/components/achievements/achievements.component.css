@@ -1,94 +1,54 @@
-/* .progress-container {
-  position: relative;
-  width: 100%;
-  background-color: #e0e0e0;
-  border-radius: 10px;
-  height: 20px;
-  margin: 20px 0;
-}
-
-.progress-bar {
-  height: 100%;
-  position: absolute;
-  top: 0;
-  border-radius: 10px;
-}
-
-.progress-bar.current {
-  background-color: #3b82f6;
-  z-index: 1;
-}
-
-.progress-bar.pass {
-  background-color: #f59e0b;
-  z-index: 0;
-}
-
-.progress-label {
-  position: absolute;
-  top: -25px;
-  transform: translateX(-50%);
-  font-size: 14px;
-  padding: 5px;
-  border-radius: 5px;
-  background-color: #000;
-  color: #fff;
-}
-
-.current-label {
-  background-color: #3b82f6;
-}
-
-.pass-label {
-  background-color: #f59e0b;
-}
-
-   */
-
-
-   .progress-container {
-    position: relative;
-    width: 100%;
-    background-color: #e0e0e0;
-    border-radius: 10px;
-    height: 20px;
-    margin: 20px 0;
+/* קונטיינר של סרגל ההתקדמות */
+.progress-container {
+    position: relative; /* מאפשר למקם את האלמנטים הפנימיים יחסית אליו */
+    width: 100%; /* רוחב מלא */
+    background-color: #e0e0e0; /* צבע רקע */
+    border-radius: 10px; /* פינות מעוגלות */
+    height: 20px; /* גובה הסרגל */
+    margin: 20px 0; /* רווח מלמעלה ולמטה */
   }
   
+  /* סרגל ההתקדמות */
   .progress-bar {
-    height: 100%;
-    position: absolute;
-    top: 0;
-    border-radius: 10px;
+    height: 100%; /* גובה מלא של הקונטיינר */
+    position: absolute; /* מיקום אבסולוטי בתוך הקונטיינר */
+    top: 0; /* מקם בחלק העליון של הקונטיינר */
+    border-radius: 10px; /* פינות מעוגלות */
   }
   
+  /* סרגל ההתקדמות עבור הציון הנוכחי */
   .progress-bar.current {
-    background-color: #3b82f6;
-    z-index: 1;
+    background-color: #3b82f6; /* צבע כחול */
+    z-index: 1; /* מיקום קדמי יחסית לפס העובר */
   }
   
+  /* סרגל ההתקדמות עבור ציון העובר */
   .progress-bar.pass {
-    background-color: #f59e0b;
-    z-index: 0;
+    background-color: #f59e0b; /* צבע כתום */
+    z-index: 0; /* מיקום אחורי יחסית לפס הנוכחי */
+    /* left: 0; העברת הפס לצד שמאל */
   }
   
+  /* תווית שמציגה מידע על הסרגל */
   .progress-label {
-    position: absolute;
-    top: -25px;
-    transform: translateX(-50%);
-    font-size: 14px;
-    padding: 5px;
-    border-radius: 5px;
-    background-color: #000;
-    color: #fff;
-    white-space: nowrap; /* ensures the text doesn't wrap */
+    position: absolute; /* מיקום אבסולוטי בתוך הקונטיינר */
+    top: -40px; /* מיקום מעל הסרגל */
+    transform: translateX(-50%); /* מרכז את התווית */
+    font-size: 14px; /* גודל גופן */
+    padding: 5px; /* ריווח פנימי */
+    border-radius: 5px; /* פינות מעוגלות */
+    background-color: #000; /* צבע רקע שחור */
+    color: #fff; /* צבע טקסט לבן */
+    white-space: nowrap; /* מונע מעבר שורות בתווית */
   }
   
+  /* תווית עבור הציון הנוכחי */
   .current-label {
-    background-color: #3b82f6;
+    background-color: #3b82f6; /* צבע רקע כחול */
+    top: 25px; /* מיקום מתחת לסרגל ההתקדמות */
   }
   
+  /* תווית עבור ציון העובר */
   .pass-label {
-    background-color: #f59e0b;
+    background-color: #f59e0b; /* צבע רקע כתום */
   }
-  

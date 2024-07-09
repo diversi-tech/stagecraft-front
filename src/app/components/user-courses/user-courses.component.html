@@ -1,6 +1,6 @@
 <div *ngFor="let course in userCourse">
     <h3>{{ course.name }}</h3>
-    <app-progressbar *ngIf="userCourse" [userId]="userCourse.userId" [courseId]="userCourse.coursesId"></app-progressbar>
+    <app-progressbar *ngIf="userCourse" [userId]="userCourse.userId" [coursesId]="userCourse.coursesId"></app-progressbar>
      
 <!-- <app-progressbar [totalParts]="course.totalParts" [watchedParts]="course.watchedParts"></app-progressbar> -->
      

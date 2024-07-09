@@ -23,6 +23,9 @@ import { AdminCoursForUserComponent } from './components/admin-cours-for-user/ad
 import { AchievementsComponent } from './components/achievements/achievements.component';
 import { ForumComponent } from './components/forum/forum.component';
 import { AdminForumComponent } from './components/admin-forum/admin-forum.component';
+import { AdminAddCourseForUserComponent } from './components/admin-add-course-for-user/admin-add-course-for-user.component';
+import { AdminSearchUserComponent } from './components/admin-search-user/admin-search-user.component';
+
 //import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
@@ -42,7 +45,10 @@ import { AdminForumComponent } from './components/admin-forum/admin-forum.compon
     AdminCoursForUserComponent,
     ForumComponent,
     AdminForumComponent,
-    AchievementsComponent
+    AchievementsComponent,
+    AdminAddCourseForUserComponent,
+    AdminSearchUserComponent,
+
 
   ],
   imports: [

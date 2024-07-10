@@ -1,117 +1,115 @@
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #000000;
-    margin: 0;
-    padding: 0;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fafafa;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-text {
+  font-size: 3cm;
+  font-family: 'Fb Parmesan Light', sans-serif;
+  text-align: center;
+  color: rgb(194, 12, 76);
+  animation: fadeIn 2s ease-in-out;
+}
+
+.course-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.course-card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.course-card:hover {
+  transform: scale(1.05);
+}
+
+.course-button-container {
+  background-color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.course-button {
+  background-color: rgb(194, 12, 76);
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.course-button:hover {
+  background-color: rgb(154, 12, 56);
+}
+
+.lesson-list {
+  padding: 10px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.lesson-card {
+  margin-bottom: 10px;
+}
+
+.lesson-button-container {
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: right;
+}
+
+.lesson-button {
+  background-color: #e8bf2b;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.lesson-button:hover {
+  background-color: #d3ac42;
+}
+
+.lesson-details {
+  padding: 10px;
+  background-color: #f1f1f1;
+  border-top: 1px solid #ddd;
+  animation: slideIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
+  to {
+    opacity: 1;
   }
-  
-  h1, h2 {
-    color: #333;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
   }
-  
-  .course-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    justify-content: center;
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
-  
-  .course-card {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-    text-align: left;
-  }
-  
-  .course-card:hover {
-    transform: scale(1.05);
-  }
-  
-  .lesson-list {
-    margin-top: 10px;
-    padding-left: 20px; /* Add some padding to ensure the buttons don't stick to the edge */
-  }
-  
-  .lesson-card {
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 10px;
-    margin-top: 5px;
-    transition: transform 0.2s;
-  }
-  
-  .lesson-card:hover {
-    transform: scale(1.05);
-  }
-  
-  .course-button {
-    background-color: #565555; /* Default color for course buttons */
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    width: auto;
-    margin: 5px 0;
-  }
-  
-  .course-button:hover {
-    background-color: #f3bc25;
-  }
-  
-  .lesson-button {
-    background-color: #f7476d; /* Default color for lesson buttons */
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    width: auto;
-    margin: 5px 0;
-  }
-  
-  .lesson-button:hover {
-    background-color: #e34ad9;
-  }
-  
-  .lesson-details {
-    background: #f1f1f1;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 15px;
-    margin-top: 10px;
-  }
-  
-  .course-button-container, .lesson-button-container {
-    display: flex;
-    justify-content: flex-start;
-    direction: rtl; /* Align buttons to the right */
-  }
-  
-  .video-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-  }
-  
+}

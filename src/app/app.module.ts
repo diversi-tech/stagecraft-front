@@ -27,6 +27,9 @@ import { SignupComponent } from './signup/signup.component';
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
 import { AdminAddCourseForUserComponent } from './components/admin-add-course-for-user/admin-add-course-for-user.component';
 import { AdminSearchUserComponent } from './components/admin-search-user/admin-search-user.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
 
 //import { NgxChartsModule } from '@swimlane/ngx-charts';
 
@@ -61,6 +64,8 @@ import { AdminSearchUserComponent } from './components/admin-search-user/admin-s
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    MatMenuModule,
+    MatButtonModule,
     //NgxChartsModule,//רכיב גרפי
     NgCircleProgressModule.forRoot({
       // הגדרות ברירת מחדל לרכיב המעגלי
@@ -70,7 +75,8 @@ import { AdminSearchUserComponent } from './components/admin-search-user/admin-s
       outerStrokeColor: "'#FFC0CB'",
       innerStrokeColor: "#e06133",
       animationDuration: 300
-    })
+    }),
+    BrowserAnimationsModule
 
      
   ],

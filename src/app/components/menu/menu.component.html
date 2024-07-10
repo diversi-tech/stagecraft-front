@@ -35,17 +35,14 @@
       <!-- <li class="nav-item">
             <a class="nav-link" routerLink="admin-forum">דיונים מנהל</a> 
         </li> -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="managementScreensDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            מסכי ניהול
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="managementScreensDropdown">
-            <li><a class="dropdown-item" routerLink="managementScreen1">ניהול מסך 1</a></li>
-            <li><a class="dropdown-item" routerLink="managementScreen2">ניהול מסך 2</a></li>
-            <li><a class="dropdown-item" routerLink="managementScreen3">ניהול מסך 3</a></li>
-            <li><a class="dropdown-item" routerLink="managementScreen4">ניהול מסך 4</a></li>
-            <li><a class="dropdown-item" routerLink="managementScreen5">ניהול מסך 5</a></li>
-          </ul>
+        <li class="nav-item">
+          <button mat-button [matMenuTriggerFor]="managementMenu" class="nav-link">מסכי ניהול</button>
+          <mat-menu #managementMenu="matMenu">
+            <button mat-menu-item routerLink="serchUser">משתמשים</button>
+            <button mat-menu-item routerLink="managementScreen2">קורסים</button>
+            <button mat-menu-item routerLink="managementScreen3">משוב</button>
+            <button mat-menu-item routerLink="admin-forum">דיונים</button>
+          </mat-menu>
         </li>
 
     </ul>

@@ -11,6 +11,10 @@ import { ForumComponent } from './components/forum/forum.component';
 import { AdminForumComponent } from './components/admin-forum/admin-forum.component';
 import { CourseOverviewComponent } from './components/course-overview/course-overview.component';
 import { SignupComponent } from './signup/signup.component';
+import { CourseDetailsComponent } from './components/course-details/course-details.component';
+
+import { AdminAddCourseForUserComponent } from './components/admin-add-course-for-user/admin-add-course-for-user.component';
+import { AdminSearchUserComponent } from './components/admin-search-user/admin-search-user.component';
 
 const routes: Routes = [
   // {path:"myHome-שם שבחרתי",component:HomeComponentשם המחלקה של הקומפוננטה}
@@ -28,7 +32,11 @@ const routes: Routes = [
 { path: 'Achievements', component: AchievementsComponent },
 { path: 'myCourse', component: CourseOverviewComponent },
 {path:'task-files',component:TaskFilesComponent},
-{path:'feedback',component:FeedbackComponent}
+{path:'feedback',component:FeedbackComponent},
+{ path: '', component: CourseListComponent },
+{ path: 'course/:id', component: CourseDetailsComponent },
+{ path: 'serchUser',component:AdminSearchUserComponent},
+{path:"addCourse/:code/:name",component:AdminAddCourseForUserComponent},
 
 ];
 

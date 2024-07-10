@@ -1,0 +1,66 @@
+/* Import Animate.css */
+@import 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css';
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.course-content {
+  text-align: center;
+  animation: slideIn 1s ease-in-out;
+}
+
+.course-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  transition: transform 0.3s;
+}
+
+.course-name {
+  font-size: 2em;
+  font-weight: bold;
+  color: #c20c4c;
+  margin-bottom: 10px;
+  animation: pulse 2s infinite;
+}
+
+.course-title, .course-description, .course-viewers, .course-price {
+  font-size: 1.2em;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.course-price {
+  font-weight: bold;
+  color: #c20c4c;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

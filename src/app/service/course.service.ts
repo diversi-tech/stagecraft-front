@@ -8,15 +8,16 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class CourseService {
-  private baseUrl: string =` ${environment.baseUrl}`
+  private baseUrl: string = `${environment.baseUrl}`;
 
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-  GetUserProgress(userId: number,CourseId:number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/user/?userId=${userId},CourseId?${CourseId}`); 
+  GetUserProgress(userId: number, courseId: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/user/?userId=${userId}&CourseId=${courseId}`);
   }
 
   getCoursesForUser(userId: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/user/${userId}`);
+    return this.http.get(`${this.baseUrl}/Admin/GetAllCoursOfUser/${userId}`);
   }
+
 }

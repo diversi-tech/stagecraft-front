@@ -8,7 +8,7 @@ import { Component,Input, OnInit ,OnChanges} from '@angular/core';
 export class progressbarComponent //implements OnInit,OnChanges
 {
   @Input() userId: number = 0;
-  @Input() courseId: number = 0;
+  @Input() coursesId: number = 0;
 
   progress: number = 0;
 

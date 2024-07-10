@@ -30,7 +30,7 @@ import { AdminSearchUserComponent } from './components/admin-search-user/admin-s
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
-
+import { AdminComponent } from './components/AdminEdit/admin.component';
 //import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
@@ -55,6 +55,7 @@ import { MatButtonModule } from '@angular/material/button';
     CourseDetailsComponent,
     AdminAddCourseForUserComponent,
     AdminSearchUserComponent,
+    AdminComponent,
 
 
   ],

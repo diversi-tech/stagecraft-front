@@ -1,0 +1,53 @@
+
+<table>
+    <thead>
+      <tr>
+        <th>courses_id</th>
+        <th>courses_name</th>
+        <th>title</th>
+        <th>description</th>
+        <th>create_at</th>
+        <th>update_at</th>
+        <th>price</th>
+        <th>Several_chapters</th>
+        <th>Length</th>
+        <th>numberOfViewers</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let fl of admin, let i = index">
+        <td>{{ fl.courses_id }}</td>
+        <td>{{ fl.courses_name }}</td>
+        <td>{{ fl.title }}</td>
+        <td>{{ fl.description }}</td>
+        <td>{{ fl.create_at | date:"dd/MM/yy"}}</td>
+        <td>{{ fl.update_at | date:"dd/MM/yy"}}</td>
+        <td>{{ fl.price }}</td>
+        <td>{{ fl.several_chapters }}</td>
+        <td>{{ fl.length }}</td>
+        <td>{{ fl.numberOfViewers }}</td>
+        <td><button (click)="onEdit(i)">Edit</button></td>
+        <td><button (click)="onDelete(fl.courses_id)">delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+   <div>
+    <label>courses_id: </label><input type="number" #txtcourses_id value="{{Admin?.courses_id}}"><br><br>
+    <label>courses_name: </label><input type="text" #txtcourses_name value="{{Admin?.courses_name}}" required><br><br>
+    <label>title: </label><input type="text" #txttitle value="{{Admin?.title}}" required><br><br>
+    <label>description: </label><input type="text" #txtdescription value="{{Admin?.description}}" required><br><br>
+    <!-- <label>create_at: </label><input type="date" #txtcreate_at value="{{Admin?.create_at}}" required><br><br>
+    <label>update_at: </label><input type="date" #txtupdate_at value="{{Admin?.update_at}}" required><br><br> -->
+    <label>price: </label><input type="number" #txtprice value="{{Admin?.price}}" required><br><br>
+    <label>several_chapters: </label><input type="number"  #txtseveral_chapters value="{{Admin?.several_chapters}}" required><br><br>
+    <label>length: </label><input type="text" #txtlength value="{{Admin?.length}}" required><br><br>
+    <label>numberOfViewers: </label><input type="number" #txtnumberOfViewers value="{{Admin?.numberOfViewers}}" required><br><br>
+
+    
+    <button (click)="onSave(txtcourses_id.value,txtcourses_name.value, txttitle.value, txtdescription.value,
+       txtprice.value,txtseveral_chapters.value,txtlength.value,txtnumberOfViewers.value
+    )">Save</button>
+</div>
+  

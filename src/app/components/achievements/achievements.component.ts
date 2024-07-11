@@ -26,18 +26,16 @@ export class AchievementsComponent implements OnInit {
     // שליפת כל הקורסים עבור המשתמש הנוכחי
     this.CourseAchievementsService.getAllCoursesForUser(this.userId).subscribe(data => {
       this.courses = data;
-      alert("hvj")
-       console.log('Received courses:', data); // הדפסת הנתונים לקונסול
+ 
+       //console.log('Received courses:', data); // הדפסת הנתונים לקונסול
     });
   }
 
   getCourseDetails(courseId: number): void {
     // שליפת פרטי הקורס הנבחר לפי מזהה הקורס
-    alert(courseId)
    
     this.CourseAchievementsService.GetCourseById(courseId).subscribe( courseArray=> {
      // alert("zdxdfcgvhbj"+courseArray[0])
-     debugger
        this.selectedCourse = courseArray; // קבלת האובייקט הראשון במערך
       //alert("zdxdfcgvhbj"+courseArray)
       
@@ -45,7 +43,7 @@ export class AchievementsComponent implements OnInit {
       // console.log('Type of selectedCourse:', typeof this.selectedCourse); // הדפסת סוג האובייקט לקונסול
       // console.log(this.selectedCourse); // הדפסת הנתונים לקונסול
       this.currentScore =this.selectedCourse.numberOfViewers; // הציון הנוכחי
-       console.log(this.currentScore); // הדפסת הציון לקונסול
+       //console.log(this.currentScore); // הדפסת הציון לקונסול
       this.passScore = 100; // הגדרת ציון עובר
       
       // console.log('price in selectedCourse', this.currentScore); // הדפסת השדה price לקונסול

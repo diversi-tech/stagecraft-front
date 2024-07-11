@@ -36,7 +36,7 @@ const routes: Routes = [
 { path: '', component: CourseListComponent },
 { path: 'course/:id', component: CourseDetailsComponent },
 { path: 'serchUser',component:AdminSearchUserComponent},
-{path:"addCourse/:code/:name",component:AdminAddCourseForUserComponent},
+{path:'adminCourse',component:AdminAddCourseForUserComponent},
 
 ];
 

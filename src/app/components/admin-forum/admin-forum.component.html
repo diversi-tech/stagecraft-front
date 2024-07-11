@@ -5,9 +5,9 @@
       <h3>Questions</h3>
       <div *ngFor="let question of questions">
         <div class="question">
-          <p><strong>{{ question.text }}</strong></p>
-          <button (click)="editQuestion(question)">Edit</button>
-          <button (click)="deleteQuestion(question)">Delete</button>
+          <p><strong>{{ question.text }}</strong>
+          <div class="flex"><button (click)="editQuestion(question)" class="b1">Edit</button><button (click)="deleteQuestion(question)" class="b1">Delete</button></div>
+          <br>
           <div *ngFor="let answer of question.answers" class="answer">
             <p>{{ answer.text }}</p>
             <div *ngIf="answer.files && answer.files.length > 0">
@@ -18,13 +18,14 @@
                 </li>
               </ul>
             </div>
-            <button (click)="editAnswer(question, answer)">Edit</button>
-            <button (click)="deleteAnswer(question, answer)">Delete</button>
+            <div class="flex">
+            <button (click)="editAnswer(question, answer)" class="b1">Edit</button>
+            <button (click)="deleteAnswer(question, answer)" class="b1">Delete</button></div>
           </div>
           <form (ngSubmit)="submitAnswer(question)">
             <input type="text" [(ngModel)]="question.newAnswer" name="answer" placeholder="Answer" required>
             <input type="file" (change)="onFileSelected($event, question)" multiple>
-            <button type="submit">Submit</button>
+            <button type="submit" class="b2">Submit</button>
           </form>
         </div>
       </div>

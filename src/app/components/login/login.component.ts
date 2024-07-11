@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { users } from 'src/app/class/User';
 import { UserService } from 'src/app/service/login.service'; // ניתן להניח שיש לך סרוויס כזה
 
@@ -12,11 +13,9 @@ import { UserService } from 'src/app/service/login.service'; // ניתן להנ�
 export class LoginComponent implements OnInit {
   userForm!: FormGroup;
   
-  user: users = {
-    email: '',
-    password: ''
-  };
-  constructor(public userService: UserService, private formBuilder: FormBuilder, ) { }
+  user: users = new users("","")
+
+  constructor(public userService: UserService, private formBuilder: FormBuilder,public router: Router ) { }
 
   ngOnInit(): void {
     this.userForm = this.formBuilder.group({
@@ -31,9 +30,10 @@ export class LoginComponent implements OnInit {
       this.userService.checkIfUserExists(this.userForm.value as users).subscribe(
         exists => {
           if (exists) {
-            console.log('User exists');
+            this.router.navigate(['/myCourse']);
           } else {
-            console.log('User does not exist');
+          // alert('User does not exist');
+          this.router.navigate(['/signup']);
           }
         },
         error => {

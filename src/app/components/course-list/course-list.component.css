@@ -6,8 +6,13 @@
   margin: 0 auto;
   padding: 20px;
 }
+p{
+  margin-top: 5%;
+
+}
 
 .page-title {
+
   font-size: 3cm;
   font-family: 'Fb Parmesan Light', sans-serif;
   text-align: center;
@@ -23,6 +28,8 @@
 }
 
 .card {
+  margin-top: 5%;
+
   border: none;
   border-radius: 20px;
   overflow: hidden;
@@ -70,9 +77,15 @@
   border: none;
   border-radius: 50px;
   font-size: 1em;
+  
   transition: background-color 0.3s;
-}
 
+}
+.button-container {
+  display: flex;margin-right: 25%;
+  
+  gap: 10px; /* Adjust the gap between buttons as needed */
+}
 .btn-pink:hover {
   background-color: #a00a3d;
 }

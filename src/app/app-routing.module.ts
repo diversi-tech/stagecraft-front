@@ -10,7 +10,7 @@ import { AchievementsComponent } from './components/achievements/achievements.co
 import { ForumComponent } from './components/forum/forum.component';
 import { AdminForumComponent } from './components/admin-forum/admin-forum.component';
 import { CourseOverviewComponent } from './components/course-overview/course-overview.component';
-import { SignupComponent } from './signup/signup.component';
+import { SignupComponent } from './components/signup/signup.component';
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
 
 import { AdminAddCourseForUserComponent } from './components/admin-add-course-for-user/admin-add-course-for-user.component';
@@ -38,6 +38,8 @@ const routes: Routes = [
 { path: 'serchUser',component:AdminSearchUserComponent},
 {path:'adminCourse',component:AdminAddCourseForUserComponent},
 
+{path:"addCourse/:code/:name",component:AdminAddCourseForUserComponent},
+{path:"login",component:LoginComponent}
 ];
 
 @NgModule({

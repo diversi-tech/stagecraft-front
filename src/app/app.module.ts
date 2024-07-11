@@ -23,7 +23,7 @@ import { AdminCoursForUserComponent } from './components/admin-cours-for-user/ad
 import { AchievementsComponent } from './components/achievements/achievements.component';
 import { ForumComponent } from './components/forum/forum.component';
 import { AdminForumComponent } from './components/admin-forum/admin-forum.component';
-import { SignupComponent } from './signup/signup.component';
+import { SignupComponent } from './components/signup/signup.component';
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
 import { AdminAddCourseForUserComponent } from './components/admin-add-course-for-user/admin-add-course-for-user.component';
 import { AdminSearchUserComponent } from './components/admin-search-user/admin-search-user.component';

@@ -1,36 +1,48 @@
 <div>
-    <h2>Select a Course</h2>
-    <ul>
-      <li *ngFor="let course of courses" (click)="openCourseDetails(course.id)">
-        {{ course.name }}
-      </li>
-    </ul>
+  <h2>Select a Course</h2>
+  <!-- כותרת המציגה את הקורס הנבחר -->
+  <!-- <h2>{{ selectedCourse?.courses_name }}</h2> -->
+  <!-- רשימה של קורסים, כל פריט ברשימה קורא לפונקציה openCourseDetails כשנלחץ -->
+  <li *ngFor="let course of courses" (click)="getCourseDetails(course.courses_id)">
+      <!-- הצגת שם הקורס -->
+      {{ course.courses_name }}
+  </li>
+  <ul>
+      <!-- כאן ניתן להוסיף אלמנטים נוספים לרשימה -->
+  </ul>
+</div>
+<p>{{mycourse}}</p>
+
+<!-- Canvas לציור הגרף, מוצג רק אם קורס נבחר -->
+<canvas #myCanvas id="myCanvas" width="1" height="1" *ngIf="selectedCourse"></canvas>
+<div *ngIf="selectedCourse">
+  <!-- כותרת המציגה את ההישגים -->
+  <h3>Achievements</h3>
+  <br><br>
+  <div>
+      <div class="progress-container">
+          <!-- הקו של הציון הנוכחי, נקבע לפי currentScore -->
+          <div class="progress-bar current" [style.width.%]="currentScore"></div>
+          <!-- הקו של ציון העובר, נקבע לפי passScore -->
+          <div class="progress-bar pass" [style.width.%]="passScore"></div>
+          <!-- התגית של הציון הנוכחי -->
+          <span class="progress-label current-label" 
+                [style.right.%]="getAdjustedCurrentLabelPosition(currentScore, -16)">
+              {{ currentScore }}%
+              <span class="progress-text">-ציונך הנוכחי</span>
+          </span>
+          <!-- התגית של ציון העובר -->
+          <span class="progress-label pass-label" 
+                [style.right.%]="getAdjustedLabelPosition(passScore, -12)">
+              {{ passScore }}%
+              <span class="progress-text">-ציון עובר</span>
+          </span>
+      </div>
   </div>
-  <div *ngIf="selectedCourse">
-    <h2>{{ selectedCourse.name }}</h2>
-    
-      <h3>Achievements</h3>
-      <br><br>
-      <div>
-        <div class="progress-container">
-            <!-- הקו של הציון הנוכחי -->
-            <div class="progress-bar current" [style.width.%]="selectedCourse.currentScore"></div>
-            <!-- הקו של ציון העובר -->
-            <div class="progress-bar pass" [style.width.%]="selectedCourse.passScore"></div>
-            <!-- התגית של הציון הנוכחי -->
-            <span class="progress-label current-label" [style.left.%]="selectedCourse.currentScore">
-              {{ selectedCourse.currentScore }}%
-            </span>
-            <!-- התגית של ציון העובר -->
-            <span class="progress-label pass-label" [style.left.%]="selectedCourse.passScore">
-              {{ selectedCourse.passScore }}%
-            </span>
-          </div>
-    </div>
-    <div>
-        <br>
+  <div>
+      <br>
       <h3>Admin Feedback</h3>
-      <p>{{ selectedCourse.feedback }}</p>
-    </div>
+      <!-- כאן ניתן להוסיף משוב ניהולי -->
+      <!-- <p>{{ selectedCourse?.feedback }}</p> -->
   </div>
-  
+</div>

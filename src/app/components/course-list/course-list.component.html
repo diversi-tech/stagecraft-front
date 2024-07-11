@@ -9,7 +9,10 @@
           <div class="card-body">
             <h4 class="card-title">{{ course.courses_name }}</h4>
             <p class="card-text">{{ course.price }} ש"ח</p>
-            <a [routerLink]="['/course', course.courses_id]" class="btn btn-pink">פרטים</a>
+            <div class="button-container">
+              <a [routerLink]="['/course', course.courses_id]" class="btn btn-pink">פרטים</a>
+              <a [routerLink]="['/course', course.courses_id]" class="btn btn-pink">קניה</a>
+            </div>
           </div>
         </div>
       </div>

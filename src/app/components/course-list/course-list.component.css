@@ -77,9 +77,15 @@ p{
   border: none;
   border-radius: 50px;
   font-size: 1em;
+  
   transition: background-color 0.3s;
-}
 
+}
+.button-container {
+  display: flex;margin-right: 25%;
+  
+  gap: 10px; /* Adjust the gap between buttons as needed */
+}
 .btn-pink:hover {
   background-color: #a00a3d;
 }

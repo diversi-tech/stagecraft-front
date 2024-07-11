@@ -68,7 +68,7 @@ export class CourseOverviewComponent implements OnInit  {
   // courses: course[] = [];
 
   userCourses: any[] = [];
-  userId: number = 3; // Replace with actual user ID
+  userId: number = 4; // Replace with actual user ID
 
   constructor(
     public homePageService: HomePageService,

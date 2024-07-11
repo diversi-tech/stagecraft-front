@@ -1,5 +1,8 @@
 <div class="container">
   <p class="header-text">הקורסים שלי</p>
+  <br>  <br>
+  <br>
+
   <div class="course-list">
     <div *ngFor="let course of userCourses" class="course-card">
       <div class="course-button-container">
@@ -27,7 +30,7 @@
               <a [href]="lesson.video_url" download>Download Video</a>
               <a (click)="downloadAndNavigate(lesson)">הורדת קבצי משימה</a>
               <br>
-              <a (click)="UploadFilesForFeedback(lesson)">העלאת קבצים למשוב</a>
+              <a (click)="UploadFilesForFeedback(lesson)"class="custom-link">העלאת קבצים למשוב</a>
             </div>
           </div>
         </ng-container>

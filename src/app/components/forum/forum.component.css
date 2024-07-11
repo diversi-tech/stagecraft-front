@@ -35,14 +35,14 @@ h2, h3 {
   width: 97%;
   padding: 10px;
   border: none;
-  background-color: #28a745;
+  background-color: #ce041b;
   color: white;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .question-form .btn:hover {
-  background-color: #218838;
+  background-color: #ce041b;
 }
 
 .questions-list {
@@ -87,17 +87,19 @@ h2, h3 {
   width: 97%;
   padding: 10px;
   border: none;
-  background-color: #28a745;
+  background-color: #ce041b;
   color: white;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .questions-list .btn:hover {
-  background-color: #218838;
+  background-color: #ce041b;
 }
 
-
+body{
+  margin-top: 10%;
+}
 
 
 

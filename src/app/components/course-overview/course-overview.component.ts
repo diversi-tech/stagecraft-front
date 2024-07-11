@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // import { Router } from 'express';
 import { Router } from '@angular/router';
+import { classes } from 'src/app/class/Classes';
 import { CourseService } from 'src/app/service/course.service';
 import { HomePageService } from 'src/app/service/home-page.service';
 
@@ -75,24 +76,104 @@ export class CourseOverviewComponent implements OnInit  {
     private router: Router
   ) {}
 
+  // ngOnInit() {
+  //   debugger
+  //   this.courseService.getCoursesForUser(this.userId).subscribe(
+  //     (courses) => {
+  //       this.userCourses = courses;
+  //     },
+  //     (error) => {
+  //     }
+  //   );
+
+  //   if (this.homePageService.listCourse.length == 0)
+  //     this.homePageService.loudCourses();
+
+  //   if (this.homePageService.listClasses.length == 0)
+  //     this.homePageService.loudCourses();
+
+  //   console.log('User courses:', this.userCourses); // הדפסה לקונסול לבדיקה
+
+  // }
+
+  // ngOnInit() {
+  //   this.courseService.getCoursesForUser(this.userId).subscribe(
+  //     (courses) => {
+  //       this.userCourses = courses;
+  //     },
+  //     (error) => {
+  //       console.error('Error fetching user courses:', error);
+  //     }
+  //   );
+
+  //   if (this.homePageService.listCourse.length === 0) {
+  //     this.homePageService.loudCourses();
+  //   }
+
+  //   if (this.homePageService.listClasses.length === 0) {
+  //     this.homePageService.loudCourses();
+  //   }
+  // }
+
+  // toggleCourse(courseId: number): void {
+  //   const course = this.userCourses.find(c => c.courses_id === courseId);
+  //   if (course) {
+  //     course.expanded = !course.expanded;
+  //   }
+  // }
+
+  // toggleLesson(courseId: number, lessonId: number): void {
+  //   const course = this.userCourses.find(c => c.courses_id === courseId);
+  //   if (course) {
+  //   const lesson = this.homePageService.listClasses.find(l => l.class_id === lessonId);
+  //   if (lesson) {
+  //     lesson.expanded = !lesson.expanded;
+  //   }
+  //   }
+  // }
+
+  // toggleCourse(courseId: number): void {
+  //   const course = this.userCourses.find(c => c.courses_id === courseId);
+  //   if (course) {
+  //     course.expanded = !course.expanded;
+  //   }
+  // }
+
+  // toggleLesson(courseId: number, lessonId: number): void {
+  //   const course = this.userCourses.find(c => c.courses_id === courseId);
+  //   if (course) {
+  //     const lesson =this.homePageService.listClasses.find(l=> l.class_id === lessonId);
+  //     if (lesson) {
+  //       lesson.expanded = !lesson.expanded;
+  //     }
+  //   }
+  // }
+
+  // downloadAndNavigate(file: any) {
+  //   this.router.navigate(['/task-files']);
+  // }
+
+  // UploadFilesForFeedback(feedback: any) {
+  //   this.router.navigate(['/feedback']);
+  // }
+
   ngOnInit() {
-    debugger
     this.courseService.getCoursesForUser(this.userId).subscribe(
       (courses) => {
         this.userCourses = courses;
       },
       (error) => {
+        console.error('Error fetching user courses:', error);
       }
     );
 
-    if (this.homePageService.listCourse.length == 0)
+    if (this.homePageService.listCourse.length === 0) {
       this.homePageService.loudCourses();
+    }
 
-    if (this.homePageService.listClasses.length == 0)
-      this.homePageService.loudCourses();
-
-    console.log('User courses:', this.userCourses); // הדפסה לקונסול לבדיקה
-
+    if (this.homePageService.listClasses.length === 0) {
+      this.homePageService.loudClasses();
+    }
   }
 
   toggleCourse(courseId: number): void {
@@ -103,7 +184,7 @@ export class CourseOverviewComponent implements OnInit  {
   }
 
   toggleLesson(courseId: number, lessonId: number): void {
-    const lesson = this.homePageService.listClasses.find(l => l.class_id === lessonId);
+    const lesson = this.homePageService.listClasses.find(l => l.class_id === lessonId && l.courses_id === courseId);
     if (lesson) {
       lesson.expanded = !lesson.expanded;
     }
@@ -117,3 +198,4 @@ export class CourseOverviewComponent implements OnInit  {
     this.router.navigate(['/feedback']);
   }
 }
+

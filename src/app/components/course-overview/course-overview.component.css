@@ -10,6 +10,7 @@
 p {
   margin-top: 5%;
 }
+
 .header-text {
   font-size: 3cm;
   font-family: 'Fb Parmesan Light', sans-serif;
@@ -103,6 +104,7 @@ p {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -113,17 +115,19 @@ p {
     transform: translateY(-10px);
     opacity: 0;
   }
-  p{
+
+  p {
     margin-top: 10%;
   }
-  
+}
   .course-list {
     display: flex;
     flex-direction: column;
     gap: 20px;
     justify-content: center;
-  to {
-    transform: translateY(0);
-    opacity: 1;
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
-}

@@ -114,4 +114,14 @@ body {
     justify-content: center;
     margin-top: 10px;
   }
+  .custom-link {
+    color: rgb(244, 36, 109); /* צבע כחול לקישורים */
+    text-decoration: underline; /* קו תחתון כדי להדגיש שזהו קישור */
+    cursor: pointer; /* שינוי הסמן לצורת יד */
+  }
+  
+  .custom-link:hover {
+    color: rgb(194, 12, 76); /* צבע כהה יותר כאשר העכבר עובר על הקישור */
+    text-decoration: none; /* הסרת הקו התחתון כאשר העכבר עובר על הקישור */
+  }
   

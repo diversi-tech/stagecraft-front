@@ -7,6 +7,9 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+p {
+  margin-top: 5%;
+}
 .header-text {
   font-size: 3cm;
   font-family: 'Fb Parmesan Light', sans-serif;
@@ -22,6 +25,8 @@
 }
 
 .course-card {
+  margin-top: 5%;
+
   background-color: #ffffff;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -30,10 +35,12 @@
 }
 
 .course-card:hover {
+
   transform: scale(1.05);
 }
 
 .course-button-container {
+
   background-color: #ffffff;
   padding: 10px;
   text-align: center;

@@ -42,9 +42,10 @@ export class LoginComponent implements OnInit {
       );
     }
     else {
-      console.log('Form is invalid');
+      alert('Form is invalid');
     }
   }
+    
 
 }
 

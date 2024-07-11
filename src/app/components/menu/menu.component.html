@@ -1,46 +1,52 @@
-
-
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 
-    <div class="container-fluid">
-      <!-- Links -->
-      <ul class="navbar-nav">  
+  <div class="container-fluid">
+    <!-- Links -->
+    <ul class="navbar-nav">
 
-        <!-- <li class="nav-item">
+      <!-- <li class="nav-item">
           <a class="nav-link" routerLink="">תמונות</a>
         </li> -->
-        <!-- <li class="nav-item">
+      <!-- <li class="nav-item">
           <a class="nav-link" routerLink="video-transcription">סרטונים</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="">המלצות</a>
         </li> -->
-        <!-- <li class="nav-item">
+      <!-- <li class="nav-item">
           <a class="nav-link" routerLink="">יצירת קשר</a>
         </li> -->
+      <li class="nav-item">
+        <a class="nav-link" routerLink="login">התחברות</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="courseList">קורסים אונליין</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="myCourse">הקורסים שלי</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="Achievements">הישגים</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="forum">דיונים</a>
+      </li>
+      <!-- <li class="nav-item">
+            <a class="nav-link" routerLink="admin-forum">דיונים מנהל</a> 
+        </li> -->
         <li class="nav-item">
-          <a class="nav-link" routerLink="login">התחברות</a> 
+          <button mat-button [matMenuTriggerFor]="managementMenu" class="nav-link">מסכי ניהול</button>
+          <mat-menu #managementMenu="matMenu">
+            <button mat-menu-item routerLink="serchUser">משתמשים</button>
+            <button mat-menu-item routerLink="managementScreen2">קורסים</button>
+            <button mat-menu-item routerLink="managementScreen3">משוב</button>
+            <button mat-menu-item routerLink="admin-forum">דיונים</button>
+          </mat-menu>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" routerLink="courseList">קורסים אונליין</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="myCourse">הקורסים שלי</a> 
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="Achievements">הישגים</a> 
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="forum">דיונים</a> 
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="admin-forum">דיונים מנהל</a> 
-        </li>
-     
-      </ul>
-    </div>
-  
-  </nav>
-  <router-outlet></router-outlet>
-  
+    </ul>
+  </div>
+
+</nav>
+<router-outlet></router-outlet>

@@ -23,10 +23,14 @@ import { AdminCoursForUserComponent } from './components/admin-cours-for-user/ad
 import { AchievementsComponent } from './components/achievements/achievements.component';
 import { ForumComponent } from './components/forum/forum.component';
 import { AdminForumComponent } from './components/admin-forum/admin-forum.component';
+import { SignupComponent } from './signup/signup.component';
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
 import { AdminAddCourseForUserComponent } from './components/admin-add-course-for-user/admin-add-course-for-user.component';
 import { AdminSearchUserComponent } from './components/admin-search-user/admin-search-user.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { AdminComponent } from './components/AdminEdit/admin.component';
 //import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
@@ -47,9 +51,11 @@ import { AdminSearchUserComponent } from './components/admin-search-user/admin-s
     ForumComponent,
     AdminForumComponent,
     AchievementsComponent,
+    SignupComponent,
     CourseDetailsComponent,
     AdminAddCourseForUserComponent,
     AdminSearchUserComponent,
+    AdminComponent,
 
 
   ],
@@ -59,6 +65,8 @@ import { AdminSearchUserComponent } from './components/admin-search-user/admin-s
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    MatMenuModule,
+    MatButtonModule,
     //NgxChartsModule,//רכיב גרפי
     NgCircleProgressModule.forRoot({
       // הגדרות ברירת מחדל לרכיב המעגלי
@@ -68,7 +76,8 @@ import { AdminSearchUserComponent } from './components/admin-search-user/admin-s
       outerStrokeColor: "'#FFC0CB'",
       innerStrokeColor: "#e06133",
       animationDuration: 300
-    })
+    }),
+    BrowserAnimationsModule
 
      
   ],

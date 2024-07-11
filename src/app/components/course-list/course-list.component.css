@@ -6,8 +6,13 @@
   margin: 0 auto;
   padding: 20px;
 }
+p{
+  margin-top: 5%;
+
+}
 
 .page-title {
+
   font-size: 3cm;
   font-family: 'Fb Parmesan Light', sans-serif;
   text-align: center;
@@ -23,6 +28,8 @@
 }
 
 .card {
+  margin-top: 5%;
+
   border: none;
   border-radius: 20px;
   overflow: hidden;

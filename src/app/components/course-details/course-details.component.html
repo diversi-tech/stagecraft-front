@@ -1,11 +1,11 @@
 <div class="container course-detail animate__animated animate__fadeIn">
     <div *ngIf="course" class="course-content">
       <img src="../../../assets/pic/pic1.jpg" alt="קורס image" class="course-image">
-      <h2 class="course-name">שם: {{ course[0].courses_name }}</h2>
-      <p class="course-title">כותרת: {{ course[0].title }}</p>
-      <p class="course-description">תאור: {{ course[0].description }}</p>
-      <p class="course-viewers">מספר צופים: {{ course[0].numberOfViewers }}</p>
-      <p class="course-price">מחיר: {{ course[0].price }} ש"ח</p>
+      <h2 class="course-name">שם: {{ course.courses_name }}</h2>
+      <p class="course-title">כותרת: {{ course.title }}</p>
+      <p class="course-description">תאור: {{ course.description }}</p>
+      <p class="course-viewers">מספר צופים: {{ course.numberOfViewers }}</p>
+      <p class="course-price">מחיר: {{ course.price }} ש"ח</p>
     </div>
   </div>
   

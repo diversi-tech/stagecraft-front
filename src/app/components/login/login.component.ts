@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   userForm!: FormGroup;
   
   user: users = new users("","")
+  
 
   constructor(public userService: UserService, private formBuilder: FormBuilder,public router: Router ) { }
 
@@ -29,11 +30,14 @@ export class LoginComponent implements OnInit {
     if (this.userForm.valid) {
       this.userService.checkIfUserExists(this.userForm.value as users).subscribe(
         exists => {
-          if (exists) {
-            this.router.navigate(['/myCourse']);
+          if (exists==-1) {
+            this.router.navigate(['/signup']);
+           
           } else {
+            debugger
+            this.userService.currentUserId=exists
           // alert('User does not exist');
-          this.router.navigate(['/signup']);
+          this.router.navigate(['/myCourse']);
           }
         },
         error => {

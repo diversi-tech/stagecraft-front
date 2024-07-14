@@ -8,6 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 .signup-popup {
@@ -17,12 +18,13 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* צל של פופאפ */
   max-width: 400px;
   width: 100%;
+  animation: slideUp 0.5s ease-in-out;
 }
 
-.signup-popup label {
-  font-size: 16px;
-  margin-bottom: 8px;
-  display: block;
+.signup-popup h1 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .signup-popup input {
@@ -31,6 +33,18 @@
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+}
+
+.signup-popup input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+
+.signup-popup .button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .signup-popup button {
@@ -40,6 +54,15 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.signup-popup button[type="button"] {
+  background-color: #dc3545;
+}
+
+.signup-popup button:hover {
+  transform: scale(1.05);
 }
 
 .signup-popup button:disabled {
@@ -50,4 +73,37 @@
 .signup-popup div {
   margin-top: 10px;
   text-align: center;
+}
+
+.signup-popup p {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.signup-popup a {
+  color: #007bff;
+  text-decoration: none;
+  transition: text-decoration 0.3s ease-in-out;
+}
+
+.signup-popup a:hover {
+  text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+  }
+  to {
+    transform: translateY(0);
+  }
 }

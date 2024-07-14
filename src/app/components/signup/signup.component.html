@@ -1,25 +1,23 @@
 <div class="signup-container">
   <div class="signup-popup">
+    <h1>הרשמה</h1>
     <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
       <div>
-        <label for="username">שם משתמש:</label>
-        <input id="username" formControlName="username" type="text">
+        <input id="username" formControlName="username" type="text" placeholder="שם משתמש">
         <div *ngIf="signupForm.get('username')?.invalid && signupForm.get('username')?.touched">
           שם המשתמש נדרש.
         </div>
       </div>
 
       <div>
-        <label for="password">סיסמה:</label>
-        <input id="password" formControlName="password" type="password">
+        <input id="password" formControlName="password" type="password" placeholder="סיסמה">
         <div *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched">
           הסיסמה נדרשת וצריכה לכלול לפחות 6 תווים, אותיות גדולות, אותיות קטנות ומספרים.
         </div>
       </div>
 
       <div>
-        <label for="email">אימייל:</label>
-        <input id="email" formControlName="email" type="email">
+        <input id="email" formControlName="email" type="email" placeholder="אימייל">
         <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched">
           הכנס כתובת אימייל תקינה.
         </div>

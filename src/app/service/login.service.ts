@@ -13,13 +13,14 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
   
+  currentUserId: number =-1
   // checkUserExistence(username: users): Observable<boolean> {
   //   return this.http.get<boolean>(`${this.apiUrl}/users/${username}/exists`);
   // }
 
-  checkIfUserExists(user: users): Observable<boolean> {
+  checkIfUserExists(user: users): Observable<number> {
     // const url = `${this.baseUrl}?email=${user.email}&password=${user.password}`;
-    return this.http.post<boolean>(`${this.baseUrl}`,user);
+    return this.http.post<number>(`${this.baseUrl}`,user);
   }
   }
 

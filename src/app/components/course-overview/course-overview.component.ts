@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { classes } from 'src/app/class/Classes';
 import { CourseService } from 'src/app/service/course.service';
 import { HomePageService } from 'src/app/service/home-page.service';
+import { UserService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-course-overview',
@@ -11,7 +12,7 @@ import { HomePageService } from 'src/app/service/home-page.service';
   styleUrls: ['./course-overview.component.css']
 })
 export class CourseOverviewComponent implements OnInit  {
-  
+
   // courses = [
   //   {
   //     id: 1, 
@@ -68,12 +69,14 @@ export class CourseOverviewComponent implements OnInit  {
   // courses: course[] = [];
 
   userCourses: any[] = [];
-  userId: number = 1; // Replace with actual user ID
+  userId: number = this.userService.currentUserId; // Replace with actual user ID
 
   constructor(
     public homePageService: HomePageService,
     private courseService: CourseService,
-    private router: Router
+    private router: Router,
+    private userService: UserService
+
   ) {}
 
   // ngOnInit() {

@@ -43,8 +43,12 @@ if(this.HomePageService.listCourse.length ==0)
 filteredCours:Array<course>=new Array<course>();
   searchTerm: string = "";
 onSearchTermChange() {
+
   const searchValue =this.toUpperCaseIfEnglish(this.searchTerm);
   this.filteredCours = this.HomePageService.listCourse.filter(cours => {
+    if (this.userCoursesList.some(userCourse => userCourse.courses_id === cours.courses_id)) {
+      return false; // אם הקורס נמצא ברשימה - החזר false כדי שלא יוצג
+    }
     return (
     this.toUpperCaseIfEnglish(cours.courses_name).includes(searchValue) ||
     this.toUpperCaseIfEnglish(cours.courses_id.toString()).includes(searchValue)

@@ -35,7 +35,7 @@ export class AdminSearchUserComponent {
   onSearchTermChange() {
   debugger
     const searchValue =this.toUpperCaseIfEnglish(this.searchTerm);
-    this.filteredUsers = this.adminService.userList.filter(user => {
+    this.filteredUsers = this.adminService.userList.filter((user: users) => {
       return (
         this.toUpperCaseIfEnglish(user?.name??"").includes(searchValue)  ||
       this.toUpperCaseIfEnglish(user.email).includes(searchValue)

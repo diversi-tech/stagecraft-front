@@ -17,7 +17,9 @@ export class CourseService {
   }
 
   getCoursesForUser(userId: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/Courses/GetCoursesByUserId/${userId}`);
+    return this.http.get(`${this.baseUrl}/Admin/GetAllCoursOfUser/${userId}`);
   }
+
+
 
 }

@@ -42,4 +42,8 @@ export class SignupComponent implements OnInit{
       }, 2000);  
     }
   }
+  cancel(){
+    this.router.navigate(['/courseList']);
+
+  }
 }

@@ -22,7 +22,7 @@ export class CourseAchievementsService {
   // // }
   getCourseDetails(courseId: number): Observable<any> {
     debugger;
-    return this.http.get<any>(`${this.apiUrl}/GetCourseById/${courseId}`).pipe(
+    return this.http.get<any>(`${this.apiUrl}GetCourseById/${courseId}`).pipe(
       map(response => {
         let courseDetails = response;
         // ניתן להוסיף כאן לוגיקה נוספת במידה ורוצים לעבד את התגובה
@@ -34,7 +34,7 @@ export class CourseAchievementsService {
   // }
 
   getCoursesForUser(userId: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}/user/${userId}`);
+    return this.http.get(`${this.apiUrl}user/${userId}`);
   }
   
   getAllCoursesForUser(userId: number): Observable<any[]> {
@@ -43,6 +43,7 @@ export class CourseAchievementsService {
   }
 
   GetCourseById(courseId: number): Observable<course>{
+    debugger
    // console.log(`Calling API: ${this.apiUrl}GetCourseById/${courseId}`);
    return this.http.get<course>(`${this.apiUrl}GetCourseById/${courseId}`);
 

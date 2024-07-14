@@ -1,7 +1,7 @@
 import { environment } from "src/environments/environment"
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { users } from 'src/app/class/User';
 import { course } from "../class/Course";
 import { userCourse } from "../class/userCourse";
@@ -9,6 +9,9 @@ import { userCourse } from "../class/userCourse";
   providedIn: 'root'
 })
 export class adminService {
+  private itemsSubject: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
+  items$: Observable<any[]> = this.itemsSubject.asObservable();
+  
   constructor(private http: HttpClient) { }
   private baseUrl: string = `${environment.baseUrl}/Admin`
   userList: Array<users> = new Array<users>();

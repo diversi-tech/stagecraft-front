@@ -1,7 +1,7 @@
 <body>
-<h2 class="mb-4" *ngIf="userCoursesList.length==0">לא נמצאו קורסים</h2>
-<h2 class="mb-4" *ngIf="userCoursesList.length>0">רשימת קורסים של {{userName}}</h2>
-<table class="table table-striped" *ngIf="userCoursesList.length>0">
+<h2 class="mb-4" *ngIf="!(userCoursesList$|async)?.length">לא נמצאו קורסים</h2>
+<h2 class="mb-4" *ngIf="(userCoursesList$|async)?.length">רשימת קורסים של {{userName}}</h2>
+<table class="table table-striped" *ngIf="(userCoursesList$|async)?.length">
   <thead class="thead-dark">
 <tr>
   <th>קוד</th>

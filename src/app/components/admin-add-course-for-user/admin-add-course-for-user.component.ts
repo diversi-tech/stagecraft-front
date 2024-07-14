@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { filter, find, map, Observable } from 'rxjs';
 import { course } from 'src/app/class/Course';
 import { userCourse } from 'src/app/class/userCourse';
 import { adminService } from 'src/app/service/admin.service';
@@ -26,7 +27,10 @@ export class AdminAddCourseForUserComponent {
 myNumber:string="";
 userName:string="";
 userCode:number=0
-userCoursesList:Array<course>=new Array<course>();
+userCoursesList$: Observable<course[]> = this.adminService.test$;
+
+
+// userCoursesList:Array<course>=new Array<course>();
   constructor(private route: ActivatedRoute,public adminService:adminService,public HomePageService:HomePageService) {
     debugger
     this.myNumber = this.route.snapshot.params['code']
@@ -34,21 +38,30 @@ userCoursesList:Array<course>=new Array<course>();
     this.userCode = parseInt(this.myNumber)
 }
 ngOnInit() {
-this.adminService.GetAllCoursOfUser(this.userCode).subscribe(data=>{
   debugger
-   this.userCoursesList=data},error=>{error.message})
+  this.adminService.GetAllCoursOfUser(this.userCode);
+
+// this.adminService.GetAllCoursOfUser(this.userCode).subscribe(data=>{
+//   debugger
+//    this.userCoursesList=data},error=>{error.message})
 if(this.HomePageService.listCourse.length ==0)
   this.HomePageService.loudCourses();
 }
 filteredCours:Array<course>=new Array<course>();
   searchTerm: string = "";
 onSearchTermChange() {
-
+debugger;
   const searchValue =this.toUpperCaseIfEnglish(this.searchTerm);
+
   this.filteredCours = this.HomePageService.listCourse.filter(cours => {
-    if (this.userCoursesList.some(userCourse => userCourse.courses_id === cours.courses_id)) {
-      return false; // אם הקורס נמצא ברשימה - החזר false כדי שלא יוצג
-    }
+
+    
+  //   if (this.userCoursesList$.pipe(
+  //     filter(courses => courses.some(course => course.courses_id === cours.courses_id)
+  //   )
+  // )) {
+  //     return false; // אם הקורס נמצא ברשימה - החזר false כדי שלא יוצג
+  //   }
     return (
     this.toUpperCaseIfEnglish(cours.courses_name).includes(searchValue) ||
     this.toUpperCaseIfEnglish(cours.courses_id.toString()).includes(searchValue)
@@ -64,15 +77,16 @@ addcours(coursId:number){
   this.userCours.coursesId=coursId
   this.adminService.AddCoursToUser(this.userCours).subscribe(response => {this.succid=response},error=>{error.message});
   debugger
-  this.adminService.GetAllCoursOfUser(this.userCode).subscribe(data=>{ this.userCoursesList=data},error=>{error.message})
-}
+  this.adminService.GetAllCoursOfUser(this.userCode);}
 delcours(coursId:number){
   // למחיקת קורס למשתמש
   debugger
   this.userCours.userId=this.userCode;
   this.userCours.coursesId=coursId
   this.adminService.DeletCoursToUser(this.userCours).subscribe(response => {this.succid=response},error=>{error.message});
-  this.adminService.GetAllCoursOfUser(this.userCode).subscribe(data=>{ this.userCoursesList=data},error=>{error.message})
+  // this.adminService.GetAllCoursOfUser(this.userCode).subscribe(data=>{ this.userCoursesList=data},error=>{error.message})
+  this.adminService.GetAllCoursOfUser(this.userCode);
 }
+
 
 }

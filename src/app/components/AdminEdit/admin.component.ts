@@ -46,7 +46,6 @@ export class AdminComponent implements OnInit {
               }
             );
           }
-          alert(newAdmin.title);
         },
           err => { console.error(err); }
         );

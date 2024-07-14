@@ -7,7 +7,7 @@
       <div>
         <input type="text" id="question" [(ngModel)]="newQuestion" name="question" required placeholder="שאלה">
       </div>
-      <button type="submit" class="btn btn-outline-success">שליחה</button>
+      <button type="submit" class="btn btn-outline-success" mat-raised-button>שליחה</button>
     </form>
   </div>
 
@@ -30,8 +30,8 @@
         </div>
         <form (ngSubmit)="submitAnswer(question)">
           <input type="text" [(ngModel)]="question.newAnswer" name="answer" placeholder="תשובה" required>
-          <p><input type="file" (change)="onFileSelected($event, question)" multiple>
-            <button type="submit" class="btn btn-outline-success">שליחה</button></p>
+          <p><input type="file" (change)="onFileSelected($event, question)" multiple mat-raised-button>
+            <button type="submit" class="btn btn-outline-success" mat-raised-button>שליחה</button></p>
         </form>
       </div>
     </div>

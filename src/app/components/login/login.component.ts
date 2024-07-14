@@ -23,7 +23,9 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
-
+    this.userForm.reset(); // ניקוי הטופס בעת טעינת הקומפוננטה
+    localStorage.removeItem('userForm'); // הסרת נתוני הטופס מאחסון מקומי
+    sessionStorage.removeItem('userForm'); // הסרת נתוני הטופס מאחסון סשן
   }
 
   checkUser(): void {

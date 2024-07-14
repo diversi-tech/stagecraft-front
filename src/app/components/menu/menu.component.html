@@ -37,10 +37,11 @@
         </li> -->
         <li class="nav-item">
           <button mat-button [matMenuTriggerFor]="managementMenu" class="nav-link">מסכי ניהול</button>
-          <mat-menu #managementMenu="matMenu">
+          <mat-menu #managementMenu="matMenu" #belowMenu="matMenu" yPosition="below">
             <button mat-menu-item routerLink="serchUser">משתמשים</button>
-            <button mat-menu-item routerLink="managementScreen2">קורסים</button>
-            <button mat-menu-item routerLink="managementScreen3">משוב</button>
+            <button mat-menu-item routerLink="adminCourse">קורסים</button>
+            <button mat-menu-item routerLink="AdminCourses">קורסי מנהל</button>
+            <button mat-menu-item routerLink="#">משוב</button>
             <button mat-menu-item routerLink="admin-forum">דיונים</button>
           </mat-menu>
         </li>

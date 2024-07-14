@@ -1,21 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SignupComponent {
+export class SignupComponent implements OnInit{
   signupForm: FormGroup;
   submitted = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,private router: Router) {
     this.signupForm = this.fb.group({
       username: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(8), this.strongPasswordValidator]],
+      password: ['', [Validators.required, Validators.minLength(6), this.strongPasswordValidator]],
       email: ['', [Validators.required, Validators.email]]
     });
+  }
+
+  ngOnInit() {
+    this.signupForm.reset(); // ניקוי הטופס בעת טעינת הקומפוננטה
+    localStorage.removeItem('signupForm'); // הסרת נתוני הטופס מאחסון מקומי
+    sessionStorage.removeItem('signupForm'); // הסרת נתוני הטופס מאחסון סשן
   }
 
   strongPasswordValidator(control: AbstractControl) {
@@ -30,6 +37,9 @@ export class SignupComponent {
     if (this.signupForm.valid) {
       this.submitted = true;
       // כאן תוכל להוסיף את הקוד לשליחת הנתונים לשרת
+      setTimeout(() => {
+        this.router.navigate(['/']);  // ניתוב לקומפוננטת ה-Courses לאחר הצגת ההודעה
+      }, 2000);  
     }
   }
 }

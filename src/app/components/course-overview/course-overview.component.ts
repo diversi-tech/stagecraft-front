@@ -43,26 +43,33 @@ export class CourseOverviewComponent implements OnInit  {
     }
   }
 
-  toggleCourse(courseId: number): void {
-    const course = this.userCourses.find(c => c.courses_id === courseId);
-    if (course) {
-      course.expanded = !course.expanded;
-    }
-  }
+  // toggleCourse(courseId: number): void {
+  //   const course = this.userCourses.find(c => c.courses_id === courseId);
+  //   if (course) {
+  //     course.expanded = !course.expanded;
+  //   }
+  // }
 
-  toggleLesson(courseId: number, lessonId: number): void {
-    const lesson = this.homePageService.listClasses.find(l => l.class_id === lessonId && l.courses_id === courseId);
-    if (lesson) {
-      lesson.expanded = !lesson.expanded;
-    }
-  }
+  // toggleLesson(courseId: number, lessonId: number): void {
+  //   const lesson = this.homePageService.listClasses.find(l => l.class_id === lessonId && l.courses_id === courseId);
+  //   if (lesson) {
+  //     lesson.expanded = !lesson.expanded;
+  //   }
+  // }
 
-  downloadAndNavigate(file: any) {
-    this.router.navigate(['/task-files']);
-  }
+  // downloadAndNavigate(file: any) {
+  //   this.router.navigate(['/task-files']);
+  // }
 
-  UploadFilesForFeedback(feedback: any) {
-    this.router.navigate(['/feedback']);
-  }
+  // UploadFilesForFeedback(feedback: any) {
+  //   this.router.navigate(['/feedback']);
+  // }
+
+  // In course-overview.component.ts
+navigateToCourse(courseId: number): void {
+  debugger
+  this.router.navigate(['/mewcourse', courseId]);
+}
+
 }
 

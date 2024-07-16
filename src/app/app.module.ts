@@ -31,6 +31,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { AdminComponent } from './components/AdminEdit/admin.component';
+import { CourseLessonsComponent } from './course-lessons/course-lessons.component';
 //import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
@@ -56,7 +57,8 @@ import { AdminComponent } from './components/AdminEdit/admin.component';
     AdminAddCourseForUserComponent,
     AdminSearchUserComponent,
     AdminComponent,
-
+    CourseLessonsComponent,
+    
 
   ],
   imports: [

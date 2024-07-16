@@ -19,3 +19,6 @@ describe('AdminAddCourseForUserComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+// if (this.userCoursesList$.pipe(map(courses => courses.filter(course => course.courses_id === cours.courses_id)))) {
+//   return false; // אם הקורס נמצא ברשימה - החזר false כדי שלא יוצג
+// }

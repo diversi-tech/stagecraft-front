@@ -14,7 +14,7 @@ import { UserService } from 'src/app/service/login.service';
 export class CourseOverviewComponent implements OnInit  {
 
   userCourses: any[] = [];
-  userId: number = this.userService.currentUserId; // Replace with actual user ID
+  userId: number = this.userService.currentUser?.code??-1; // Replace with actual user ID
 
   constructor(
     public homePageService: HomePageService,

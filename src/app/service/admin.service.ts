@@ -9,9 +9,17 @@ import { userCourse } from "../class/userCourse";
   providedIn: 'root'
 })
 export class adminService {
-  private itemsSubject: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
-  items$: Observable<any[]> = this.itemsSubject.asObservable();
+  // private itemsSubject: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
+  // items$: Observable<any[]> = this.itemsSubject.asObservable();
   
+
+
+  private coursUserList : BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
+  public test$ = this.coursUserList.asObservable();
+
+
+
+
   constructor(private http: HttpClient) { }
   private baseUrl: string = `${environment.baseUrl}/Admin`
   userList: Array<users> = new Array<users>();
@@ -25,9 +33,28 @@ export class adminService {
     debugger
     this.getUsers().subscribe(users => { this.userList = users }, err =>{console.log(err)} );
   }
-  GetAllCoursOfUser(userId:number): Observable<Array<course>>{
-  return this.http.get<Array<course>>(`${this.baseUrl}/GetAllCoursOfUser/${userId}`);
+  GetAllCoursOfUser(userId:number): void{
+    debugger
+    console.log(`Get all courses for user ${userId}`);
+   // this.itemsSubject.next([]);
+   this.http.get<Array<course>>(`${this.baseUrl}/GetAllCoursOfUser/${userId}`).subscribe(
+     (data) => {
+       console.log(data);
+       this.coursUserList.next(data);
+      debugger
+      let t = 0;
+     },
+     (error) => {
+       console.error('Error retrieving data:', error);
+     }
+   );
   }
+
+
+
+
+
+
   AddCoursToUser(userCours:userCourse):Observable<any>{
     debugger
     console.log(userCours);

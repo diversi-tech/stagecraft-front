@@ -11,6 +11,7 @@ export class users {
         public status?: boolean,// סטטוס
         public registrationDate?: Date,// תאריך יצירה
         // שינוי תאריך אחרון
-        public LastModifiedDate?: Date// כניסה אחרונה
+        public LastModifiedDate?: Date,// כניסה אחרונה
+        public isAdmin: boolean=false,//
     ) { };
 }

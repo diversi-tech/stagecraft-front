@@ -36,7 +36,7 @@
             <a class="nav-link" routerLink="admin-forum">דיונים מנהל</a> 
         </li> -->
         <li class="nav-item">
-          <button mat-button [matMenuTriggerFor]="managementMenu" class="nav-link">מסכי ניהול</button>
+          <button mat-button [matMenuTriggerFor]="managementMenu" class="nav-link" *ngIf="userService.currentUser.isAdmin">מסכי ניהול</button>
           <mat-menu #managementMenu="matMenu" #belowMenu="matMenu" yPosition="below">
             <button mat-menu-item routerLink="serchUser">משתמשים</button>
             <button mat-menu-item routerLink="adminCourse">קורסים</button>

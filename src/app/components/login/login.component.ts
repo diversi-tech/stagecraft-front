@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   constructor(public userService: UserService, private formBuilder: FormBuilder,public router: Router ) { }
 
   ngOnInit(): void {
+    debugger
     this.userForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
@@ -37,7 +38,11 @@ export class LoginComponent implements OnInit {
            
           } else {
             debugger
-            this.userService.currentUserId=exists
+            this.userService.currentUser.code=exists
+            this.userService.currentUser.email=this.userForm.value.email
+            this.userService.currentUser.password=this.userForm.value.password
+            this.userService.checkIfManager()
+
           // alert('User does not exist');
           this.router.navigate(['/myCourse']);
           }

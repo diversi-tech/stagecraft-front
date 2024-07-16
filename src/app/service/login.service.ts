@@ -26,9 +26,9 @@ export class UserService {
     return this.http.post<number>(`${this.baseUrl}`,user);
   }
   checkIfManager(){
-    debugger
-    if(this.currentUser.email=="m@gmail.com" && this.currentUser.code==1006 && this.currentUser.password=="123456")
-      this.currentUser.isAdmin=true
+    // debugger
+    // if(this.currentUser.email=="m@gmail.com" && this.currentUser.code==1006 && this.currentUser.password=="123456")
+    //   this.currentUser.isAdmin=true
   }
 
 }

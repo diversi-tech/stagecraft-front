@@ -40,6 +40,9 @@ export class LoginComponent implements OnInit {
             debugger
             this.userService.GetUserById(exists).subscribe(user => {
               this.userService.currentUser=user
+              // לדוגמה מתוך קומפוננטת התחברות
+this.userService.setUser(user);
+
               this.userService.checkIfManager()
               this.router.navigate(['/myCourse']);
             })

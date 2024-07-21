@@ -69,12 +69,8 @@ import { BuyCoursComponent } from './components/buy-cours/buy-cours.component';
     AdminComponent,
     CourseLessonsComponent,
     ErrorDialogComponent,
-<<<<<<< HEAD
     BuyCoursComponent,
     
-
-=======
->>>>>>> e06bf571198f1391c3e7b28b3d950a663002af19
   ],
   imports: [
     BrowserModule,

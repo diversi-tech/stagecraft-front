@@ -31,7 +31,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { AdminComponent } from './components/AdminEdit/admin.component';
-//import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,8 @@ import { AdminComponent } from './components/AdminEdit/admin.component';
     AdminAddCourseForUserComponent,
     AdminSearchUserComponent,
     AdminComponent,
+   
+  
 
 
   ],
@@ -77,7 +81,10 @@ import { AdminComponent } from './components/AdminEdit/admin.component';
       innerStrokeColor: "#e06133",
       animationDuration: 300
     }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatToolbarModule,
+    MatIconModule
 
      
   ],

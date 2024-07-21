@@ -14,16 +14,21 @@ export class AchievementsComponent implements OnInit {
   courses: course[] = []; // מערך הקורסים
   selectedCourse: course | undefined; // הקורס הנבחר
   userId: number = 4; // מזהה המשתמש
+  //איך אני מקבלת את פרטי המשתמש הנוכחי?
   currentScore: any = 0; // הציון הנוכחי
   passScore: any = 0; // ציון עובר
   courseId:any;
   mycourse!:course;
+  feedback: string | undefined;
+  feedbacks: {class_id: number, feedback_text: string}[] = []; // רשימת הפידבקים
+  displayedColumns: string[] = ['class_id', 'feedback_text']; // עמודות להצגה בטבלה
   @ViewChild('myCanvas', { static: true }) myCanvas!: ElementRef<HTMLCanvasElement>; // התייחסות ל-Canvas
 
   constructor(private CourseAchievementsService: CourseAchievementsService) {}
 
   ngOnInit(): void {
     // שליפת כל הקורסים עבור המשתמש הנוכחי
+    
     this.CourseAchievementsService.getAllCoursesForUser(this.userId).subscribe(data => {
       this.courses = data;
  
@@ -34,9 +39,9 @@ export class AchievementsComponent implements OnInit {
   getCourseDetails(courseId: number): void {
     // שליפת פרטי הקורס הנבחר לפי מזהה הקורס
    
-    this.CourseAchievementsService.GetCourseById(courseId).subscribe( courseArray=> {
+    this.CourseAchievementsService.GetCourseById(courseId).subscribe( course=> {
      // alert("zdxdfcgvhbj"+courseArray[0])
-       this.selectedCourse = courseArray; // קבלת האובייקט הראשון במערך
+       this.selectedCourse = course;
       //alert("zdxdfcgvhbj"+courseArray)
       
 
@@ -51,6 +56,14 @@ export class AchievementsComponent implements OnInit {
         this.drawChart(this.selectedCourse); // קריאה לפונקציה לציור הגרף
       }
     // טיפול בשגיאה
+
+
+   // קריאה לפונקציה לקבלת כל המשובים
+   this.CourseAchievementsService.getFeedbackByUserCourseClass(this.userId, this.selectedCourse.courses_id).subscribe(feedbacks => {
+    this.feedbacks = feedbacks;
+  
+    console.log('Feedbacks:', this.feedbacks); // הצגת המשובים בקונסול
+  });
     });
   }
 

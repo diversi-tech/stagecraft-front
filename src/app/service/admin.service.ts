@@ -34,14 +34,14 @@ export class adminService {
     this.getUsers().subscribe(users => { this.userList = users }, err =>{console.log(err)} );
   }
   GetAllCoursOfUser(userId:number): void{
-    debugger
+    
     console.log(`Get all courses for user ${userId}`);
    // this.itemsSubject.next([]);
    this.http.get<Array<course>>(`${this.baseUrl}/GetAllCoursOfUser/${userId}`).subscribe(
      (data) => {
        console.log(data);
        this.coursUserList.next(data);
-      debugger
+      
       let t = 0;
      },
      (error) => {

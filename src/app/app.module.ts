@@ -31,8 +31,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { AdminComponent } from './components/AdminEdit/admin.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+
 import { CourseLessonsComponent } from './course-lessons/course-lessons.component';
+import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
+
+
+import { MatDialogModule } from '@angular/material/dialog';
 //import { NgxChartsModule } from '@swimlane/ngx-charts';
+
 
 @NgModule({
   declarations: [
@@ -58,8 +67,7 @@ import { CourseLessonsComponent } from './course-lessons/course-lessons.componen
     AdminSearchUserComponent,
     AdminComponent,
     CourseLessonsComponent,
-    
-
+    ErrorDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,6 +77,8 @@ import { CourseLessonsComponent } from './course-lessons/course-lessons.componen
     ReactiveFormsModule,
     MatMenuModule,
     MatButtonModule,
+    MatDialogModule,
+    MatIconModule,
     //NgxChartsModule,//רכיב גרפי
     NgCircleProgressModule.forRoot({
       // הגדרות ברירת מחדל לרכיב המעגלי
@@ -79,7 +89,10 @@ import { CourseLessonsComponent } from './course-lessons/course-lessons.componen
       innerStrokeColor: "#e06133",
       animationDuration: 300
     }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatToolbarModule,
+    MatIconModule
 
      
   ],

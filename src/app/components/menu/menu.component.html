@@ -1,25 +1,12 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-
   <div class="container-fluid">
-    <!-- Links -->
     <ul class="navbar-nav">
-
-      <!-- <li class="nav-item">
-          <a class="nav-link" routerLink="">תמונות</a>
-        </li> -->
-      <!-- <li class="nav-item">
-          <a class="nav-link" routerLink="video-transcription">סרטונים</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="">המלצות</a>
-        </li> -->
-      <!-- <li class="nav-item">
-          <a class="nav-link" routerLink="">יצירת קשר</a>
-        </li> -->
-      <li class="nav-item">
-        <a class="nav-link" routerLink="login">התחברות</a>
+      <li class="nav-item" *ngIf="userService.currentUser.name">
+        <span class="nav-link">שלום, {{ userService.currentUser.name }}</span>
       </li>
-
+      <li class="nav-item">
+        <a class="nav-link" routerLink="login" *ngIf="!userService.currentUser.name">התחברות</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="courseList">קורסים אונליין</a>
       </li>
@@ -32,22 +19,17 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="forum">דיונים</a>
       </li>
-      <!-- <li class="nav-item">
-            <a class="nav-link" routerLink="admin-forum">דיונים מנהל</a> 
-        </li> -->
-        <li class="nav-item">
-          <button mat-button [matMenuTriggerFor]="managementMenu" class="nav-link" *ngIf="userService.currentUser.isAdmin">מסכי ניהול</button>
-          <mat-menu #managementMenu="matMenu" #belowMenu="matMenu" yPosition="below">
-            <button mat-menu-item routerLink="serchUser">משתמשים</button>
-            <button mat-menu-item routerLink="adminCourse">קורסים</button>
-            <button mat-menu-item routerLink="AdminCourses">קורסי מנהל</button>
-            <button mat-menu-item routerLink="#">משוב</button>
-            <button mat-menu-item routerLink="admin-forum">דיונים</button>
-          </mat-menu>
-        </li>
-
+      <li class="nav-item" *ngIf="userService.currentUser.isAdmin">
+        <button mat-button [matMenuTriggerFor]="managementMenu" class="nav-link">מסכי ניהול</button>
+        <mat-menu #managementMenu="matMenu" #belowMenu="matMenu" yPosition="below">
+          <button mat-menu-item routerLink="serchUser">משתמשים</button>
+          <!-- <button mat-menu-item routerLink="adminCourse">קורסים</button> -->
+          <button mat-menu-item routerLink="AdminCourses">קורסי מנהל</button>
+          <button mat-menu-item routerLink="#">משוב</button>
+          <button mat-menu-item routerLink="admin-forum">דיונים</button>
+        </mat-menu>
+      </li>
     </ul>
   </div>
-
 </nav>
 <router-outlet></router-outlet>

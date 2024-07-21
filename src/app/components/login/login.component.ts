@@ -38,13 +38,15 @@ export class LoginComponent implements OnInit {
            
           } else {
             debugger
-            this.userService.currentUser.code=exists
-            this.userService.currentUser.email=this.userForm.value.email
-            this.userService.currentUser.password=this.userForm.value.password
-            this.userService.checkIfManager()
+            this.userService.GetUserById(exists).subscribe(user => {
+              this.userService.currentUser=user
+              // לדוגמה מתוך קומפוננטת התחברות
+this.userService.setUser(user);
 
-          // alert('User does not exist');
-          this.router.navigate(['/myCourse']);
+              this.userService.checkIfManager()
+              this.router.navigate(['/myCourse']);
+            })
+           
           }
         },
         error => {

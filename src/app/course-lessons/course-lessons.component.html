@@ -1,31 +1,5 @@
-<!-- In course-lessons.component.html
-<div class="container">
-    <p class="header-text">השיעורים שלי</p>
-    <br><br><br>
-    <div *ngFor="let lesson of lessons" class="lesson-card">
-      <div class="lesson-button-container">
-        <button (click)="toggleLesson(lesson.class_id)" class="lesson-button">
-          {{ lesson.title }}
-        </button>
-      </div>
-      <div *ngIf="lesson.expanded" class="lesson-details">
-        <app-progressbar></app-progressbar>
-        <div class="video-container">
-          <video width="320" height="240" controls>
-            <source [src]="lesson.video_url" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <br>
-        <a [href]="lesson.video_url" download>Download Video</a>
-        <a (click)="downloadAndNavigate(lesson)">הורדת קבצי משימה</a>
-        <br>
-        <a (click)="UploadFilesForFeedback(lesson)" class="custom-link">העלאת קבצים למשוב</a>
-      </div>
-    </div>
-  </div>
-   -->
-   <div class="course-lessons-container">
+
+   <!-- <div class="course-lessons-container">
     <div class="sidebar">
       <p class="header-text">{{ courseName }}</p>
       <p class="header-text">השיעורים שלי</p>
@@ -52,4 +26,33 @@
       </div>
     </div>
   </div>
-  
+   -->
+
+   <div class="course-lessons-container">
+    <div class="sidebar">
+      <p class="header-text">{{ courseName }}</p>
+      <p class="header-text">השיעורים שלי</p>
+      <app-progressbar></app-progressbar> <!-- הקומפוננטה החדשה -->
+      <div *ngFor="let lesson of lessons; let i = index" class="lesson-card">
+        <div class="lesson-button-container">
+          <button (click)="toggleLesson(lesson.class_id)" class="lesson-button">
+            {{ lesson.title }}
+          </button>
+        </div>
+        <div [@expandCollapse]="lesson.expanded" class="lesson-details">
+          <a (click)="selectVideo(lesson.video_url, i, lesson.title)" class="custom-link">צפה בסרטון</a>
+          <a (click)="downloadAndNavigate(lesson)" class="custom-link">הורדת קבצי משימה</a>
+          <a (click)="UploadFilesForFeedback(lesson)" class="custom-link">העלאת קבצים למשוב</a>
+        </div>
+      </div>
+    </div>
+    <div class="main-content">
+      <div *ngIf="selectedVideoUrl" class="video-container">
+        <p>Lesson {{ selectedLessonIndex + 1 }} of {{ lessons.length }}: {{ selectedLessonTitle }}</p>
+        <video width="100%" height="auto" controls controlsList="nodownload">
+          <source [src]="selectedVideoUrl" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </div>

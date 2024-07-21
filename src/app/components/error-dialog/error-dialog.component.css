@@ -1,0 +1,17 @@
+.error-dialog-container {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    gap: 16px; /* מרווח בין האייקון לטקסט */
+  }
+  
+  .error-icon {
+    font-size: 25px;
+    color: #f44336; /* צבע אדום */
+  }
+  
+  .error-message {
+    font-size: 18px;
+    color: #333;
+  }
+  

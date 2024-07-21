@@ -3,8 +3,8 @@
     <h1>הרשמה</h1>
     <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
       <div>
-        <input id="username" formControlName="username" type="text" placeholder="שם משתמש">
-        <div *ngIf="signupForm.get('username')?.invalid && signupForm.get('username')?.touched">
+        <input id="name" formControlName="name" type="text" placeholder="שם משתמש">
+        <div *ngIf="signupForm.get('name')?.invalid && signupForm.get('name')?.touched">
           שם המשתמש נדרש.
         </div>
       </div>
@@ -15,8 +15,8 @@
           הסיסמה נדרשת וצריכה לכלול לפחות 6 תווים, אותיות גדולות, אותיות קטנות ומספרים.
         </div>
       </div>
-
       <div>
+
         <input id="email" formControlName="email" type="email" placeholder="אימייל">
         <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched">
           הכנס כתובת אימייל תקינה.

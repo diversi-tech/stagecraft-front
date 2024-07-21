@@ -32,6 +32,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { AdminComponent } from './components/AdminEdit/admin.component';
 import { CourseLessonsComponent } from './course-lessons/course-lessons.component';
+import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
+
+import { MatIconModule } from '@angular/material/icon'; // Add this import
+import { MatDialogModule } from '@angular/material/dialog';
 //import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
@@ -58,6 +62,7 @@ import { CourseLessonsComponent } from './course-lessons/course-lessons.componen
     AdminSearchUserComponent,
     AdminComponent,
     CourseLessonsComponent,
+    ErrorDialogComponent,
     
 
   ],
@@ -69,6 +74,8 @@ import { CourseLessonsComponent } from './course-lessons/course-lessons.componen
     ReactiveFormsModule,
     MatMenuModule,
     MatButtonModule,
+    MatDialogModule,
+    MatIconModule,
     //NgxChartsModule,//רכיב גרפי
     NgCircleProgressModule.forRoot({
       // הגדרות ברירת מחדל לרכיב המעגלי

@@ -17,6 +17,7 @@ import { AdminAddCourseForUserComponent } from './components/admin-add-course-fo
 import { AdminSearchUserComponent } from './components/admin-search-user/admin-search-user.component';
 import { AdminComponent } from './components/AdminEdit/admin.component';
 import { CourseLessonsComponent } from './course-lessons/course-lessons.component';
+import { BuyCoursComponent } from './components/buy-cours/buy-cours.component';
 
 const routes: Routes = [
   // {path:"myHome-שם שבחרתי",component:HomeComponentשם המחלקה של הקומפוננטה}
@@ -45,6 +46,7 @@ const routes: Routes = [
 {path:"AdminCourses", component:AdminComponent},
 // { path: '', component: CourseOverviewComponent },
 { path: 'mewcourse/:id', component: CourseLessonsComponent },
+{path:"buyCours/:id", component:BuyCoursComponent}
 ];
 
 @NgModule({

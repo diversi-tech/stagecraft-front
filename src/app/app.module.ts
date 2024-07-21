@@ -36,6 +36,7 @@ import { ErrorDialogComponent } from './components/error-dialog/error-dialog.com
 
 import { MatIconModule } from '@angular/material/icon'; // Add this import
 import { MatDialogModule } from '@angular/material/dialog';
+import { BuyCoursComponent } from './components/buy-cours/buy-cours.component';
 //import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
@@ -63,6 +64,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     AdminComponent,
     CourseLessonsComponent,
     ErrorDialogComponent,
+    BuyCoursComponent,
     
 
   ],

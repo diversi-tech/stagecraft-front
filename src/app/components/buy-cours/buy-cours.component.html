@@ -1,0 +1,11 @@
+<div *ngIf="course" @fadeIn>
+    <h2>בחרת בקורס:</h2>
+    <p>שם: {{ course.courses_name }}</p>
+    <p>מחיר: {{ course.price }}</p>
+    <p>נא להתקשר למירי 054-858-9075 להסדר התשלום</p>
+  </div>
+  
+  <div *ngIf="!course">
+    <p>טוען פרטי הקורס...</p>
+  </div>
+  

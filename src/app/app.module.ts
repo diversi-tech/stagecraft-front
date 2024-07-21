@@ -31,13 +31,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { AdminComponent } from './components/AdminEdit/admin.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+
 import { CourseLessonsComponent } from './course-lessons/course-lessons.component';
 import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
 
-import { MatIconModule } from '@angular/material/icon'; // Add this import
+
 import { MatDialogModule } from '@angular/material/dialog';
 import { BuyCoursComponent } from './components/buy-cours/buy-cours.component';
 //import { NgxChartsModule } from '@swimlane/ngx-charts';
+
 
 @NgModule({
   declarations: [
@@ -64,9 +69,12 @@ import { BuyCoursComponent } from './components/buy-cours/buy-cours.component';
     AdminComponent,
     CourseLessonsComponent,
     ErrorDialogComponent,
+<<<<<<< HEAD
     BuyCoursComponent,
     
 
+=======
+>>>>>>> e06bf571198f1391c3e7b28b3d950a663002af19
   ],
   imports: [
     BrowserModule,
@@ -88,7 +96,10 @@ import { BuyCoursComponent } from './components/buy-cours/buy-cours.component';
       innerStrokeColor: "#e06133",
       animationDuration: 300
     }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatToolbarModule,
+    MatIconModule
 
      
   ],

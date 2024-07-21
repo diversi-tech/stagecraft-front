@@ -26,16 +26,21 @@ export class AdminSearchUserComponent {
     constructor(public adminService: adminService,public router: Router){}
     filteredUsers:Array<users>=new Array();
     searchTerm: string = "";
-    ngOnInit(){
-      debugger
-      if(this.adminService.userList.length == 0){
-        this.adminService.loadUsers();
-  }
-  }
+    ngOnInit() {
+      debugger;
+      if (this.adminService.userList.length === 0) {
+          this.adminService.getUsers().subscribe(users => {
+              this.filteredUsers = users;
+              this.adminService.userList=users
+          });
+      } else {
+          this.filteredUsers = this.adminService.userList;
+      }
+    }
   onSearchTermChange() {
   debugger
     const searchValue =this.toUpperCaseIfEnglish(this.searchTerm);
-    this.filteredUsers = this.adminService.userList.filter(user => {
+    this.filteredUsers = this.adminService.userList.filter((user: users) => {
       return (
         this.toUpperCaseIfEnglish(user?.name??"").includes(searchValue)  ||
       this.toUpperCaseIfEnglish(user.email).includes(searchValue)

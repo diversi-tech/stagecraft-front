@@ -1,13 +1,15 @@
-<div *ngIf="taskFiles.length > 0; else noFiles">
-    <h3>Task Files for Video {{ videoId }}</h3>
+<div class="container">
+  <button (click)="goBack()" class="back-button">חזור לעמוד הקודם</button>
+
+  <div *ngIf="taskFiles.length > 0; else noFiles" class="task-files">
+    <h3 class="animated-title">Task Files for Video {{ videoId }}</h3>
     <ul>
-      <li *ngFor="let file of taskFiles">
+      <li *ngFor="let file of taskFiles" class="animated-list-item">
         <a [href]="file.url" download>{{ file.name }}</a>
       </li>
     </ul>
   </div>
   <ng-template #noFiles>
-    <p>אין קבצים זמינים להורדה עבור סרטון זה.</p>
+    <p class="no-files-message">אין קבצים זמינים להורדה עבור סרטון זה.</p>
   </ng-template>
-
-
+</div>

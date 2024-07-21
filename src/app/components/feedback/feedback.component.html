@@ -1,11 +1,16 @@
+<div class="container">
+  <button (click)="goBack()" class="back-button">חזור לעמוד הקודם</button>
 
-<br>
-<div *ngIf="isSubscriptionValid(); else noAccess">
-    <h3>העלאת קבצים למשוב</h3>
-    <input type="file" (change)="onFileChange($event)">
-    <button (click)="uploadFeedback()">העלאה</button>
+</div>
+<div class="container">
+  
+
+  <div *ngIf="isSubscriptionValid(); else noAccess" class="feedback-upload">
+    <h3 class="animated-title">העלאת קבצים למשוב</h3>
+    <input type="file" (change)="onFileChange($event)" class="file-input">
+    <button (click)="uploadFeedback()" class="upload-button">העלאה</button>
   </div>
-  <br>  
   <ng-template #noAccess>
-    <p>אין לך גישה להעלאת קבצים</p>
+    <p class="no-access-message">אין לך גישה להעלאת קבצים</p>
   </ng-template>
+</div>

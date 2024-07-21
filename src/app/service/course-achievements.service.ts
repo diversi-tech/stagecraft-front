@@ -21,21 +21,25 @@ export class CourseAchievementsService {
   // //   debugger
   // //   return this.http.get<any>(`${this.apiUrl}/GetCourseById/${courseId}`);
   // // }
-  getCourseDetails(courseId: number): Observable<any> {
-    debugger;
-    return this.http.get<any>(`${this.apiUrl}Courses/GetCourseById/${courseId}`).pipe(
-      map(response => {
-        let courseDetails = response;
-        // ניתן להוסיף כאן לוגיקה נוספת במידה ורוצים לעבד את התגובה
-        console.log('User courses:', courseDetails); // הדפסה לקונסול לבדיקה
+//   getCourseDetails(courseId: number): Observable<any> {
+//     debugger;
+// <<<<<<< HEAD
+//     return this.http.get<any>(`${this.apiUrl}Courses/GetCourseById/${courseId}`).pipe(
+// =======
+//     return this.http.get<any>(`${this.apiUrl}GetCourseById/${courseId}`).pipe(
+// >>>>>>> 4f4c3d8efc7b773ede685b5bc684f344c0c63314
+//       map(response => {
+//         let courseDetails = response;
+//         // ניתן להוסיף כאן לוגיקה נוספת במידה ורוצים לעבד את התגובה
+//         console.log('User courses:', courseDetails); // הדפסה לקונסול לבדיקה
 
-        return courseDetails;
-  }))}
+//         return courseDetails;
+//   }))}
     // );
   // }
 
   getCoursesForUser(userId: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}/user/${userId}`);
+    return this.http.get(`${this.apiUrl}user/${userId}`);
   }
   
   getAllCoursesForUser(userId: number): Observable<any[]> {
@@ -44,6 +48,7 @@ export class CourseAchievementsService {
   }
 
   GetCourseById(courseId: number): Observable<course>{
+    debugger
    // console.log(`Calling API: ${this.apiUrl}GetCourseById/${courseId}`);
    return this.http.get<course>(`${this.apiUrl}Courses/GetCourseById/${courseId}`);
 

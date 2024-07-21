@@ -14,10 +14,12 @@ export class LoginComponent implements OnInit {
   userForm!: FormGroup;
   
   user: users = new users("","")
+  
 
   constructor(public userService: UserService, private formBuilder: FormBuilder,public router: Router ) { }
 
   ngOnInit(): void {
+    debugger
     this.userForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
@@ -31,11 +33,20 @@ export class LoginComponent implements OnInit {
     if (this.userForm.valid) {
       this.userService.checkIfUserExists(this.userForm.value as users).subscribe(
         exists => {
-          if (exists) {
-            this.router.navigate(['/myCourse']);
+          if (exists==-1) {
+            this.router.navigate(['/signup']);
+           
           } else {
-          // alert('User does not exist');
-          this.router.navigate(['/signup']);
+            debugger
+            this.userService.GetUserById(exists).subscribe(user => {
+              this.userService.currentUser=user
+              // לדוגמה מתוך קומפוננטת התחברות
+this.userService.setUser(user);
+
+              this.userService.checkIfManager()
+              this.router.navigate(['/myCourse']);
+            })
+           
           }
         },
         error => {
@@ -48,7 +59,10 @@ export class LoginComponent implements OnInit {
     }
   }
     
+  cancel(){
+    this.router.navigate(['/courseList']);
 
+  }
 }
 
 

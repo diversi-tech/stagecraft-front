@@ -26,7 +26,7 @@ export class CourseDetailsComponent {
   ngOnInit(): void {
     const courseId = +this.route.snapshot.paramMap.get('id')!;
     console.log('courseId:', courseId);
-    this.courseService.getCourseDetails(courseId).subscribe(course => {
+    this.courseService.GetCourseById(courseId).subscribe(course => {
       this.course = course;
       console.log('course:', this.course);
     }, error => {

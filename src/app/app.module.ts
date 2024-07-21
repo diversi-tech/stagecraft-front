@@ -35,6 +35,14 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 
+import { CourseLessonsComponent } from './course-lessons/course-lessons.component';
+import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
+
+
+import { MatDialogModule } from '@angular/material/dialog';
+//import { NgxChartsModule } from '@swimlane/ngx-charts';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,10 +66,8 @@ import { MatIconModule } from '@angular/material/icon';
     AdminAddCourseForUserComponent,
     AdminSearchUserComponent,
     AdminComponent,
-   
-  
-
-
+    CourseLessonsComponent,
+    ErrorDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,6 +77,8 @@ import { MatIconModule } from '@angular/material/icon';
     ReactiveFormsModule,
     MatMenuModule,
     MatButtonModule,
+    MatDialogModule,
+    MatIconModule,
     //NgxChartsModule,//רכיב גרפי
     NgCircleProgressModule.forRoot({
       // הגדרות ברירת מחדל לרכיב המעגלי

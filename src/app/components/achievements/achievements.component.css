@@ -1,54 +1,71 @@
-/* קונטיינר של סרגל ההתקדמות */
+/* הגדרת מפתח האנימציה */
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .progress-container {
-  position: relative; /* מאפשר למקם את האלמנטים הפנימיים יחסית אליו */
-  width: 100%; /* רוחב מלא */
-  background-color: #e0e0e0; /* צבע רקע */
-  border-radius: 10px; /* פינות מעוגלות */
-  height: 20px; /* גובה הסרגל */
-  margin: 20px 0; /* רווח מלמעלה ולמטה */
+  position: relative; /* מאפשר מיקום יחסי לתוך הקונטיינר */
+  height: 48px; /* גובה הקונטיינר, הכפלה פי 2 */
+  margin-bottom: 16px; /* רווח תחתון */
 }
 
-/* סרגל ההתקדמות */
 .progress-bar {
-  height: 100%; /* גובה מלא של הקונטיינר */
-  position: absolute; /* מיקום אבסולוטי בתוך הקונטיינר */
-  top: 0; /* מקם בחלק העליון של הקונטיינר */
-  border-radius: 10px; /* פינות מעוגלות */
+  width: 100%; /* רוחב מלא של סרגלי ההתקדמות */
+  height: 24px; /* גובה סרגלי ההתקדמות, הכפלה פי 2 */
+  position: absolute; /* מיקום מוחלט כדי לאפשר כיסוי אחד של השני */
 }
 
-/* סרגל ההתקדמות עבור הציון הנוכחי */
-.progress-bar.current {
-  background-color: #3b82f6; /* צבע כחול */
-  z-index: 1; /* מיקום קדמי יחסית לפס העובר */
+.pass {
+  z-index: 0; /* סרגל העובר מתחת לסרגל הנוכחי */
 }
 
-/* סרגל ההתקדמות עבור ציון העובר */
-.progress-bar.pass {
-  background-color: #f59e0b; /* צבע כתום */
-  z-index: 0; /* מיקום אחורי יחסית לפס הנוכחי */
-  /* left: 0; העברת הפס לצד שמאל */
+.current {
+  z-index: 1; /* סרגל הנוכחי מעל הסרגל העובר */
 }
 
-/* תווית שמציגה מידע על הסרגל */
 .progress-label {
-  position: absolute; /* מיקום אבסולוטי בתוך הקונטיינר */
-  top: -40px; /* מיקום מעל הסרגל */
-  transform: translateX(-50%); /* מרכז את התווית */
-  font-size: 14px; /* גודל גופן */
-  padding: 5px; /* ריווח פנימי */
-  border-radius: 5px; /* פינות מעוגלות */
-  background-color: #000; /* צבע רקע שחור */
-  color: #fff; /* צבע טקסט לבן */
-  white-space: nowrap; /* מונע מעבר שורות בתווית */
+  position: absolute; /* מאפשר מיקום מוחלט בתוך הקונטיינר */
+  top: 0; /* מיקום התווית מעל סרגל ההתקדמות */
+  transform: translateX(-50%); /* מיקום התווית למרכז */
+  white-space: nowrap; /* מניעת ירידת הטקסט לשורה חדשה */
+  transition: opacity 0.5s ease-in-out; /* הגדרת transition */
 }
 
-/* תווית עבור הציון הנוכחי */
-.current-label {
-  background-color: #3b82f6; /* צבע רקע כחול */
-  top: 25px; /* מיקום מתחת לסרגל ההתקדמות */
+.progress-label.animate {
+  opacity: 0.5; /* המצב שאליו עוברים במהלך האנימציה */
 }
 
-/* תווית עבור ציון העובר */
 .pass-label {
-  background-color: #f59e0b; /* צבע רקע כתום */
+  top: -25px; /* מיקום התווית של ציון עובר מעל הסרגל */
+  color: #f59e0b; /* צבע התווית של ציון עובר */
+  display: flex; /* מאפשר יישור של המלבן והטקסט */
+  align-items: center; /* מיישר את המלבן והטקסט למרכז אנכי */
+}
+
+.current-label {
+  top: 25px; /* מיקום התווית של ציון נוכחי מתחת לסרגל */
+  color: #3b82f6; /* צבע התווית של ציון נוכחי */
+}
+
+.label-box {
+  padding: 2px 5px; /* ריווח פנימי במלבן */
+  color: white; /* צבע הטקסט */
+  background-color: inherit; /* צבע רקע יורש */
+  display: inline-block; /* מאפשר הרחבה לפי תוכן */
+}
+
+.pass-box {
+  background-color: #f59e0b; /* צבע המלבן של ציון עובר */
+}
+
+.current-box {
+  background-color: #3b82f6; /* צבע המלבן של ציון נוכחי */
 }

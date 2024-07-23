@@ -1,128 +1,62 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { CourseService } from 'src/app/service/course.service';
-import { HttpClientModule } from '@angular/common/http'; // ודא שה-HttpClientModule מיובא
-import { Observable } from 'rxjs';
-import { course } from 'src/app/class/Course';
-import { CourseAchievementsService } from 'src/app/service/course-achievements.service';
+import { Component, OnInit } from '@angular/core'; // ייבוא רכיבים מאנגולר
+import { Observable } from 'rxjs'; // ייבוא Observable מאנגולר
+import { course } from 'src/app/class/Course'; // ייבוא מודל קורס
+import { CourseAchievementsService } from 'src/app/service/course-achievements.service'; // ייבוא שירות הישגי קורס
 
 @Component({
-  selector: 'app-achievements',
-  templateUrl: './achievements.component.html',
-  styleUrls: ['./achievements.component.css']
+  selector: 'app-achievements', // שם הבוחר של הקומפוננטה
+  templateUrl: './achievements.component.html', // קובץ ה-HTML של הקומפוננטה
+  styleUrls: ['./achievements.component.css'] // קובץ ה-CSS של הקומפוננטה
 })
-export class AchievementsComponent implements OnInit {
+export class AchievementsComponent implements OnInit { // הגדרת הקומפוננטה ומימוש ממשק OnInit
   courses: course[] = []; // מערך הקורסים
   selectedCourse: course | undefined; // הקורס הנבחר
   userId: number = 4; // מזהה המשתמש
-  //איך אני מקבלת את פרטי המשתמש הנוכחי?
-  currentScore: any = 0; // הציון הנוכחי
-  passScore: any = 0; // ציון עובר
-  courseId:any;
-  mycourse!:course;
-  feedback: string | undefined;
-  feedbacks: {class_id: number, feedback_text: string}[] = []; // רשימת הפידבקים
+  currentScore: number = 0; // הציון הנוכחי
+  passScore: number = 100; // ציון עובר
+  feedbacks: { class_id: number, feedback_text: string }[] = []; // רשימת הפידבקים
   displayedColumns: string[] = ['class_id', 'feedback_text']; // עמודות להצגה בטבלה
-  @ViewChild('myCanvas', { static: true }) myCanvas!: ElementRef<HTMLCanvasElement>; // התייחסות ל-Canvas
+  animationActive: boolean = false; // משתנה לניהול מצב האנימציה
+  isAnimating: boolean = false; // משתנה לניהול מצב האנימציה הנוכחית
+  constructor(private courseAchievementsService: CourseAchievementsService) {} // הזרקת השירות של CourseAchievements
 
-  constructor(private CourseAchievementsService: CourseAchievementsService) {}
-
-  ngOnInit(): void {
+  ngOnInit(): void { // פונקציה המופעלת בעת אתחול הקומפוננטה
     // שליפת כל הקורסים עבור המשתמש הנוכחי
-    
-    this.CourseAchievementsService.getAllCoursesForUser(this.userId).subscribe(data => {
-      this.courses = data;
- 
-       //console.log('Received courses:', data); // הדפסת הנתונים לקונסול
+    this.courseAchievementsService.getAllCoursesForUser(this.userId).subscribe(data => {
+      this.courses = data; // שמירת הקורסים במערך
     });
   }
 
-  getCourseDetails(courseId: number): void {
-    // שליפת פרטי הקורס הנבחר לפי מזהה הקורס
+  getCourseDetails(courseId: number): void { // פונקציה לשליפת פרטי הקורס הנבחר לפי מזהה הקורס
+    this.animationActive = true; // הפעלת האנימציה
+    this.isAnimating = true; // הגדרת מצב אנימציה לפעיל
+    this.courseAchievementsService.GetCourseById(courseId).subscribe((course: course) => {
+      this.selectedCourse = course; // שמירת הקורס הנבחר
+      this.animationActive = true; // הפעלת האנימציה
+      this.currentScore = this.selectedCourse.numberOfViewers; // הגדרת הציון הנוכחי
+      this.passScore = 85; // הגדרת ציון עובר
+      this.feedbacks = [];
+      // קריאה לפונקציה לקבלת כל המשובים
+      this.courseAchievementsService.getFeedbackByUserCourseClass(this.userId, this.selectedCourse.courses_id).subscribe(feedbacks => {
+        this.feedbacks = feedbacks; // שמירת המשובים
+      500});
+                      });
+
    
-    this.CourseAchievementsService.GetCourseById(courseId).subscribe( course=> {
-     // alert("zdxdfcgvhbj"+courseArray[0])
-       this.selectedCourse = course;
-      //alert("zdxdfcgvhbj"+courseArray)
-      
+  }
 
-      // console.log('Type of selectedCourse:', typeof this.selectedCourse); // הדפסת סוג האובייקט לקונסול
-      // console.log(this.selectedCourse); // הדפסת הנתונים לקונסול
-      this.currentScore =this.selectedCourse.numberOfViewers; // הציון הנוכחי
-       //console.log(this.currentScore); // הדפסת הציון לקונסול
-      this.passScore = 100; // הגדרת ציון עובר
-      
-      // console.log('price in selectedCourse', this.currentScore); // הדפסת השדה price לקונסול
-      if (this.myCanvas && this.myCanvas.nativeElement) { // בדיקה אם ה-canvas קיים לפני קריאת הפונקציה
-        this.drawChart(this.selectedCourse); // קריאה לפונקציה לציור הגרף
-      }
-    // טיפול בשגיאה
-
-
-   // קריאה לפונקציה לקבלת כל המשובים
-   this.CourseAchievementsService.getFeedbackByUserCourseClass(this.userId, this.selectedCourse.courses_id).subscribe(feedbacks => {
-    this.feedbacks = feedbacks;
+  getLabelStyle(score: number, isPassScore: boolean = false): { [key: string]: string } {
+    const offset = 5; // מרחק מקצה הדף
+    const maxPosition = 95; // מיקום מקסימלי כדי לא לגעת בקצה השני של הדף
+    let position = score > maxPosition ? maxPosition : score;
+    position = position < offset ? offset : position;
+   
+    return {
+      'right': `${position}%`,
+      'transform': position >= maxPosition ? 'translateX(60%)' : 'translateX(50%)', // הזזת התגית של הציון הנוכחי מעט שמאלה
+      'opacity': this.isAnimating ? '0.5' : '1', // שינוי ה-opacity בהתאם למצב האנימציה
+    };
+  }
   
-    console.log('Feedbacks:', this.feedbacks); // הצגת המשובים בקונסול
-  });
-    });
-  }
-
-  drawChart(course: any): void {
-    // console.log('course data in drawChart', JSON.stringify(course, null, 2)); // הדפסת הנתונים ב-JSON לקונסול
-    // console.log('course price', course.price); // הדפסת השדה mark לקונסול
-    const canvas = this.myCanvas.nativeElement;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) {
-      console.error('Context not found!'); // טיפול בשגיאה אם לא נמצא הקשר לציור
-      return;
-    }
-
-    // Clear previous chart
-    ctx.clearRect(0, 0, canvas.width, canvas.height); // ניקוי הציור הקודם
-
-    // ציור קו עבור currentScore
-    ctx.beginPath();
-    ctx.moveTo(50, canvas.height - this.currentScore);
-    ctx.lineTo(150, canvas.height - this.passScore);
-    ctx.strokeStyle = 'rgba(75, 192, 192, 1)';
-    ctx.lineWidth = 5;
-    ctx.stroke();
-
-    // ציור קו עבור passScore
-    ctx.beginPath();
-    ctx.moveTo(50, canvas.height - this.passScore);
-    ctx.lineTo(150, canvas.height - this.currentScore);
-    ctx.strokeStyle = 'rgba(255, 99, 132, 1)';
-    ctx.lineWidth = 5;
-    ctx.stroke();
-
-    // הוספת תוויות
-    ctx.fillStyle = '#000';
-    ctx.font = '16px Arial';
-    ctx.fillText('Current Score', 160, canvas.height - this.currentScore);
-    ctx.fillText(this.currentScore.toString(), 50, canvas.height - this.currentScore - 10);
-    ctx.fillText('Pass Score', 160, canvas.height - this.passScore);
-    ctx.fillText(this.passScore.toString(), 50, canvas.height - this.passScore - 10);
-  }
-  getAdjustedLabelPosition(score: number, offset: number): number {
-    const adjustedPosition = score + offset;
-    if (adjustedPosition < 0) {
-      return 0;
-    }
-    if (adjustedPosition > 100) {
-      return 100;
-    }
-    return adjustedPosition;
-  }
-
-  getAdjustedCurrentLabelPosition(score: number, offset: number): number {
-    const adjustedPosition = score + offset;
-    if (adjustedPosition < 5) { // בודק אם התגית קרובה מדי לקצה השמאלי
-      return 5;
-    }
-    if (adjustedPosition > 95) { // בודק אם התגית קרובה מדי לקצה הימני
-      return 95;
-    }
-    return adjustedPosition;
-  }
+  
 }

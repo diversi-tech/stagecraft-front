@@ -1,3 +1,51 @@
+<!-- <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="container-fluid">
+    <ul class="navbar-nav">
+      <li class="nav-item" *ngIf="userService.currentUser.name">
+        <span class="nav-link">שלום, {{ userService.currentUser.name }}</span>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="login" *ngIf="!userService.currentUser.name">התחברות</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="courseList">קורסים אונליין</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="myCourse">הקורסים שלי</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="Achievements">הישגים</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="forum">דיונים</a>
+      </li>
+      <li class="nav-item" *ngIf="userService.currentUser.isAdmin">
+        <button mat-button [matMenuTriggerFor]="managementMenu" class="nav-link">מסכי ניהול</button>
+        <mat-menu #managementMenu="matMenu" #belowMenu="matMenu" yPosition="below">
+          <button mat-menu-item routerLink="serchUser">משתמשים</button>
+        <button mat-menu-item routerLink="adminCourse">קורסים</button> -->
+          <!-- <button mat-menu-item routerLink="AdminCourses">קורסי מנהל</button>
+          <button mat-menu-item routerLink="#">משוב</button>
+          <button mat-menu-item routerLink="admin-forum">דיונים</button>
+        </mat-menu>
+     </li>
+      כפתור מעבר למצב נגישות
+      <li class="nav-item">
+        <button (click)="toggleAccessibility()" aria-label="Toggle accessibility mode" class="accessibility-toggle nav-link">
+          מצב נגישות
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="content">
+  <h1>בדיקת מצב נגישות</h1>
+  <p>פסקה זו תשנה סגנון במצב נגישות.</p>
+  <button class="btn btn-primary">לחצן לדוגמה</button>
+  <p>טקסט נוסף לבדיקה</p>
+</div>
+<router-outlet></router-outlet>  --> 
+
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <div class="container-fluid">
     <ul class="navbar-nav">
@@ -29,7 +77,20 @@
           <button mat-menu-item routerLink="admin-forum">דיונים</button>
         </mat-menu>
       </li>
+      <!-- כפתור מעבר למצב נגישות -->
+      <li class="nav-item">
+        <button (click)="toggleAccessibility()" aria-label="Toggle accessibility mode" class="accessibility-toggle nav-link">
+          מצב נגישות
+        </button>
+      </li>
     </ul>
   </div>
 </nav>
+<div class="content">
+  <h1>בדיקת מצב נגישות</h1>
+  <p>פסקה זו תשנה סגנון במצב נגישות.</p>
+  <button class="btn btn-primary">לחצן לדוגמה</button>
+  <p>טקסט נוסף לבדיקה</p>
+</div>
 <router-outlet></router-outlet>
+

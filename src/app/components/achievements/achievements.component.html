@@ -1,61 +1,53 @@
-<div>
-  <h2>Select a Course</h2>
-  <!-- רשימה של קורסים, כל פריט ברשימה קורא לפונקציה openCourseDetails כשנלחץ -->
-  <li *ngFor="let course of courses" (click)="getCourseDetails(course.courses_id)">
-    <!-- הצגת שם הקורס -->
-    {{ course.courses_name }}
-  </li>
-  <ul>
-    <!-- כאן ניתן להוסיף אלמנטים נוספים לרשימה -->
-  </ul>
-</div>
-<p>{{mycourse}}</p>
+<div> <!-- פתיחת תגית ה-div שמכילה את כל התוכן של הקומפוננטה -->
+  <mat-toolbar color="primary"> <!-- סרגל כלים של Angular Material עם צבע ראשי -->
+    <span>Select a Course</span> <!-- טקסט בכותרת סרגל הכלים -->
+  </mat-toolbar>
 
-<!-- Canvas לציור הגרף, מוצג רק אם קורס נבחר -->
-<canvas #myCanvas id="myCanvas" width="300" height="150" *ngIf="selectedCourse"></canvas>
-<div *ngIf="selectedCourse">
-  <!-- כותרת המציגה את ההישגים -->
-  <h3>Achievements</h3>
-  <br><br>
-  <div>
-    <div class="progress-container">
-      <!-- הקו של הציון הנוכחי, נקבע לפי currentScore -->
-      <div class="progress-bar current" [style.width.%]="currentScore"></div>
-      <!-- הקו של ציון העובר, נקבע לפי passScore -->
-      <div class="progress-bar pass" [style.width.%]="passScore"></div>
-      <!-- התגית של הציון הנוכחי -->
-      <span class="progress-label current-label" 
-            [style.right.%]="getAdjustedCurrentLabelPosition(currentScore, -16)">
-        {{ currentScore }}%
-        <span class="progress-text">-ציונך הנוכחי</span>
-      </span>
-      <!-- התגית של ציון העובר -->
-      <span class="progress-label pass-label" 
-            [style.right.%]="getAdjustedLabelPosition(passScore, -12)">
-        {{ passScore }}%
-        <span class="progress-text">-ציון עובר</span>
-      </span>
-    </div>
+  <mat-list> <!-- רשימה של Angular Material להצגת הקורסים -->
+    <mat-list-item *ngFor="let course of courses" (click)="getCourseDetails(course.courses_id)">
+      <!-- פריט ברשימה, שמופעל עבור כל קורס במערך courses. לחיצה על פריט מפעילה את הפונקציה getCourseDetails עם מזהה הקורס -->
+      {{ course.courses_name }} <!-- הצגת שם הקורס -->
+    </mat-list-item>
+  </mat-list>
+
+
+  <div *ngIf="selectedCourse"> <!-- הצגת תוכן זה רק אם נבחר קורס -->
+    <h3>Achievements</h3> <!-- כותרת לחלק ההישגים -->
+    <mat-card> <!-- כרטיס של Angular Material לעיטוף תוכן ההישגים -->
+      <div class="progress-container"> <!-- קונטיינר לסרגלי ההתקדמות -->
+        <mat-progress-bar mode="determinate" [value]="passScore" color="primary" class="progress-bar pass"></mat-progress-bar>
+        <!-- סרגל התקדמות שמייצג את ציון העובר בצבע ראשי -->
+        <mat-progress-bar mode="determinate" [value]="currentScore" color="accent" class="progress-bar current"></mat-progress-bar>
+        <!-- סרגל התקדמות שמייצג את הציון הנוכחי בצבע משני -->
+        <span class="progress-label pass-label" [ngStyle]="getLabelStyle(passScore, true)" [class.animate]="animationActive">
+          <div class="label-box pass-box">
+            {{ passScore }}% - ציון עובר
+          </div>
+        </span>
+        <span class="progress-label current-label" [ngStyle]="getLabelStyle(currentScore)" [class.animate]="animationActive">
+          <div class="label-box current-box">
+            {{ currentScore }}% - ציון נוכחי
+          </div>
+        </span>
+      </div>
+    </mat-card>
+
+    <h2>Admin Feedback</h2> <!-- כותרת לחלק הפידבק מהמנהלים -->
+    <mat-card> <!-- כרטיס של Angular Material לעיטוף תוכן הפידבק -->
+      <table mat-table [dataSource]="feedbacks" class="mat-elevation-z8"> <!-- טבלה עם נתוני הפידבק -->
+        <ng-container matColumnDef="class_id"> <!-- עמודת מזהה הכיתה -->
+          <th mat-header-cell *matHeaderCellDef> Class ID </th> <!-- תא כותרת מזהה הכיתה -->
+          <td mat-cell *matCellDef="let feedback"> {{feedback.class_id}} </td> <!-- תא נתון מזהה הכיתה -->
+        </ng-container>
+
+        <ng-container matColumnDef="feedback_text"> <!-- עמודת טקסט הפידבק -->
+          <th mat-header-cell *matHeaderCellDef> Feedback </th> <!-- תא כותרת טקסט הפידבק -->
+          <td mat-cell *matCellDef="let feedback"> {{feedback.feedback_text}} </td> <!-- תא נתון טקסט הפידבק -->
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> <!-- שורת כותרת -->
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> <!-- שורת נתונים -->
+      </table>
+    </mat-card>
   </div>
-  
-  <h2>Admin Feedback</h2>
-  <div class="feedback-container">
-    <mat-table [dataSource]="feedbacks" class="mat-elevation-z8">
-      <!-- Class ID Column -->
-      <ng-container matColumnDef="class_id">
-        <mat-header-cell *matHeaderCellDef> Class ID </mat-header-cell>
-        <mat-cell *matCellDef="let feedback"> {{feedback.class_id}} </mat-cell>
-      </ng-container>
-
-      <!-- Feedback Text Column -->
-      <ng-container matColumnDef="feedback_text">
-        <mat-header-cell *matHeaderCellDef> Feedback </mat-header-cell>
-        <mat-cell *matCellDef="let feedback"> {{feedback.feedback_text}} </mat-cell>
-      </ng-container>
-
-      <!-- Header and Row Declarations -->
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-    </mat-table>
-  </div>
-</div>
+</div> <!-- סגירת תגית ה-div שמכילה את כל התוכן של הקומפוננטה -->

@@ -34,11 +34,12 @@ import { AdminComponent } from './components/AdminEdit/admin.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
-
+import { MatCardModule } from '@angular/material/card'; // כרטיס
+import { MatProgressBarModule } from '@angular/material/progress-bar'; // סרגל התקדמות
 import { CourseLessonsComponent } from './course-lessons/course-lessons.component';
 import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
 
-
+import { MatListModule } from '@angular/material/list'; // רשימה
 import { MatDialogModule } from '@angular/material/dialog';
 //import { NgxChartsModule } from '@swimlane/ngx-charts';
 
@@ -71,6 +72,7 @@ import { MatDialogModule } from '@angular/material/dialog';
   ],
   imports: [
     BrowserModule,
+    
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
@@ -92,8 +94,10 @@ import { MatDialogModule } from '@angular/material/dialog';
     BrowserAnimationsModule,
     MatTableModule,
     MatToolbarModule,
-    MatIconModule
-
+    MatIconModule,
+    MatCardModule, // ייבוא מודול כרטיס
+    MatProgressBarModule, // ייבוא מודול סרגל התקדמות
+    MatListModule
      
   ],
   providers: [TranscriptionService],

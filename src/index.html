@@ -103,6 +103,20 @@
     .high-contrast .black-text {
       color: #000 !important; /* טקסטים שצריכים להיות שחורים */
     }
+
+    /* סגנון אלמנטים מוגדלים */
+    .zoomed-element {
+      transform: scale(var(--zoom-scale, 1)); /* הגדלת האלמנט לפי קנה המידה שנבחר */
+      transform-origin: center; /* מרכז ההגדלה */
+      transition: transform 0.3s ease; /* מעבר חלק בהגדלה */
+      will-change: transform; /* שיפור ביצועים */
+      margin: 50px; /* ריווח בעת הגדלה */
+    }
+
+    /* סגנון סמן עכבר מוגדל */
+    .zoomed-cursor {
+      cursor: zoom-in; /* סמן עכבר מותאם להגדלה */
+    }
   </style>
 </head>
 <body class="mat-typography">
@@ -120,6 +134,11 @@
     <button onclick="toggleHighContrast(); closeMenu()">Toggle High Contrast</button>
     <!-- כפתור להוספת תגיות ARIA -->
     <button onclick="addAriaLabels(); closeMenu()">Add ARIA Labels</button>
+    <!-- כפתור להגדלת סמן העכבר והאלמנטים -->
+    <button onclick="toggleZoom(); closeMenu()">Toggle Zoom</button>
+    <!-- סרגל לבחירת קנה המידה -->
+    <label for="zoom-scale">Scale:</label>
+    <input type="range" id="zoom-scale" name="zoom-scale" min="1" max="3" step="0.1" value="2" onchange="updateZoomScale(this.value)">
   </div>
 
   <!-- סקריפט ישיר בתוך ה-HTML -->
@@ -172,6 +191,46 @@
         }
       });
       alert('תגיות ARIA נוספו'); // הצגת הודעה למשתמש
+    }
+
+    // משתנה גלובלי לשמירת מצב ההגדלה
+    let zoomEnabled = false;
+
+    // פונקציה להפעלת מצב הגדלה
+    function toggleZoom() {
+      console.log('toggleZoom executed'); // הדפסת הודעה לקונסול
+      zoomEnabled = !zoomEnabled; // שינוי מצב ההגדלה
+      document.body.classList.toggle('zoomed-cursor', zoomEnabled); // הוספה/הסרה של מחלקת 'zoomed-cursor' לגוף הדף
+      if (zoomEnabled) {
+        document.body.addEventListener('mouseover', handleMouseOver); // הוספת אירוע מעבר עכבר
+        document.body.addEventListener('mouseout', handleMouseOut); // הוספת אירוע יציאת עכבר
+      } else {
+        document.body.removeEventListener('mouseover', handleMouseOver); // הסרת אירוע מעבר עכבר
+        document.body.removeEventListener('mouseout', handleMouseOut); // הסרת אירוע יציאת עכבר
+      }
+      alert('מצב הגדלה הופעל/כובה'); // הצגת הודעה למשתמש
+    }
+
+    // פונקציה לעדכון קנה המידה
+    function updateZoomScale(scale) {
+      console.log('updateZoomScale executed with scale:', scale); // הדפסת הודעה לקונסול
+      document.documentElement.style.setProperty('--zoom-scale', scale); // עדכון משתנה CSS עם קנה המידה החדש
+    }
+
+    // פונקציה לטיפול במעבר עכבר על אלמנט
+    function handleMouseOver(event) {
+      const target = event.target; // קבלת האלמנט עליו עובר העכבר
+      if (zoomEnabled) {
+        target.classList.add('zoomed-element'); // הוספת מחלקת 'zoomed-element' לאלמנט
+      }
+    }
+
+    // פונקציה לטיפול ביציאת עכבר מאלמנט
+    function handleMouseOut(event) {
+      const target = event.target; // קבלת האלמנט ממנו יוצא העכבר
+      if (zoomEnabled) {
+        target.classList.remove('zoomed-element'); // הסרת מחלקת 'zoomed-element' מהאלמנט
+      }
     }
   </script>
 </body>

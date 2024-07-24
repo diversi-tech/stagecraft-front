@@ -42,6 +42,8 @@ import { ErrorDialogComponent } from './components/error-dialog/error-dialog.com
 import { MatListModule } from '@angular/material/list'; // רשימה
 import { MatDialogModule } from '@angular/material/dialog';
 import { BuyCoursComponent } from './components/buy-cours/buy-cours.component';
+import { PaymentComponent } from './components/payment/payment.component';
+// import { PaymentComponent } from './components/payment/payment.component';
 //import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 
@@ -71,6 +73,7 @@ import { BuyCoursComponent } from './components/buy-cours/buy-cours.component';
     CourseLessonsComponent,
     ErrorDialogComponent,
     BuyCoursComponent,
+    PaymentComponent,
     
   ],
   imports: [

@@ -11,7 +11,7 @@
             <p class="card-text">{{ course.price }} ש"ח</p>
             <div class="button-container">
               <a [routerLink]="['/course', course.courses_id]" class="btn btn-pink">פרטים</a>
-              <a [routerLink]="['/course', course.courses_id]" class="btn btn-pink">קניה</a>
+              <a [routerLink]="['/buyCours', course.courses_id]" class="btn btn-pink">קניה</a>
             </div>
           </div>
         </div>

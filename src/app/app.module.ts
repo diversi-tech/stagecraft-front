@@ -41,6 +41,7 @@ import { ErrorDialogComponent } from './components/error-dialog/error-dialog.com
 
 import { MatListModule } from '@angular/material/list'; // רשימה
 import { MatDialogModule } from '@angular/material/dialog';
+import { BuyCoursComponent } from './components/buy-cours/buy-cours.component';
 //import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 
@@ -69,6 +70,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     AdminComponent,
     CourseLessonsComponent,
     ErrorDialogComponent,
+    BuyCoursComponent,
+    
   ],
   imports: [
     BrowserModule,

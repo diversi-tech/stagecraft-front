@@ -52,6 +52,7 @@ export class SignupComponent implements OnInit {
           this.router.navigate(['/']);  // ניתוב לקומפוננטת ה-Courses לאחר הצגת ההודעה
         },
         error => {
+          
           this.openErrorDialog('מייל זה כבר קיים במערכת');
         }
       );

@@ -1,32 +1,112 @@
 /* הגדרת מפתח האנימציה */
 .animate-pulse {
-  animation: pulse 1s infinite;
+  animation: pulse 1s infinite; /* אנימציה של הבהוב */
 }
+
 @keyframes pulse {
   0% {
-    opacity: 0.5;
+    opacity: 0.5; /* הבהוב חלש */
   }
   50% {
-    opacity: 1;
+    opacity: 1; /* הבהוב חזק */
   }
   100% {
-    opacity: 1;
+    opacity: 1; /* הבהוב חזק */
   }
 }
-/* .progress-label.animate-pulse {
-  animation: pulse 1s ease-in-out; /* הפעלת האנימציה למשך שניה */
-/* } */ 
 
+/* עיצוב הקונטיינר של הקורסים */
+.courses-container {
+  display: flex; /* הצגת הקורסים בשורה */
+  flex-wrap: wrap; /* אפשר לקורסים לשבור שורה כשאין מקום */
+  justify-content: space-around; /* פיזור הקורסים על פני כל רוחב המסך */
+  margin: 20px 0; /* רווח עליון ותחתון של 20 פיקסלים */
+}
 
+/* עיצוב רשימת הקורסים */
+.course-list {
+  display: flex; /* הצגת הקורסים בשורה */
+  flex-wrap: wrap; /* אפשר לקורסים לשבור שורה כשאין מקום */
+  justify-content: space-around; /* פיזור הקורסים על פני כל רוחב המסך */
+}
+
+/* עיצוב מיכל הקורס */
+.course-item {
+  background-color: #fff; /* צבע רקע לבן */
+  border-radius: 8px; /* פינות מעוגלות */
+  padding: 16px; /* ריפוד פנימי */
+  width: 200px; /* רוחב קבוע של 200 פיקסלים */
+  margin: 10px; /* רווח בין קורסים */
+  position: relative; /* מיקום יחסי עבור הבועות */
+  overflow: hidden; /* הסתרת תכנים היוצאים מהקונטיינר */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* אנימציה של שינוי צבע ורזולוציה */
+}
+
+/* אפקט הגדלה בעת מעבר עכבר */
+.course-item:hover {
+  background-color: #f39c12; /* צבע רקע כתום בעת מעבר עכבר */
+  color: #fff; /* צבע טקסט לבן */
+  transform: scale(1.05); /* הגדלה של 5% */
+}
+
+/* עיצוב שם הקורס */
+.course-name {
+  color: #000; /* צבע טקסט שחור */
+  font-size: 1.2em; /* גודל טקסט של 1.2x מהברירת מחדל */
+  text-align: center; /* יישור מרכזי */
+  transition: text-shadow 0.3s ease-in-out, transform 0.3s ease-in-out; /* אנימציה של הצללה והגדלה */
+}
+
+/* אפקט זורם בעת מעבר עכבר על שם הקורס */
+.course-name:hover {
+  text-shadow: 0 0 10px #e67e22, 0 0 20px #e67e22, 0 0 30px #e67e22; /* זוהר כתום */
+  transform: scale(1.1); /* הגדלת הטקסט ב-10% */
+}
+
+/* עיצוב הבועות */
+.bubble {
+  position: absolute; /* מיקום מוחלט */
+  bottom: -50px; /* ממוקם מתחת לקורס */
+  left: 50%; /* במרכז האופקי של הקורס */
+  width: 10px; /* קוטר של 10 פיקסלים */
+  height: 10px; /* גובה של 10 פיקסלים */
+  background-color: rgba(255, 255, 255, 0.6); /* צבע רקע לבן שקוף */
+  border-radius: 50%; /* צורת עיגול */
+  opacity: 0; /* בהירות אפסית */
+  transition: opacity 0.3s ease; /* אנימציה של בהירות */
+}
+
+/* אפקט הבועות בעת מעבר עכבר */
+.course-item:hover .bubble {
+  opacity: 1; /* הופך את הבועה לגלויה */
+  animation: bubble-animation 2s infinite; /* אנימציה מתמשכת של בועות */
+}
+
+/* אנימציה של בועות */
+@keyframes bubble-animation {
+  0% {
+    transform: translateY(0); /* התחלה מהמצב הנוכחי */
+  }
+  50% {
+    transform: translateY(-100px); /* עלייה ב-100 פיקסלים */
+    opacity: 0; /* בהירות נמוכה */
+  }
+  100% {
+    transform: translateY(0); /* חזרה למצב ההתחלה */
+    opacity: 0; /* בהירות נמוכה */
+  }
+}
+
+/* עיצוב תוכן ההישגים */
 .progress-container {
   position: relative; /* מאפשר מיקום יחסי לתוך הקונטיינר */
-  height: 48px; /* גובה הקונטיינר, הכפלה פי 2 */
+  height: 48px; /* גובה הקונטיינר */
   margin-bottom: 16px; /* רווח תחתון */
 }
 
 .progress-bar {
   width: 100%; /* רוחב מלא של סרגלי ההתקדמות */
-  height: 24px; /* גובה סרגלי ההתקדמות, הכפלה פי 2 */
+  height: 24px; /* גובה סרגלי ההתקדמות */
   position: absolute; /* מיקום מוחלט כדי לאפשר כיסוי אחד של השני */
 }
 
@@ -67,6 +147,7 @@
   color: white; /* צבע הטקסט */
   background-color: inherit; /* צבע רקע יורש */
   display: inline-block; /* מאפשר הרחבה לפי תוכן */
+  border-radius: 4px; /* פינות מעוגלות למלבן */
 }
 
 .pass-box {
@@ -76,16 +157,70 @@
 .current-box {
   background-color: #3b82f6; /* צבע המלבן של ציון נוכחי */
 }
+
 .pass-label.animate-pulse {
   top: -25px; /* מיקום התווית של ציון עובר מעל הסרגל */
   color: #f59e0b; /* צבע התווית של ציון עובר */
   display: flex; /* מאפשר יישור של המלבן והטקסט */
   align-items: center; /* מיישר את המלבן והטקסט למרכז אנכי */
-
 }
 
 .current-label.animate-pulse {
   top: 25px; /* מיקום התווית של ציון נוכחי מתחת לסרגל */
   color: #3b82f6; /* צבע התווית של ציון נוכחי */
+}
 
+/* מרכז את התוכן של ה-div */
+.centered-content {
+  text-align: center; /* מיישר את כל התוכן למרכז */
+  margin: 0 auto; /* מרכז את התוכן בעמוד */
+  max-width: 100%; /* מגביל את הרוחב המקסימלי */
+  overflow: hidden; /* מונע גלילה אופקית */
+}
+
+/* סגנון לכותרת ההישגים */
+.achievements-title {
+  font-size: 2rem; /* גודל גופן גדול יותר */
+  font-weight: bold; /* הפיכת הטקסט ל-bold */
+  color: #3f51b5; /* צבע של כותרת */
+  margin: 1rem 0; /* רווחים מעל ומתחת לכותרת */
+  text-shadow: 0 0 10px rgba(63, 81, 181, 0.6); /* הוספת צל זוהר לכותרת */
+  transition: transform 0.3s ease, color 0.3s ease; /* מעבר חלק בין מצבים */
+}
+
+/* אפקט הגדלה זוהר בעת מעבר עכבר על כותרת ההישגים */
+.achievements-title:hover {
+  transform: scale(1.05); /* הגדלת הטקסט ב-5% */
+  color: #5c6bc0; /* צבע חדש בעת מעבר עכבר */
+  text-shadow: 0 0 15px rgba(63, 81, 181, 0.9); /* הגברת הצל הזוהר */
+}
+
+/* סגנון עבור כותרת הפידבק מהמנהלים */
+.admin-feedback-title {
+  font-size: 1.5rem; /* גודל גופן גדול לפידבק */
+  font-weight: bold; /* הפיכת הטקסט ל-bold */
+  color: #f57c00; /* צבע של כותרת הפידבק */
+  margin: 1rem 0; /* רווחים מעל ומתחת לכותרת */
+  text-shadow: 0 0 8px rgba(245, 124, 0, 0.6); /* הוספת צל זוהר לפידבק */
+  transition: transform 0.3s ease, color 0.3s ease; /* מעבר חלק בין מצבים */
+}
+
+/* אפקט הגדלה זוהר בעת מעבר עכבר על כותרת הפידבק מהמנהלים */
+.admin-feedback-title:hover {
+  transform: scale(1.05); /* הגדלת הטקסט ב-5% */
+  color: #ff5722; /* צבע חדש בעת מעבר עכבר */
+  text-shadow: 0 0 12px rgba(245, 124, 0, 0.9); /* הגברת הצל הזוהר */
+}
+
+/* אפקט מגניב בעת מעבר עכבר על טבלת הפידבקים */
+.mat-table {
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* מעבר חלק בין מצבים */
+  width: 100%; /* מגביל את הרוחב המקסימלי */
+  overflow: hidden; /* מונע גלילה אופקית */
+}
+
+/* אפקט על טבלת הפידבקים */
+.mat-table:hover {
+  transform: scale(1.03); /* הגדלה של 3% */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* צל נוסף בעת מעבר עכבר */
 }

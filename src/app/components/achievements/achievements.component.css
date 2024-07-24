@@ -5,7 +5,7 @@
 
 @keyframes pulse {
   0% {
-    opacity: 0.5; /* הבהוב חלש */
+    opacity: 0.2; /* הבהוב חלש */
   }
   50% {
     opacity: 1; /* הבהוב חזק */

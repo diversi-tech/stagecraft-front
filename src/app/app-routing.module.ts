@@ -18,6 +18,7 @@ import { AdminSearchUserComponent } from './components/admin-search-user/admin-s
 import { AdminComponent } from './components/AdminEdit/admin.component';
 import { CourseLessonsComponent } from './course-lessons/course-lessons.component';
 import { BuyCoursComponent } from './components/buy-cours/buy-cours.component';
+import { PaymentComponent } from './components/payment/payment.component';
 
 const routes: Routes = [
   // {path:"myHome-שם שבחרתי",component:HomeComponentשם המחלקה של הקומפוננטה}
@@ -26,6 +27,7 @@ const routes: Routes = [
 {path:"feedback",component:FeedbackComponent},
 {path:"progressBar",component:progressbarComponent},
 {path:"taskFiles",component:TaskFilesComponent},
+{path:"Payment",component:PaymentComponent},
 {path:"userCourses",component:UserCoursesComponent},
 { path: 'forum', component: ForumComponent },
 { path: 'signup', component: SignupComponent },
@@ -47,6 +49,7 @@ const routes: Routes = [
 // { path: '', component: CourseOverviewComponent },
 { path: 'mewcourse/:id', component: CourseLessonsComponent },
 {path:"buyCours/:id", component:BuyCoursComponent}
+
 ];
 
 @NgModule({

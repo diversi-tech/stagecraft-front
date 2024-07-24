@@ -5,6 +5,9 @@
         <span class="nav-link">שלום, {{ userService.currentUser.name }}</span>
       </li>
       <li class="nav-item">
+        <a class="nav-link" routerLink="Payment" *ngIf="!userService.currentUser.name">Payment</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" routerLink="login" *ngIf="!userService.currentUser.name">התחברות</a>
       </li>
       <li class="nav-item">

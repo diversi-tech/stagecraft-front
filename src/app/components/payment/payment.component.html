@@ -1,23 +1,85 @@
-<div>
-    <h2>Payment</h2>
-    <form (ngSubmit)="onPay()">
-      <div>
-        <label>Card Number</label>
-        <input type="text" [(ngModel)]="cardNumber" name="cardNumber" required>
+<div class="payment-page">
+    <div class="content">
+      <div class="payment-container" [ngClass]="{'hide': showReceipt}">
+        <h2>Payment</h2>
+        <form (ngSubmit)="onPay()" #paymentForm="ngForm" class="form-container">
+          <div class="form-column">
+            <div class="form-field-wrapper" *ngFor="let field of fields.slice(0, 5); let i = index">
+              <label>{{ field.label }}</label>
+              <mat-form-field appearance="fill" class="mat-form-field-custom">
+                <mat-icon matPrefix>{{ field.icon }}</mat-icon>
+                <mat-label>{{ field.label }}</mat-label>
+                <input matInput
+                       [type]="field.type"
+                       [(ngModel)]="field.value"
+                       [name]="field.name"
+                       [required]="field.required"
+                       [minlength]="field.minlength !== undefined ? field.minlength : null"
+                       [maxlength]="field.maxlength !== undefined ? field.maxlength : null"
+                       [attr.pattern]="field.pattern !== undefined ? field.pattern : null"
+                       (input)="updatePreview()"
+                       (mouseenter)="field.showPlaceholder = true"
+                       (mouseleave)="field.showPlaceholder = false"
+                       [placeholder]="field.showPlaceholder ? field.placeholder || '' : ''"
+                       [ngModelOptions]="{standalone: true}">
+                <mat-error *ngIf="field.invalid">{{ field.error }}</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="form-column">
+            <div class="form-field-wrapper" *ngFor="let field of fields.slice(5); let i = index">
+              <label>{{ field.label }}</label>
+              <mat-form-field appearance="fill" class="mat-form-field-custom">
+                <mat-icon matPrefix>{{ field.icon }}</mat-icon>
+                <mat-label>{{ field.label }}</mat-label>
+                <input matInput
+                       [type]="field.type"
+                       [(ngModel)]="field.value"
+                       [name]="field.name"
+                       [required]="field.required"
+                       [minlength]="field.minlength !== undefined ? field.minlength : null"
+                       [maxlength]="field.maxlength !== undefined ? field.maxlength : null"
+                       [attr.pattern]="field.pattern !== undefined ? field.pattern : null"
+                       (input)="updatePreview()"
+                       (mouseenter)="field.showPlaceholder = true"
+                       (mouseleave)="field.showPlaceholder = false"
+                       [placeholder]="field.showPlaceholder ? field.placeholder || '' : ''"
+                       [ngModelOptions]="{standalone: true}">
+                <mat-error *ngIf="field.invalid">{{ field.error }}</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="button-container">
+            <button mat-raised-button color="primary" type="button" (click)="validateForm()" [ngClass]="{'error': showError}">
+              <mat-icon>payment</mat-icon>
+              <span *ngIf="showError">Please fill out the required fields</span>
+              <span *ngIf="!showError">Pay</span>
+            </button>
+            <button mat-raised-button color="primary" type="button" (click)="toggleReceipt()">
+              <mat-icon>receipt</mat-icon> Preview Receipt
+            </button>
+          </div>
+        </form>
       </div>
-      <div>
-        <label>Expiry Date</label>
-        <input type="text" [(ngModel)]="expiryDate" name="expiryDate" required>
+      <div class="receipt-container" [ngClass]="{'show': showReceipt, 'hide': !showReceipt}">
+        <div class="receipt-header">
+          <h2>Receipt</h2>
+        </div>
+        <div class="receipt-content">
+          <div *ngFor="let field of fields" class="receipt-field">
+            <span class="receipt-label">{{ field.label }}:</span> 
+            <span class="receipt-value">{{ field.value }}</span>
+          </div>
+        </div>
+        <div class="receipt-footer">
+          <div class="receipt-logo">
+            <img src="../../../assets/pic/logo.png" alt="Receipt Logo">
+          </div>
+          <div class="receipt-message">
+            <p>Thank you for your payment!</p>
+          </div>
+        </div>
       </div>
-      <div>
-        <label>CVV</label>
-        <input type="text" [(ngModel)]="cvv" name="cvv" required>
-      </div>
-      <div>
-        <label>Amount</label>
-        <input type="number" [(ngModel)]="amount" name="amount" required>
-      </div>
-      <button type="submit">Pay</button>
-    </form>
+    </div>
   </div>
   

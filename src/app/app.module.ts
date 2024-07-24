@@ -45,6 +45,10 @@ import { BuyCoursComponent } from './components/buy-cours/buy-cours.component';
 import { PaymentComponent } from './components/payment/payment.component';
 // import { PaymentComponent } from './components/payment/payment.component';
 //import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { PaymentSuccessDialogComponent } from './components/payment-success-dialog/payment-success-dialog.component';
+
 
 
 @NgModule({
@@ -74,6 +78,8 @@ import { PaymentComponent } from './components/payment/payment.component';
     ErrorDialogComponent,
     BuyCoursComponent,
     PaymentComponent,
+    PaymentSuccessDialogComponent
+  
     
   ],
   imports: [
@@ -103,7 +109,9 @@ import { PaymentComponent } from './components/payment/payment.component';
     MatIconModule,
     MatCardModule, // ייבוא מודול כרטיס
     MatProgressBarModule, // ייבוא מודול סרגל התקדמות
-    MatListModule
+    MatListModule,
+    MatFormFieldModule,  
+       MatInputModule,
      
   ],
   providers: [TranscriptionService],

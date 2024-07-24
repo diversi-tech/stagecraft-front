@@ -1,15 +1,22 @@
 /* הגדרת מפתח האנימציה */
+.animate-pulse {
+  animation: pulse 1s infinite;
+}
 @keyframes pulse {
   0% {
-    opacity: 1;
+    opacity: 0.5;
   }
   50% {
-    opacity: 0.5;
+    opacity: 1;
   }
   100% {
     opacity: 1;
   }
 }
+/* .progress-label.animate-pulse {
+  animation: pulse 1s ease-in-out; /* הפעלת האנימציה למשך שניה */
+/* } */ 
+
 
 .progress-container {
   position: relative; /* מאפשר מיקום יחסי לתוך הקונטיינר */
@@ -68,4 +75,17 @@
 
 .current-box {
   background-color: #3b82f6; /* צבע המלבן של ציון נוכחי */
+}
+.pass-label.animate-pulse {
+  top: -25px; /* מיקום התווית של ציון עובר מעל הסרגל */
+  color: #f59e0b; /* צבע התווית של ציון עובר */
+  display: flex; /* מאפשר יישור של המלבן והטקסט */
+  align-items: center; /* מיישר את המלבן והטקסט למרכז אנכי */
+
+}
+
+.current-label.animate-pulse {
+  top: 25px; /* מיקום התווית של ציון נוכחי מתחת לסרגל */
+  color: #3b82f6; /* צבע התווית של ציון נוכחי */
+
 }

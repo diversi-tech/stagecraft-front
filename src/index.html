@@ -59,13 +59,15 @@
       border-radius: 5px; /* פינות מעוגלות */
       cursor: pointer; /* סמן יד */
       transition: background-color 0.3s ease; /* מעבר צבע רקע */
+      display: flex; /* תצוגה גמישה */
+      align-items: center; /* יישור לרוחב */
+      gap: 8px; /* ריווח בין אייקון לטקסט */
     }
 
     button:hover {
       background-color: #3851f5; /* צבע רקע בזמן ריחוף */
     }
 
-    /* מצב ניגודיות גבוהה */
     .high-contrast {
       background-color: #000 !important; /* צבע רקע שחור */
       color: #fff !important; /* צבע טקסט לבן */
@@ -118,8 +120,12 @@
   
   <!-- תפריט נגישות -->
   <div id="accessibility-menu" class="hidden">
-    <button onclick="toggleHighContrast(); closeMenu()">Toggle High Contrast</button> <!-- כפתור ניגודיות גבוהה -->
-    <button onclick="addAriaLabels(); closeMenu()">Add ARIA Labels</button> <!-- כפתור הוספת תגיות ARIA -->
+    <button onclick="toggleHighContrast(); closeMenu()">
+      <span class="material-icons">contrast</span> ניגודיות גבוהה
+    </button> <!-- כפתור ניגודיות גבוהה -->
+    <button onclick="addAriaLabels(); closeMenu()">
+      <span class="material-icons">accessible</span> הוספת תגיות ARIA
+    </button> <!-- כפתור הוספת תגיות ARIA -->
     <label for="cursor-size">גודל סמן:</label> <!-- תווית גודל סמן -->
     <select id="cursor-size" onchange="updateCursor()"> <!-- בחירת גודל סמן -->
       <option value="default">רגיל</option>
@@ -135,12 +141,20 @@
     </select>
     <label for="cursor-color">צבע סמן:</label> <!-- תווית צבע סמן -->
     <input type="color" id="cursor-color" onchange="updateCursor()"> <!-- בחירת צבע סמן -->
-    <button onclick="activateTextReader()">קורא טקסט</button> <!-- כפתור קורא טקסט -->
-    <button onclick="increaseFontSize()">הגדלת פונט</button> <!-- כפתור הגדלת פונט -->
+    <button onclick="activateTextReader()">
+      <span class="material-icons">record_voice_over</span> קורא טקסט
+    </button> <!-- כפתור קורא טקסט -->
+    <button onclick="increaseFontSize()">
+      <span class="material-icons">text_fields</span> הגדלת פונט
+    </button> <!-- כפתור הגדלת פונט -->
     <label for="font-size">גודל פונט לכותרות:</label> <!-- תווית סרגל גודל פונט -->
     <input type="range" id="font-size" name="font-size" min="1" max="3" step="0.1" value="1.5" onchange="updateFontSize(this.value)"> <!-- סרגל גודל פונט -->
-    <button onclick="highlightHeadings()">הדגשת כותרות</button> <!-- כפתור הדגשת כותרות -->
-    <button onclick="resetAccessibility()">איפוס</button> <!-- כפתור איפוס -->
+    <button onclick="highlightHeadings()">
+      <span class="material-icons">highlight</span> הדגשת כותרות
+    </button> <!-- כפתור הדגשת כותרות -->
+    <button onclick="resetAccessibility()">
+      <span class="material-icons">refresh</span> איפוס
+    </button> <!-- כפתור איפוס -->
   </div>
 
   <script>

@@ -48,7 +48,7 @@ export class CourseAchievementsService {
   }
 
   GetCourseById(courseId: number): Observable<course>{
-    debugger
+    
    // console.log(`Calling API: ${this.apiUrl}GetCourseById/${courseId}`);
    return this.http.get<course>(`${this.apiUrl}Courses/GetCourseById/${courseId}`);
 

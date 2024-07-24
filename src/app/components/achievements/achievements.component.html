@@ -10,7 +10,6 @@
     </mat-list-item>
   </mat-list>
 
-
   <div *ngIf="selectedCourse"> <!-- הצגת תוכן זה רק אם נבחר קורס -->
     <h3>Achievements</h3> <!-- כותרת לחלק ההישגים -->
     <mat-card> <!-- כרטיס של Angular Material לעיטוף תוכן ההישגים -->
@@ -19,12 +18,14 @@
         <!-- סרגל התקדמות שמייצג את ציון העובר בצבע ראשי -->
         <mat-progress-bar mode="determinate" [value]="currentScore" color="accent" class="progress-bar current"></mat-progress-bar>
         <!-- סרגל התקדמות שמייצג את הציון הנוכחי בצבע משני -->
-        <span class="progress-label pass-label" [ngStyle]="getLabelStyle(passScore, true)" [class.animate]="animationActive">
+        <span class="progress-label pass-label" [ngStyle]="getLabelStyle(passScore, true)" [class.animate-pulse]="animationActive">
+          <!-- תווית לציון עובר -->
           <div class="label-box pass-box">
             {{ passScore }}% - ציון עובר
           </div>
         </span>
-        <span class="progress-label current-label" [ngStyle]="getLabelStyle(currentScore)" [class.animate]="animationActive">
+        <span class="progress-label current-label" [ngStyle]="getLabelStyle(currentScore)" [class.animate-pulse]="animationActive">
+          <!-- תווית לציון נוכחי -->
           <div class="label-box current-box">
             {{ currentScore }}% - ציון נוכחי
           </div>

@@ -50,10 +50,12 @@
             </div>
           </div>
           <div class="button-container">
+            <div *ngIf="showError" class="error-message">
+              Please fill out the required fields
+            </div>
             <button mat-raised-button color="primary" type="button" (click)="validateForm()" [ngClass]="{'error': showError}">
               <mat-icon>payment</mat-icon>
-              <span *ngIf="showError">Please fill out the required fields</span>
-              <span *ngIf="!showError">Pay</span>
+              Pay
             </button>
             <button mat-raised-button color="primary" type="button" (click)="toggleReceipt()">
               <mat-icon>receipt</mat-icon> Preview Receipt

@@ -38,7 +38,6 @@ export class PaymentComponent implements OnInit {
     { label: 'CVV', type: 'text', value: '', name: 'cvv', required: true, placeholder: 'Enter your CVV', minlength: 3, maxlength: 3, showPlaceholder: false, icon: 'lock' },
     { label: 'Amount', type: 'text', value: '', name: 'amount', required: true, placeholder: 'Enter the amount', showPlaceholder: false, icon: 'attach_money' }
   ];
-
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void { }

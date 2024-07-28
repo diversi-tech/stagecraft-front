@@ -25,6 +25,7 @@ export class CourseOverviewComponent implements OnInit  {
   ) {}
 
   ngOnInit() {
+    debugger
     this.courseService.getCoursesForUser(this.userId).subscribe(
       (courses) => {
         this.userCourses = courses;

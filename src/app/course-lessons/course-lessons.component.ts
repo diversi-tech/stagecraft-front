@@ -149,6 +149,8 @@ import { ActivatedRoute } from '@angular/router';
 import { HomePageService } from 'src/app/service/home-page.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Router } from '@angular/router';
+import { userService } from '../service/user .service';
+import { UserService } from '../service/login.service';
 
 @Component({
   selector: 'app-course-lessons',
@@ -157,16 +159,12 @@ import { Router } from '@angular/router';
   animations: [
     trigger('expandCollapse', [
       state('collapsed', style({
-        
-        
-height: '0px',
+        height: '0px',
         overflow: 'hidden',
         opacity: 0
       })),
       state('expanded', style({
-        
-        
-height: '*',
+        height: '*',
         opacity: 1
       })),
       transition('collapsed <=> expanded', [
@@ -177,16 +175,16 @@ height: '*',
 })
 export class CourseLessonsComponent implements OnInit {
   courseId: number = 0;
-  
- 
-courseName: string = '';
+  userId: number = 0; // הוספת userId
+  courseName: string = '';
   lessons: any[] = [];
   selectedVideoUrl: string = '';
   selectedLessonIndex: number = -1;
-  
-selectedLessonTitle: string = '';
+  selectedLessonTitle: string = '';
 
   constructor(
+    private userService: UserService,
+   
     private route: ActivatedRoute,
     private homePageService: HomePageService,
     private router: Router
@@ -194,10 +192,14 @@ selectedLessonTitle: string = '';
   ) {}
 
   ngOnInit() {
-    
- 
-this.courseId = +this.route.snapshot.paramMap.get('id')!;
-    const course = this.homePageService.listCourse.find(c => c.courses_id === this.courseId);
+    console.log('ngOnInit called in CourseLessonsComponent');
+ this.userId=this.userService.currentUser.code??0;
+ console.log('userId:', this.userId);
+
+ debugger
+ this.courseId = +this.route.snapshot.paramMap.get('id')!;
+ console.log('courseId:', this.courseId);
+ const course = this.homePageService.listCourse.find(c => c.courses_id === this.courseId);
     if (course) {
       this.courseName = course.courses_name;
     }

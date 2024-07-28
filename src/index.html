@@ -13,36 +13,36 @@
     /* CSS מוטמע לתפריט נגישות וכפתור */
     /* סגנון לכפתור הנגישות */
     #accessibility-btn {
-      position: fixed; /* קיבוע הכפתור */
-      bottom: 20px; /* מיקום הכפתור 20 פיקסלים מהתחתית */
-      left: 20px; /* מיקום הכפתור 20 פיקסלים מהשמאל */
-      background-color: #000; /* צבע רקע שחור לכפתור */
+      position: fixed; /* מיקום קבוע של הכפתור */
+      bottom: 20px; /* מרחק של 20 פיקסלים מהתחתית */
+      left: 20px; /* מרחק של 20 פיקסלים מהשמאל */
+      background-color: #000; /* צבע רקע שחור */
       border: none; /* ללא גבול */
       border-radius: 50%; /* פינות מעוגלות */
-      width: 50px; /* רוחב הכפתור */
-      height: 50px; /* גובה הכפתור */
+      width: 50px; /* רוחב של 50 פיקסלים */
+      height: 50px; /* גובה של 50 פיקסלים */
       cursor: pointer; /* סמן יד */
-      z-index: 1000; /* קידמת השכבות */
+      z-index: 1000; /* קידמת שכבה גבוהה */
     }
 
     #accessibility-btn img {
-      width: 100%; /* רוחב תמונה */
-      height: 100%; /* גובה תמונה */
+      width: 100%; /* רוחב תמונה 100% */
+      height: 100%; /* גובה תמונה 100% */
     }
 
     /* סגנון לתפריט הנגישות */
     #accessibility-menu {
-      position: fixed; /* קיבוע התפריט */
-      bottom: 80px; /* מיקום התפריט 80 פיקסלים מהתחתית */
-      left: 20px; /* מיקום התפריט 20 פיקסלים מהשמאל */
+      position: fixed; /* מיקום קבוע של התפריט */
+      bottom: 80px; /* מרחק של 80 פיקסלים מהתחתית */
+      left: 20px; /* מרחק של 20 פיקסלים מהשמאל */
       background-color: #fff; /* צבע רקע לבן */
       border: 1px solid #000; /* גבול שחור */
       border-radius: 5px; /* פינות מעוגלות */
-      padding: 10px; /* ריווח פנימי */
+      padding: 10px; /* ריווח פנימי של 10 פיקסלים */
       display: none; /* הסתרת התפריט */
-      flex-direction: column; /* כיוון מיקום אלמנטים אנכית */
-      gap: 10px; /* מרווח בין אלמנטים */
-      z-index: 1000; /* קידמת השכבות */
+      flex-direction: column; /* כיוון תצוגה של התפריט */
+      gap: 10px; /* ריווח בין אלמנטים */
+      z-index: 1000; /* קידמת שכבה גבוהה */
       box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* הצללה */
     }
 
@@ -51,21 +51,23 @@
     }
 
     button {
-      padding: 10px; /* ריווח פנימי */
-      font-size: 16px; /* גודל גופן */
-      background-color: #3f51b5; /* צבע רקע לכפתור */
-      color: #fff; /* צבע טקסט לכפתור */
+      padding: 10px; /* ריווח פנימי של 10 פיקסלים */
+      font-size: 16px; /* גודל גופן 16 פיקסלים */
+      background-color: #3f51b5; /* צבע רקע כחול */
+      color: #fff; /* צבע טקסט לבן */
       border: none; /* ללא גבול */
       border-radius: 5px; /* פינות מעוגלות */
       cursor: pointer; /* סמן יד */
       transition: background-color 0.3s ease; /* מעבר צבע רקע */
+      display: flex; /* תצוגה גמישה */
+      align-items: center; /* יישור לרוחב */
+      gap: 8px; /* ריווח בין אייקון לטקסט */
     }
 
     button:hover {
-      background-color: #3851f5; /* צבע רקע בכפתור בזמן ריחוף */
+      background-color: #3851f5; /* צבע רקע בזמן ריחוף */
     }
 
-    /* מצב ניגודיות גבוהה */
     .high-contrast {
       background-color: #000 !important; /* צבע רקע שחור */
       color: #fff !important; /* צבע טקסט לבן */
@@ -78,159 +80,229 @@
     .high-contrast p {
       color: #fff !important; /* צבע טקסט לבן */
       background-color: #000 !important; /* צבע רקע שחור */
-      font-size: 1.25em !important; /* גודל טקסט */
+      font-size: 1.25em !important; /* גודל טקסט מוגדל */
       padding: 10px !important; /* ריווח פנימי */
       border: 2px solid #fff !important; /* גבול לבן */
     }
 
     .high-contrast .nav-link {
       color: #ff0 !important; /* צבע טקסט צהוב */
-      font-size: 1.25em !important; /* גודל טקסט */
+      font-size: 1.25em !important; /* גודל טקסט מוגדל */
     }
 
     .high-contrast .btn-primary {
       background-color: #ff0 !important; /* צבע רקע צהוב */
       color: #000 !important; /* צבע טקסט שחור */
-      font-size: 1.25em !important; /* גודל טקסט */
+      font-size: 1.25em !important; /* גודל טקסט מוגדל */
       padding: 15px 30px !important; /* ריווח פנימי */
     }
 
-    /* החלפת טקסט שחור ללבן במצב ניגודיות גבוהה */
     .high-contrast * {
-      color: #fff !important; /* צבע טקסט לבן לכל האלמנטים */
+      color: #fff !important; /* צבע טקסט לבן */
     }
 
     .high-contrast .black-text {
-      color: #000 !important; /* טקסטים שצריכים להיות שחורים */
-    }
-
-    /* סגנון אלמנטים מוגדלים */
-    .zoomed-element {
-      transform: scale(var(--zoom-scale, 1)); /* הגדלת האלמנט לפי קנה המידה שנבחר */
-      transform-origin: center; /* מרכז ההגדלה */
-      transition: transform 0.3s ease; /* מעבר חלק בהגדלה */
-      will-change: transform; /* שיפור ביצועים */
-      margin: 50px; /* ריווח בעת הגדלה */
-    }
-
-    /* סגנון סמן עכבר מוגדל */
-    .zoomed-cursor {
-      cursor: zoom-in; /* סמן עכבר מותאם להגדלה */
+      color: #000 !important; /* טקסט שחור */
     }
   </style>
 </head>
 <body class="mat-typography">
-  <app-root></app-root>
+  <div class="zoom-container">
+    <div class="zoom-content">
+      <app-root></app-root> <!-- רכיב האפליקציה הראשי -->
+    </div>
+  </div>
 
   <!-- כפתור נגישות -->
   <button id="accessibility-btn" aria-label="Toggle accessibility options" onclick="toggleAccessibilityMenu()">
-    <!-- אייקון של כיסא גלגלים -->
-    <img src="assets/pic/נגישות.jpg" alt="Accessibility Icon">
+    <img src="assets/pic/נגישות.jpg" alt="Accessibility Icon"> <!-- תמונת אייקון נגישות -->
   </button>
   
   <!-- תפריט נגישות -->
   <div id="accessibility-menu" class="hidden">
-    <!-- כפתור להפעלת מצב ניגודיות גבוהה -->
-    <button onclick="toggleHighContrast(); closeMenu()">Toggle High Contrast</button>
-    <!-- כפתור להוספת תגיות ARIA -->
-    <button onclick="addAriaLabels(); closeMenu()">Add ARIA Labels</button>
-    <!-- כפתור להגדלת סמן העכבר והאלמנטים -->
-    <button onclick="toggleZoom(); closeMenu()">Toggle Zoom</button>
-    <!-- סרגל לבחירת קנה המידה -->
-    <label for="zoom-scale">Scale:</label>
-    <input type="range" id="zoom-scale" name="zoom-scale" min="1" max="3" step="0.1" value="2" onchange="updateZoomScale(this.value)">
+    <button onclick="toggleHighContrast(); closeMenu()">
+      <span class="material-icons">contrast</span> ניגודיות גבוהה
+    </button> <!-- כפתור ניגודיות גבוהה -->
+    <button onclick="addAriaLabels(); closeMenu()">
+      <span class="material-icons">accessible</span> הוספת תגיות ARIA
+    </button> <!-- כפתור הוספת תגיות ARIA -->
+    <label for="cursor-size">גודל סמן:</label> <!-- תווית גודל סמן -->
+    <select id="cursor-size" onchange="updateCursor()"> <!-- בחירת גודל סמן -->
+      <option value="default">רגיל</option>
+      <option value="large">גדול</option>
+    </select>
+    <label for="cursor-shape">צורת סמן:</label> <!-- תווית צורת סמן -->
+    <select id="cursor-shape" onchange="updateCursor()"> <!-- בחירת צורת סמן -->
+      <option value="default">רגיל</option>
+      <option value="arrow">חץ</option>
+      <option value="star">כוכב</option>
+      <option value="heart">לב</option>
+      <option value="diamond">יהלום</option>
+    </select>
+    <label for="cursor-color">צבע סמן:</label> <!-- תווית צבע סמן -->
+    <input type="color" id="cursor-color" onchange="updateCursor()"> <!-- בחירת צבע סמן -->
+    <button onclick="activateTextReader()">
+      <span class="material-icons">record_voice_over</span> קורא טקסט
+    </button> <!-- כפתור קורא טקסט -->
+    <button onclick="increaseFontSize()">
+      <span class="material-icons">text_fields</span> הגדלת פונט
+    </button> <!-- כפתור הגדלת פונט -->
+    <label for="font-size">גודל פונט לכותרות:</label> <!-- תווית סרגל גודל פונט -->
+    <input type="range" id="font-size" name="font-size" min="1" max="3" step="0.1" value="1.5" onchange="updateFontSize(this.value)"> <!-- סרגל גודל פונט -->
+    <button onclick="highlightHeadings()">
+      <span class="material-icons">highlight</span> הדגשת כותרות
+    </button> <!-- כפתור הדגשת כותרות -->
+    <button onclick="resetAccessibility()">
+      <span class="material-icons">refresh</span> איפוס
+    </button> <!-- כפתור איפוס -->
   </div>
 
-  <!-- סקריפט ישיר בתוך ה-HTML -->
   <script>
-    // פונקציה לפתיחת תפריט הנגישות
     function toggleAccessibilityMenu() {
-      console.log('toggleAccessibilityMenu executed'); // הדפסת הודעה לקונסול
-      const menu = document.getElementById('accessibility-menu'); // בחירת תפריט הנגישות
+      const menu = document.getElementById('accessibility-menu'); // בחירת התפריט לפי ID
       if (menu) {
-        console.log('Menu found:', menu); // הדפסת הודעה עם התפריט שנמצא
-        if (menu.classList.contains('hidden')) { // בדיקה אם התפריט מוסתר
-          menu.classList.remove('hidden'); // הסרת מחלקת 'hidden' כדי להציג את התפריט
-          menu.style.display = 'flex'; // הגדרת תצוגה כ-flex
-          console.log('Menu shown');
+        if (menu.classList.contains('hidden')) { // בדיקת אם התפריט מוסתר
+          menu.classList.remove('hidden'); // הסרת מחלקת הסתרה
+          menu.style.display = 'flex'; // הצגת התפריט
         } else {
-          menu.classList.add('hidden'); // הוספת מחלקת 'hidden' כדי להסתיר את התפריט
+          menu.classList.add('hidden'); // הוספת מחלקת הסתרה
           menu.style.display = 'none'; // הסתרת התפריט
-          console.log('Menu hidden');
         }
-        console.log('Menu class list:', menu.classList); // הדפסת רשימת המחלקות של התפריט לקונסול
       }
     }
 
-    // פונקציה לסגירת תפריט הנגישות
     function closeMenu() {
-      const menu = document.getElementById('accessibility-menu'); // בחירת תפריט הנגישות
+      const menu = document.getElementById('accessibility-menu'); // בחירת התפריט לפי ID
       if (menu) {
-        menu.classList.add('hidden'); // הוספת מחלקת 'hidden' כדי להסתיר את התפריט
+        menu.classList.add('hidden'); // הוספת מחלקת הסתרה
         menu.style.display = 'none'; // הסתרת התפריט
-        console.log('Menu hidden by closeMenu');
       }
     }
 
-    // פונקציה להפעלת מצב ניגודיות גבוהה
     function toggleHighContrast() {
-      console.log('toggleHighContrast executed'); // הדפסת הודעה לקונסול
-      document.body.classList.toggle('high-contrast'); // הוספה/הסרה של מחלקת 'high-contrast' לגוף הדף
-      alert('עברת למצב ניגודיות גבוהה'); // הצגת הודעה למשתמש
+      document.body.classList.toggle('high-contrast'); // החלפת מצב ניגודיות גבוהה
+      alert('עברת למצב ניגודיות גבוהה'); // הודעה למשתמש
     }
 
-    // פונקציה להוספת תגיות ARIA
     function addAriaLabels() {
-      console.log('addAriaLabels executed'); // הדפסת הודעה לקונסול
-      const navLinks = document.querySelectorAll('.nav-link'); // בחירת כל הקישורים בתפריט
+      const navLinks = document.querySelectorAll('.nav-link'); // בחירת כל הקישורים עם מחלקת nav-link
       navLinks.forEach(link => {
         const textContent = link.textContent; // קבלת תוכן הטקסט של הקישור
         if (textContent) {
           link.setAttribute('aria-label', textContent); // הוספת תגית ARIA עם תוכן הטקסט
-          console.log('ARIA label added to link:', textContent); // הדפסת הודעה עם תגית ה-ARIA שנוספה
         }
       });
-      alert('תגיות ARIA נוספו'); // הצגת הודעה למשתמש
+      alert('תגיות ARIA נוספו'); // הודעה למשתמש
     }
 
-    // משתנה גלובלי לשמירת מצב ההגדלה
-    let zoomEnabled = false;
+    function updateCursor() {
+      const cursorShape = document.getElementById('cursor-shape').value;
+      const cursorColor = document.getElementById('cursor-color').value || 'black';
+      const cursorSize = document.getElementById('cursor-size').value;
+      const cursorUrl = createCursor(cursorShape, cursorColor, cursorSize);
+      document.body.style.cursor = cursorUrl;
+    }
 
-    // פונקציה להפעלת מצב הגדלה
-    function toggleZoom() {
-      console.log('toggleZoom executed'); // הדפסת הודעה לקונסול
-      zoomEnabled = !zoomEnabled; // שינוי מצב ההגדלה
-      document.body.classList.toggle('zoomed-cursor', zoomEnabled); // הוספה/הסרה של מחלקת 'zoomed-cursor' לגוף הדף
-      if (zoomEnabled) {
-        document.body.addEventListener('mouseover', handleMouseOver); // הוספת אירוע מעבר עכבר
-        document.body.addEventListener('mouseout', handleMouseOut); // הוספת אירוע יציאת עכבר
+    function createCursor(shape, color, size) {
+      const sizeValue = size === 'large' ? 48 : 32;
+      let svg;
+      switch (shape) {
+        case 'arrow':
+          svg = `<svg xmlns="http://www.w3.org/2000/svg" height="${sizeValue}" width="${sizeValue}"><polygon points="0,0 0,${sizeValue} ${sizeValue / 2},${sizeValue / 2}" fill="${color}"/></svg>`;
+          break;
+        case 'star':
+          svg = `<svg xmlns="http://www.w3.org/2000/svg" height="${sizeValue}" width="${sizeValue}"><polygon points="${sizeValue / 2},0 ${sizeValue * 0.625},${sizeValue / 3.2} ${sizeValue},${sizeValue * 0.375} ${sizeValue * 0.6875},${sizeValue * 0.5625} ${sizeValue * 0.75},${sizeValue} ${sizeValue / 2},${sizeValue * 0.71875} ${sizeValue * 0.25},${sizeValue} ${sizeValue * 0.3125},${sizeValue * 0.5625} 0,${sizeValue * 0.375} ${sizeValue * 0.375},${sizeValue / 3.2}" fill="${color}"/></svg>`;
+          break;
+        case 'heart':
+          svg = `<svg xmlns="http://www.w3.org/2000/svg" height="${sizeValue}" width="${sizeValue}" viewBox="0 0 32 32"><path d="M16 29S3 20 3 10c0-3.866 3.134-7 7-7 2.486 0 4.66 1.184 6 3.021C18.34 4.184 20.514 3 23 3c3.866 0 7 3.134 7 7 0 10-13 19-13 19z" fill="${color}"/></svg>`;
+          break;
+        case 'diamond':
+          svg = `<svg xmlns="http://www.w3.org/2000/svg" height="${sizeValue}" width="${sizeValue}"><polygon points="${sizeValue / 2},0 ${sizeValue},${sizeValue / 2} ${sizeValue / 2},${sizeValue} 0,${sizeValue / 2}" fill="${color}"/></svg>`;
+          break;
+        case 'large':
+          svg = `<svg xmlns="http://www.w3.org/2000/svg" height="48" width="48"><circle cx="24" cy="24" r="24" fill="${color}"/></svg>`;
+          break;
+        case 'default':
+        default:
+          svg = `<svg xmlns="http://www.w3.org/2000/svg" height="32" width="32"><circle cx="16" cy="16" r="16" fill="${color}"/></svg>`;
+          break;
+      }
+      return `url('data:image/svg+xml;utf8,${encodeURIComponent(svg)}'), auto`;
+    }
+
+    let textReaderActive = false; // משתנה לבדיקת מצב קורא טקסט
+
+    function activateTextReader() {
+      if (!textReaderActive) {
+        document.addEventListener('mouseover', handleMouseOver); // הוספת מאזין לאירוע mouseover
+        textReaderActive = true; // עדכון מצב קורא טקסט לפועל
+        const welcomeMessage = new SpeechSynthesisUtterance('שלום, אני קורא הטקסט שלך. הזז את העכבר כדי שאקרא בשבילך.'); // הודעת ברוך הבא
+        window.speechSynthesis.speak(welcomeMessage); // הפעלת הודעת ברוך הבא
       } else {
-        document.body.removeEventListener('mouseover', handleMouseOver); // הסרת אירוע מעבר עכבר
-        document.body.removeEventListener('mouseout', handleMouseOut); // הסרת אירוע יציאת עכבר
+        document.removeEventListener('mouseover', handleMouseOver); // הסרת מאזין לאירוע mouseover
+        textReaderActive = false; // עדכון מצב קורא טקסט למכובה
+        window.speechSynthesis.cancel(); // ביטול קריאה קודמת
+        alert('קורא טקסט כובה'); // הודעה למשתמש
       }
-      alert('מצב הגדלה הופעל/כובה'); // הצגת הודעה למשתמש
     }
 
-    // פונקציה לעדכון קנה המידה
-    function updateZoomScale(scale) {
-      console.log('updateZoomScale executed with scale:', scale); // הדפסת הודעה לקונסול
-      document.documentElement.style.setProperty('--zoom-scale', scale); // עדכון משתנה CSS עם קנה המידה החדש
-    }
-
-    // פונקציה לטיפול במעבר עכבר על אלמנט
     function handleMouseOver(event) {
-      const target = event.target; // קבלת האלמנט עליו עובר העכבר
-      if (zoomEnabled) {
-        target.classList.add('zoomed-element'); // הוספת מחלקת 'zoomed-element' לאלמנט
+      const target = event.target; // קבלת אלמנט היעד
+      if (target) {
+        const textToRead = target.innerText || target.alt; // קבלת הטקסט לקריאה
+        if (textToRead) {
+          const speech = new SpeechSynthesisUtterance(textToRead); // יצירת אובייקט קריאה
+          window.speechSynthesis.cancel(); // ביטול קריאה קודמת לפני התחלת קריאה חדשה
+          window.speechSynthesis.speak(speech); // התחלת קריאת הטקסט
+        }
       }
     }
 
-    // פונקציה לטיפול ביציאת עכבר מאלמנט
-    function handleMouseOut(event) {
-      const target = event.target; // קבלת האלמנט ממנו יוצא העכבר
-      if (zoomEnabled) {
-        target.classList.remove('zoomed-element'); // הסרת מחלקת 'zoomed-element' מהאלמנט
+    function increaseFontSize() {
+      document.body.style.fontSize = 'larger'; // הגדלת גודל הפונט
+      alert('הפונט הוגדל'); // הודעה למשתמש
+    }
+
+    function updateFontSize(size) {
+      const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6'); // בחירת כל הכותרות
+      headings.forEach(heading => {
+        heading.style.fontSize = `${size}em`; // עדכון גודל הפונט של הכותרות
+      });
+    }
+
+    function highlightHeadings() {
+      const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6'); // בחירת כל הכותרות
+      headings.forEach(heading => {
+        heading.style.backgroundColor = 'yellow'; // הדגשת כותרות בצבע צהוב
+      });
+      alert('הכותרות הודגשו'); // הודעה למשתמש
+    }
+
+    function resetAccessibility() {
+      // איפוס מצב ניגודיות גבוהה
+      document.body.classList.remove('high-contrast');
+
+      // איפוס הגדלת פונט
+      document.body.style.fontSize = '';
+
+      // איפוס הדגשת כותרות והגדרת גודל הכותרות
+      const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+      headings.forEach(heading => {
+        heading.style.backgroundColor = '';
+        heading.style.fontSize = '';
+      });
+
+      // ביטול קורא טקסט
+      window.speechSynthesis.cancel();
+      if (textReaderActive) {
+        document.removeEventListener('mouseover', handleMouseOver);
+        textReaderActive = false;
       }
+
+      // איפוס סמן
+      document.body.style.cursor = ''; // איפוס הסמן לברירת מחדל
+
+      alert('כל הגדרות הנגישות אופסו'); // הודעה למשתמש
     }
   </script>
 </body>

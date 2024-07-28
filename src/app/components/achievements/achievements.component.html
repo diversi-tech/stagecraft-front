@@ -3,28 +3,32 @@
     <span>Select a Course</span> <!-- טקסט בכותרת סרגל הכלים -->
   </mat-toolbar>
 
-  <mat-list> <!-- רשימה של Angular Material להצגת הקורסים -->
-    <mat-list-item *ngFor="let course of courses" (click)="getCourseDetails(course.courses_id)">
-      <!-- פריט ברשימה, שמופעל עבור כל קורס במערך courses. לחיצה על פריט מפעילה את הפונקציה getCourseDetails עם מזהה הקורס -->
-      {{ course.courses_name }} <!-- הצגת שם הקורס -->
-    </mat-list-item>
-  </mat-list>
+  <div class="courses-container"> <!-- קונטיינר עבור רשימת הקורסים -->
+    <mat-list class="course-list"> <!-- רשימה של Angular Material להצגת הקורסים -->
+      <mat-list-item *ngFor="let course of courses" (click)="getCourseDetails(course.courses_id)" class="course-item">
+        <!-- פריט ברשימה, שמופעל עבור כל קורס במערך courses. לחיצה על פריט מפעילה את הפונקציה getCourseDetails עם מזהה הקורס -->
+        <span class="course-name">{{ course.courses_name }}</span> <!-- הצגת שם הקורס -->
+        <div class="bubble"></div> <!-- בועת זוהר בעת מעבר עכבר -->
+      </mat-list-item>
+    </mat-list>
+  </div>
 
-
-  <div *ngIf="selectedCourse"> <!-- הצגת תוכן זה רק אם נבחר קורס -->
-    <h3>Achievements</h3> <!-- כותרת לחלק ההישגים -->
+  <div *ngIf="selectedCourse" class="centered-content"> <!-- הצגת תוכן זה רק אם נבחר קורס -->
+    <h3 class="course-title admin-feedback-title"> {{ selectedCourse.courses_name }} </h3> <!-- כותרת לחלק ההישגים עם שם הקורס הנבחר, עם עיצוב כמו כותרת הפידבק -->
     <mat-card> <!-- כרטיס של Angular Material לעיטוף תוכן ההישגים -->
       <div class="progress-container"> <!-- קונטיינר לסרגלי ההתקדמות -->
         <mat-progress-bar mode="determinate" [value]="passScore" color="primary" class="progress-bar pass"></mat-progress-bar>
         <!-- סרגל התקדמות שמייצג את ציון העובר בצבע ראשי -->
         <mat-progress-bar mode="determinate" [value]="currentScore" color="accent" class="progress-bar current"></mat-progress-bar>
         <!-- סרגל התקדמות שמייצג את הציון הנוכחי בצבע משני -->
-        <span class="progress-label pass-label" [ngStyle]="getLabelStyle(passScore, true)" [class.animate]="animationActive">
+        <span class="progress-label pass-label" [ngStyle]="getLabelStyle(passScore, true)" [class.animate-pulse]="animationActive">
+          <!-- תווית לציון עובר -->
           <div class="label-box pass-box">
             {{ passScore }}% - ציון עובר
           </div>
         </span>
-        <span class="progress-label current-label" [ngStyle]="getLabelStyle(currentScore)" [class.animate]="animationActive">
+        <span class="progress-label current-label" [ngStyle]="getLabelStyle(currentScore)" [class.animate-pulse]="animationActive">
+          <!-- תווית לציון נוכחי -->
           <div class="label-box current-box">
             {{ currentScore }}% - ציון נוכחי
           </div>
@@ -32,9 +36,9 @@
       </div>
     </mat-card>
 
-    <h2>Admin Feedback</h2> <!-- כותרת לחלק הפידבק מהמנהלים -->
+    <h2 class="admin-feedback-title">Admin Feedback</h2> <!-- כותרת לחלק הפידבק מהמנהלים -->
     <mat-card> <!-- כרטיס של Angular Material לעיטוף תוכן הפידבק -->
-      <table mat-table [dataSource]="feedbacks" class="mat-elevation-z8"> <!-- טבלה עם נתוני הפידבק -->
+      <table mat-table [dataSource]="feedbacks" class="mat-elevation-z8 mat-table"> <!-- טבלה עם נתוני הפידבק -->
         <ng-container matColumnDef="class_id"> <!-- עמודת מזהה הכיתה -->
           <th mat-header-cell *matHeaderCellDef> Class ID </th> <!-- תא כותרת מזהה הכיתה -->
           <td mat-cell *matCellDef="let feedback"> {{feedback.class_id}} </td> <!-- תא נתון מזהה הכיתה -->

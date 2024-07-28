@@ -1,0 +1,11 @@
+<input type="file" class="file-input" (change)="onChange($event)" #fileUpload style="display: none;" />
+
+<div *ngIf="file">
+  <section class="file-info">
+    Video details:
+    <ul>
+      <li>Name: {{ file.name }}</li>
+      <li>Type: {{ file.type }}</li>
+    </ul>
+  </section>
+</div>

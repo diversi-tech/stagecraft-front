@@ -67,7 +67,7 @@
         <div class="receipt-header">
           <h2>Receipt</h2>
         </div>
-        <div class="receipt-content">
+        <div class="receipt-content" #receiptContent>
           <div *ngFor="let field of fields" class="receipt-field">
             <span class="receipt-label">{{ field.label }}:</span> 
             <span class="receipt-value">{{ field.value }}</span>
@@ -80,7 +80,30 @@
           <div class="receipt-message">
             <p>Thank you for your payment!</p>
           </div>
-        </div>
+     <!-- Existing HTML for the payment component -->
+<div class="receipt-container" [ngClass]="{'show': showReceipt, 'hide': !showReceipt}">
+    <div class="receipt-header">
+      <h2>Receipt</h2>
+    </div>
+    <div class="receipt-content" #receiptContent>
+      <div *ngFor="let field of fields" class="receipt-field">
+        <span class="receipt-label">{{ field.label }}:</span> 
+        <span class="receipt-value">{{ field.value }}</span>
+      </div>
+    </div>
+    <div class="receipt-footer">
+      <div class="receipt-logo">
+        <img src="../../../assets/pic/logo.png" alt="Receipt Logo">
+      </div>
+      <div class="receipt-message">
+        <p>Thank you for your payment!</p>
+      </div>
+      <!-- כפתור להורדת הקבלה למחשב -->
+      <div class="button-container">
+        <button mat-raised-button color="accent" (click)="downloadReceipt()">
+          <mat-icon>picture_as_pdf</mat-icon>
+          Download Receipt
+        </button>
       </div>
     </div>
   </div>

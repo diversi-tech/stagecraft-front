@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Import F
 import { MatDialog } from '@angular/material/dialog';
 import { AdminService } from 'src/app/service/AdminEdit/admin.service';
 import { courses } from '../../class/Admin';
-
+import { UploadingFileComponent } from '../uploading-file/uploading-file.component';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',

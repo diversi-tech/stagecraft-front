@@ -48,7 +48,13 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { PaymentSuccessDialogComponent } from './components/payment-success-dialog/payment-success-dialog.component';
+<<<<<<< HEAD
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
+=======
+import { UploadingFileComponent } from './components/uploading-file/uploading-file.component';
+import { UploadingVideoComponent } from './components/uploading-video/uploading-video.component';
+import { VidioComponent } from './components/video/vidio.component';
+>>>>>>> e4a6d8f5d843f2fc63dc614e7a61be25667fb55e
 
 
 
@@ -80,8 +86,14 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
     BuyCoursComponent,
     PaymentComponent,
     PaymentSuccessDialogComponent,
+<<<<<<< HEAD
     FileUploadComponent,
     
+=======
+    UploadingFileComponent,
+    UploadingVideoComponent,
+    VidioComponent
+>>>>>>> e4a6d8f5d843f2fc63dc614e7a61be25667fb55e
   
     
   ],

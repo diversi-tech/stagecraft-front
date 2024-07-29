@@ -55,6 +55,7 @@ export class UserService {
   currentUser: users = new users("","");
 
   checkIfUserExists(user: users): Observable<number> {
+    debugger
     this.currentUser.code = -1;
     return this.http.post<number>(`${this.baseUrl}CheckUserExistence`, user);
   }

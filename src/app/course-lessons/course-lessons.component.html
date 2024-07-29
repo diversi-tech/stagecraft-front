@@ -32,7 +32,7 @@
     <div class="sidebar">
       <p class="header-text">{{ courseName }}</p>
       <p class="header-text">השיעורים שלי</p>
-      <app-progressbar></app-progressbar> <!-- הקומפוננטה החדשה -->
+      <app-progressbar [userId]="userId" [coursesId]="courseId"></app-progressbar> <!-- הקומפוננטה החדשה -->
       <div *ngFor="let lesson of lessons; let i = index" class="lesson-card">
         <div class="lesson-button-container">
           <button (click)="toggleLesson(lesson.class_id)" class="lesson-button">

@@ -19,7 +19,6 @@ export class LoginComponent implements OnInit {
   constructor(public userService: UserService, private formBuilder: FormBuilder,public router: Router ) { }
 
   ngOnInit(): void {
-    debugger
     this.userForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
@@ -37,7 +36,6 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/signup']);
            
           } else {
-            debugger
             this.userService.GetUserById(exists).subscribe(user => {
               this.userService.currentUser=user
               // לדוגמה מתוך קומפוננטת התחברות

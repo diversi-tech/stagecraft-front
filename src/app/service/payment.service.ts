@@ -1,26 +1,25 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PaymentService {
-  private apiUrl = 'http://localhost:5000/api/payments';
+   private baseUrl: string =`${environment.baseUrl}/login`
 
   constructor(private http: HttpClient) { }
-
   processPayment(paymentDetails: any): Observable<any> {
-    // שליחת פרטי האשראי ל-Tokenization
-    return this.http.post(`${this.apiUrl}/generateToken`, paymentDetails).pipe(
-      switchMap((tokenResponse: any) => {
-        const paymentToken = {
-          token: tokenResponse.token,
-          amount: paymentDetails.amount
-        };
-        return this.http.post(`${this.apiUrl}/processPayment`, paymentToken);
-      })
-    );
+    const securePaymentDetails = {
+      cardNumber: paymentDetails.cardNumber,
+      expiryDate: paymentDetails.expiryDate,
+      cvv: paymentDetails.cvv,
+      amount: paymentDetails.amount
+    };
+  
+    // מיד נשלח את הנתונים לשרת, בלי לשמור אותם בזיכרון
+    return this.http.post(`${this.baseUrl}/processPayment`, securePaymentDetails);
   }
+  
 }

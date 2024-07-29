@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { PaymentSuccessDialogComponent } from '../payment-success-dialog/payment-success-dialog.component';
+import { HttpClient } from '@angular/common/http'; // ייבוא HttpClient
+import { jsPDF } from 'jspdf'; // ייבוא jsPDF
+import html2canvas from 'html2canvas'; // ייבוא html2canvas
+import { PaymentSuccessDialogComponent } from '../payment-success-dialog/payment-success-dialog.component'; // ייבוא הרכיב לתצוגת הודעת הצלחה
 
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
   styleUrls: ['./payment.component.css']
 })
-export class PaymentComponent implements OnInit {
-  showReceipt: boolean = false;
-  showError: boolean = false;
+export class PaymentComponent {
+  @ViewChild('receiptContent', { static: false }) receiptContent!: ElementRef; // קישור לתוכן הקבלה
+  showReceipt: boolean = false; // משתנה לניהול הצגת הקבלה
+  showError: boolean = false; // משתנה לניהול הצגת הודעת שגיאה
 
   fields: Array<{ 
     label: string, 
@@ -38,46 +42,59 @@ export class PaymentComponent implements OnInit {
     { label: 'CVV', type: 'text', value: '', name: 'cvv', required: true, placeholder: 'Enter your CVV', minlength: 3, maxlength: 3, showPlaceholder: false, icon: 'lock' },
     { label: 'Amount', type: 'text', value: '', name: 'amount', required: true, placeholder: 'Enter the amount', showPlaceholder: false, icon: 'attach_money' }
   ];
-  constructor(public dialog: MatDialog) { }
 
-  ngOnInit(): void { }
+  constructor(public dialog: MatDialog, private http: HttpClient) { } // ייבוא HttpClient לשימוש בבקשות HTTP
 
-  onPay() {
-    // פתיחת הדיאלוג לאחר תשלום מוצלח
-    const dialogRef = this.dialog.open(PaymentSuccessDialogComponent);
-
-    dialogRef.afterClosed().subscribe(() => {
-      this.updateReceipt();
+  // פונקציה להורדת הקבלה כ-PDF
+  downloadReceipt() {
+    const receiptElement = this.receiptContent.nativeElement;
+    html2canvas(receiptElement).then(canvas => {
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF();
+      const imgProps = pdf.getImageProperties(imgData);
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      pdf.save('receipt.pdf');
     });
   }
 
-  updatePreview() {
-    // עדכון התצוגה המקדימה
-  }
-
+  // פונקציה להחלפת הצגת הקבלה
   toggleReceipt() {
     this.showReceipt = !this.showReceipt;
   }
 
-  updateReceipt() {
-    this.fields.forEach(field => {
-      field.showPlaceholder = false;
-    });
-    this.showReceipt = true;
+  // פונקציה לעדכון התצוגה המקדימה
+  updatePreview() {
+    // כאן אפשר להוסיף לוגיקה לעדכון התצוגה המקדימה
   }
 
+  // פונקציה לאימות הטופס
   validateForm() {
-    if (!this.isFormValid()) {
-      this.showError = true;
-      setTimeout(() => {
-        this.showError = false;
-      }, 2000);
-    } else {
+    this.showError = this.fields.some(field => field.required && !field.value);
+    if (!this.showError) {
       this.onPay();
     }
   }
 
-  isFormValid(): boolean {
-    return this.fields.every(field => !field.required || field.value.trim() !== '');
+  // פונקציה לביצוע התשלום
+  onPay() {
+    const paymentData: any = this.fields.reduce((acc: any, field) => {
+      acc[field.label] = field.value;
+      return acc;
+    }, {});
+
+    this.http.post('https://example.com/api/payment/processPayment', paymentData, { responseType: 'blob' })
+      .subscribe(blob => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'receipt.pdf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }, error => {
+        console.error('Payment processing failed', error);
+      });
   }
 }

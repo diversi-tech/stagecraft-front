@@ -1,4 +1,5 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Import FormBuilder, FormGroup, Validators
 import { MatDialog } from '@angular/material/dialog';
 import { AdminService } from 'src/app/service/AdminEdit/admin.service';
 import { courses } from '../../class/Admin';
@@ -11,6 +12,7 @@ import { courses } from '../../class/Admin';
 export class AdminComponent implements OnInit {
   admin: Array<courses> = [];
   Admin!: courses;
+  courseForm!: FormGroup; // Define the FormGroup
   isEdit = false;
   showFileUploadComponent = false;
   showVideoUploadComponent = false;
@@ -20,33 +22,52 @@ export class AdminComponent implements OnInit {
 
   @ViewChild('dialogTemplate') dialogTemplate!: TemplateRef<any>;
 
-  constructor(private adminSrvc: AdminService, public dialog: MatDialog) {}
+  constructor(
+    private adminSrvc: AdminService, 
+    public dialog: MatDialog,
+    private fb: FormBuilder // Inject FormBuilder
+  ) {}
 
   ngOnInit(): void {
-   this.get();
+    this.get();
+    this.initializeForm();
   }
-  get()
-  {
+
+  get() {
     this.adminSrvc.GetAllAdminCourses().subscribe(
       mydata => {
         this.admin = mydata;
-      }, 
+      },
       err => {
-        alert("זה לא טוב")
+        alert("זה לא טוב");
       }
     );
   }
+
+  initializeForm() {
+    this.courseForm = this.fb.group({
+      courses_id: [null],
+      courses_name: ['', Validators.required],
+      title: ['', Validators.required],
+      description: ['', Validators.required],
+      price: [null, Validators.required],
+      several_chapters: [null, Validators.required],
+      length: ['', Validators.required],
+      numberOfViewers: [null, Validators.required]
+    });
+  }
+
   openDialog() {
     const dialogRef = this.dialog.open(this.dialogTemplate, {
-      width: '500px', // רוחב הדיאלוג
-      height: '700px' // גובה הדיאלוג
+      width: '500px',
+      height: '700px'
     });
-  
+
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
   }
-  
+
   initializeNewCourse() {
     this.Admin = {
       courses_id: undefined,
@@ -59,131 +80,154 @@ export class AdminComponent implements OnInit {
       numberOfViewers: undefined,
       videoURL: '',
       taskFilesURL: '',
-      videoFile : undefined,
-      taskFile: undefined, 
+      videoFile: undefined,
+      taskFile: undefined,
       create_at: undefined,
       update_at: undefined
     };
+    this.courseForm.reset();
   }
-  
-  onSave(courses_id: any, courses_name: any, title: any, description: any, price: any, several_chapters: any, length: any, numberOfViewers: any) {
-    debugger
+
+  onSubmit() {
+    if (this.courseForm.invalid) {
+      console.error('Form is invalid');
+      return;
+    }
+
+    const formData = new FormData();
+    const formValues = this.courseForm.value;
+
     let g = new Date();
-    let newAdmin = null;
+    let newAdmin: courses = new courses(
+      formValues.courses_id,
+      formValues.courses_name,
+      formValues.title,
+      formValues.description,
+      g,
+      new Date(),
+      formValues.price,
+      formValues.several_chapters,
+      formValues.length,
+      formValues.numberOfViewers,
+      "",
+      "",
+      this.selectedVideoName || this.Admin.videoFile,
+      this.selectedFileName || this.Admin.taskFile
+    );
+
+    formData.append('courses_id', newAdmin.courses_id?.toString() || "");
+    formData.append('courses_name', newAdmin.courses_name || "");
+    formData.append('title', newAdmin.title || "");
+    formData.append('description', newAdmin.description || "");
+    formData.append('create_at', newAdmin.create_at?.toISOString() || "");
+    formData.append('update_at', newAdmin.update_at?.toISOString() || "");
+    formData.append('price', newAdmin.price?.toString() || "");
+    formData.append('several_chapters', newAdmin.several_chapters?.toString() || "");
+    formData.append('length', newAdmin.length || "");
+    formData.append('numberOfViewers', newAdmin.numberOfViewers?.toString() || "");
+    if (this.selectedVideoName)
+      formData.append('videoFile', this.selectedVideoName, this.selectedVideoName?.name);
+    if (this.selectedFileName)
+      formData.append('taskFile', this.selectedFileName, this.selectedFileName?.name);
+
+    console.log('Submitting form data:', formData);
+
     if (!this.isEdit) {
-      newAdmin = new courses(courses_id ,courses_name, title, description, g, new Date(), 
-      price, several_chapters, length, numberOfViewers,"" ,"",
-      this.selectedVideoName || this.Admin.videoFile, this.selectedFileName || this.Admin.taskFile);
-
-      const formData = new FormData();
-      formData.append('courses_id', newAdmin.courses_id?.toString() || "");
-      formData.append('courses_name', newAdmin.courses_name|| "");
-      formData.append('title', newAdmin.title|| "");
-      formData.append('description', newAdmin.description|| "");
-      formData.append('create_at', newAdmin.create_at?.toISOString()|| "");
-      formData.append('update_at', newAdmin.update_at?.toISOString() || "");
-      formData.append('price', newAdmin.price?.toString() || "");
-      formData.append('several_chapters', newAdmin.several_chapters?.toString() || "");
-      formData.append('length', newAdmin.length|| "");
-      formData.append('numberOfViewers', newAdmin.numberOfViewers?.toString()|| "");
-      formData.append('videoFile', this.selectedVideoName || newAdmin.videoFile , 
-                       this.selectedVideoName?.name || newAdmin.videoFile?.name);
-      formData.append('taskFile', this.selectedFileName || newAdmin.taskFile,
-                       this.selectedFileName?.name || newAdmin.taskFile?.name);
-
-
       this.adminSrvc.AddAdminCourses(formData).subscribe(
         data => {
+          console.log('Response from AddAdminCourses:', data);
           if (Array.isArray(data)) {
             this.admin = data;
           } else {
-            this.admin = [data];
-            this.get();
+            this.admin.push(data);
           }
+          this.get();
+          alert("Course added successfully");
         },
-        err => { console.error(err); }
+        err => {
+          console.error('Error adding course:', err);
+          alert("Error adding course");
+        }
       );
-      alert("הקורס הוסף בהצלחה")
-
-    } 
-    else {
-      newAdmin = new courses(courses_id ,courses_name, title, description, g, new Date(), 
-      price, several_chapters, length, numberOfViewers,"" ,"",
-      this.selectedVideoName || this.Admin.videoFile, this.selectedFileName || this.Admin.taskFile);
-     
-      const formData = new FormData();
-      formData.append('courses_id', newAdmin.courses_id?.toString() || "");
-      formData.append('courses_name', newAdmin.courses_name|| "");
-      formData.append('title', newAdmin.title|| "");
-      formData.append('description', newAdmin.description|| "");
-      formData.append('create_at', newAdmin.create_at?.toISOString()|| "");
-      formData.append('update_at', newAdmin.update_at?.toISOString() || "");
-      formData.append('price', newAdmin.price?.toString() || "");
-      formData.append('several_chapters', newAdmin.several_chapters?.toString() || "");
-      formData.append('length', newAdmin.length|| "");
-      formData.append('numberOfViewers', newAdmin.numberOfViewers?.toString()|| "");
-      if(this.selectedVideoName)
-        formData.append('videoFile', this.selectedVideoName, this.selectedVideoName?.name);
-      if(this.selectedFileName)
-      formData.append('taskFile', this.selectedFileName ,this.selectedFileName?.name  );
-    
-      this.isEdit = false;
-      this.adminSrvc.updateAdminCourses(courses_id, formData).subscribe(
+    } else {
+      this.adminSrvc.updateAdminCourses(newAdmin.courses_id, formData).subscribe(
         data => {
+          console.log('Response from updateAdminCourses:', data);
           if (Array.isArray(data)) {
             this.admin = data;
           } else {
             this.admin = [data];
-            this.get();
           }
+          this.get();
+          alert("Course updated successfully");
         },
-        err => { console.error(err); }
+        err => {
+          console.error('Error updating course:', err);
+          alert("Error updating course");
+        }
       );
-      alert("הקורס עודכן בהצלחה")
+      this.isEdit = false;
     }
-    this.closeDialog();
+
+    this.dialog.closeAll();
   }
+
   onEdit(ind: any) {
     this.Admin = this.admin[ind];
     this.isEdit = true;
+    this.courseForm.patchValue({
+      courses_id: this.Admin.courses_id,
+      courses_name: this.Admin.courses_name,
+      title: this.Admin.title,
+      description: this.Admin.description,
+      price: this.Admin.price,
+      several_chapters: this.Admin.several_chapters,
+      length: this.Admin.length,
+      numberOfViewers: this.Admin.numberOfViewers
+    });
     this.openDialog();
   }
 
   onDelete(courses_id: any) {
     this.adminSrvc.DeleteAdminCourse(courses_id).subscribe(
       data => {
+        console.log('Response from DeleteAdminCourse:', data);
         if (Array.isArray(data)) {
           this.admin = data;
-          this.get();
         } else {
-          this.admin = [data];
+          this.admin = this.admin.filter(course => course.courses_id !== courses_id);
         }
+        this.get();
+        alert("Course deleted successfully");
       },
-      err => { console.error(err); }
+      err => {
+        console.error('Error deleting course:', err);
+        alert("Error deleting course");
+      }
     );
-    alert("הקורס הוסר בהצלחה")
   }
+
   closeDialog() {
-    this.dialog.closeAll(); // הוסף פונקציה כדי לסגור את הpopup
+    this.dialog.closeAll();
   }
-  toggleComponents(componentType: 'file' | 'video'): void {
-    if (componentType === 'file') {
-      this.showFileUploadComponent = true;
-      this.showVideoUploadComponent = false;
-      this.currentComponent = 'file';
-    } else if (componentType === 'video') {
-      this.showFileUploadComponent = false;
-      this.showVideoUploadComponent = true;
-      this.currentComponent = 'video';
-    }
-  }
+
+  // toggleComponents(componentType: 'file' | 'video'): void {
+  //   if (componentType === 'file') {
+  //     this.showFileUploadComponent = true;
+  //     this.showVideoUploadComponent = false;
+  //     this.currentComponent = 'file';
+  //   } else if (componentType === 'video') {
+  //     this.showFileUploadComponent = false;
+  //     this.showVideoUploadComponent = true;
+  //     this.currentComponent = 'video';
+  //   }
+  // }
 
   onFileNameSelected(file: File): void {
-    this.selectedFileName = file// fileName;
+    this.selectedFileName = file;
   }
 
-  onVideoNameSelected(VideoName: File): void {
-    this.selectedVideoName = VideoName;
+  onVideoNameSelected(video: File): void {
+    this.selectedVideoName = video;
   }
-  
 }

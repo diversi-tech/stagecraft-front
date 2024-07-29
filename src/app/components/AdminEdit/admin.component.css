@@ -49,4 +49,35 @@ table {
   input[type="number"], input[type="time"], input[type="date"], input[type="text"] {
     width: 100%;
   }
+  /* Add these styles to your existing CSS */
+/* .disabled-button {
+  background-color: grey;
+  cursor: not-allowed;
+} */
+
+/* .enabled-button {
+  background-color: blue;
+  cursor: pointer;
+} */
+.error {
+  color: red;
+  font-size: 0.9em;
+}
+
+input.ng-invalid.ng-touched {
+  border-color: red;
+}
+
+.disabled-button {
+  background-color: gray;
+  color: white;
+}
+
+.enabled-button {
+  background-color: blue;
+  color: white;
+}
+
+
+
   

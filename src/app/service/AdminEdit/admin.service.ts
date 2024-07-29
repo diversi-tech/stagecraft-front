@@ -22,6 +22,7 @@ export class AdminService {
   
   AddAdminCourses(formData: FormData):Observable<Array<courses>>
   {
+    debugger
     return this.http.post<Array<courses>>(this.URL + "AddAdminCourses", formData);
   }
 

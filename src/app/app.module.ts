@@ -14,7 +14,6 @@ import { FeedbackComponent } from './components/feedback/feedback.component';
 import { TaskFilesComponent } from './components/task-files/task-files.component';
 import { VideoTranscriptionComponent } from './components/video-transcription/video-transcription.component';
 import { TranscriptionService } from './service/transcription.service';
-
 // import { CourseService } from './service/course.service'; 
 import { AdminCustomerApprovalComponent } from './components/admin-customer-approval/admin-customer-approval.component';
 import { CourseOverviewComponent } from './components/course-overview/course-overview.component';

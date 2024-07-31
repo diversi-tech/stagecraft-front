@@ -35,11 +35,23 @@
   background-color: #fff; /* צבע רקע לבן */
   border-radius: 8px; /* פינות מעוגלות */
   padding: 16px; /* ריפוד פנימי */
-  width: 200px; /* רוחב קבוע של 200 פיקסלים */
   margin: 10px; /* רווח בין קורסים */
   position: relative; /* מיקום יחסי עבור הבועות */
   overflow: hidden; /* הסתרת תכנים היוצאים מהקונטיינר */
   transition: background-color 0.3s ease, transform 0.3s ease; /* אנימציה של שינוי צבע ורזולוציה */
+  display: inline-block; /* שינוי מ-display:block ל-inline-block כדי לאפשר גודל דינאמי */
+  white-space: nowrap; /* מניעת ירידת הטקסט לשורה חדשה */
+  text-align: center; /* יישור מרכזי */
+
+}
+
+/* עיצוב שם הקורס */
+.course-name {
+  color: #000; /* צבע טקסט שחור */
+  font-size: 1.2em; /* גודל טקסט של 1.2x מהברירת מחדל */
+  text-align: center; /* יישור מרכזי */
+  transition: text-shadow 0.3s ease-in-out, transform 0.3s ease-in-out; /* אנימציה של הצללה והגדלה */
+  padding: 0 10px; /* הוספת ריווח פנימי כדי למנוע חיתוך של הטקסט */
 }
 
 /* אפקט הגדלה בעת מעבר עכבר */
@@ -49,13 +61,6 @@
   transform: scale(1.05); /* הגדלה של 5% */
 }
 
-/* עיצוב שם הקורס */
-.course-name {
-  color: #000; /* צבע טקסט שחור */
-  font-size: 1.2em; /* גודל טקסט של 1.2x מהברירת מחדל */
-  text-align: center; /* יישור מרכזי */
-  transition: text-shadow 0.3s ease-in-out, transform 0.3s ease-in-out; /* אנימציה של הצללה והגדלה */
-}
 
 /* אפקט זורם בעת מעבר עכבר על שם הקורס */
 .course-name:hover {

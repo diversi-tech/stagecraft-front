@@ -44,7 +44,10 @@ export class CourseAchievementsService {
   
   getAllCoursesForUser(userId: number): Observable<any[]> {
     
-    return this.http.get<any[]>(`${this.apiUrl}Admin/GetAllCoursOfUser/${userId}`);
+
+  return this.http.get<any[]>(`${this.apiUrl}Courses/GetCoursesByUserId/${userId}`);
+
+
   }
 
   GetCourseById(courseId: number): Observable<course>{

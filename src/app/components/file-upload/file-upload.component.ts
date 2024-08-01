@@ -9,7 +9,7 @@ import { FileUploadService } from 'src/app/service/file-upload.service';
 export class FileUploadComponent {
   selectedFile: File | null = null;
 
-  constructor(private fileUploadService: FileUploadService) { }
+  constructor(private fileUploadService: FileUploadService) {}
 
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];

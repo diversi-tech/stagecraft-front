@@ -1,11 +1,14 @@
 <input type="file" class="file-input" (change)="onChange($event)" #fileInput style="display: none;" />
-
+ <!-- כפתור לבחירת קובץ -->
+ <!-- <button (click)="fileInput.click()">Choose File</button> -->
 <div *ngIf="file">
-  <!-- <section class="file-info">
+  <section class="file-info">
     File details:
     <ul>
       <li>Name: {{file.name}}</li>
       <li>Type: {{file.type}}</li>
     </ul>
-  </section> -->
+  </section>
+  <!-- כפתור להעלאת הקובץ שנבחר -->
+  <button (click)="saveFile()">Save File to Cloud</button>
 </div>

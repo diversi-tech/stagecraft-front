@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http'; // ייבוא HttpClient
 import { jsPDF } from 'jspdf'; // ייבוא jsPDF
 import html2canvas from 'html2canvas'; // ייבוא html2canvas
 import { PaymentSuccessDialogComponent } from '../payment-success-dialog/payment-success-dialog.component'; // ייבוא הרכיב לתצוגת הודעת הצלחה
+import { FileUploadService } from 'src/app/service/file-upload.service';
 
 @Component({
   selector: 'app-payment',
@@ -43,8 +44,29 @@ export class PaymentComponent {
     { label: 'Amount', type: 'text', value: '', name: 'amount', required: true, placeholder: 'Enter the amount', showPlaceholder: false, icon: 'attach_money' }
   ];
 
-  constructor(public dialog: MatDialog, private http: HttpClient) { } // ייבוא HttpClient לשימוש בבקשות HTTP
+  constructor(public dialog: MatDialog, private http: HttpClient, private fileUploadService: FileUploadService) { } // ייבוא HttpClient לשימוש בבקשות HTTP
 
+  processPayment() {
+    // ביצוע פעולת התשלום
+    // לאחר שהמשתמש ביצע תשלום בהצלחה, נבצע את שליחת הקבלה
+    const receipt: File = this.generateReceipt(); // יצירת קובץ הקבלה
+    
+    // העלאת הקבלה לשרת
+    this.fileUploadService.uploadFile(receipt).subscribe(
+      response => {
+        console.log('Receipt uploaded successfully', response); // טיפול בהעלאה מוצלחת
+        this.showReceipt = true; // הצגת הקבלה למשתמש לאחר העלאה
+      },
+      error => {
+        console.error('Error uploading receipt', error); // טיפול בשגיאה בהעלאה
+      }
+    );
+  }
+
+  generateReceipt(): File {
+    const blob = new Blob(["Receipt Data"], { type: 'text/plain' }); // יצירת Blob לנתוני הקבלה
+    return new File([blob], "receipt.txt", { type: 'text/plain' }); // המרת Blob לקובץ
+  }
   // פונקציה להורדת הקבלה כ-PDF
   downloadReceipt() {
     const receiptElement = this.receiptContent.nativeElement;
@@ -71,30 +93,37 @@ export class PaymentComponent {
 
   // פונקציה לאימות הטופס
   validateForm() {
-    this.showError = this.fields.some(field => field.required && !field.value);
+   this.showError = this.fields.some(field => field.required && !field.value);
     if (!this.showError) {
-      this.onPay();
+    //  this.onPay();
+    this.processPayment();
+
     }
   }
-
-  // פונקציה לביצוע התשלום
-  onPay() {
-    const paymentData: any = this.fields.reduce((acc: any, field) => {
-      acc[field.label] = field.value;
-      return acc;
-    }, {});
-
-    this.http.post('https://example.com/api/payment/processPayment', paymentData, { responseType: 'blob' })
-      .subscribe(blob => {
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'receipt.pdf';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-      }, error => {
-        console.error('Payment processing failed', error);
-      });
+  
+  generateReceiptFile(): File {
+    // פונקציה המדמה יצירת קובץ קבלה
+    const blob = new Blob(["Receipt Data"], { type: 'text/plain' }); // יצירת Blob עם תוכן הקבלה
+    return new File([blob], "receipt.txt", { type: 'text/plain' }); // המרת Blob לקובץ
   }
+  // פונקציה לביצוע התשלום
+  // onPay() {
+  //   const paymentData: any = this.fields.reduce((acc: any, field) => {
+  //     acc[field.label] = field.value;
+  //     return acc;
+  //   }, {});
+
+  //   this.http.post('https://example.com/api/payment/processPayment', paymentData, { responseType: 'blob' })
+  //     .subscribe(blob => {
+  //       const url = window.URL.createObjectURL(blob);
+  //       const a = document.createElement('a');
+  //       a.href = url;
+  //       a.download = 'receipt.pdf';
+  //       document.body.appendChild(a);
+  //       a.click();
+  //       document.body.removeChild(a);
+  //     }, error => {
+  //       console.error('Payment processing failed', error);
+  //     });
+  // }
 }

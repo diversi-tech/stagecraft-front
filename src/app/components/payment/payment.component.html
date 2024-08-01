@@ -2,7 +2,7 @@
     <div class="content">
       <div class="payment-container" [ngClass]="{'hide': showReceipt}">
         <h2>Payment</h2>
-        <form (ngSubmit)="onPay()" #paymentForm="ngForm" class="form-container">
+        <form (ngSubmit)="validateForm()" #paymentForm="ngForm" class="form-container">
           <div class="form-column">
             <div class="form-field-wrapper" *ngFor="let field of fields.slice(0, 5); let i = index">
               <label>{{ field.label }}</label>
@@ -55,7 +55,7 @@
             </div>
             <button mat-raised-button color="primary" type="button" (click)="validateForm()" [ngClass]="{'error': showError}">
               <mat-icon>payment</mat-icon>
-              Pay
+              Pay <!-- הכפתור שיבצע את פעולת התשלום ושליחת הקבלה -->
             </button>
             <button mat-raised-button color="primary" type="button" (click)="toggleReceipt()">
               <mat-icon>receipt</mat-icon> Preview Receipt
@@ -80,31 +80,13 @@
           <div class="receipt-message">
             <p>Thank you for your payment!</p>
           </div>
-     <!-- Existing HTML for the payment component -->
-<div class="receipt-container" [ngClass]="{'show': showReceipt, 'hide': !showReceipt}">
-    <div class="receipt-header">
-      <h2>Receipt</h2>
-    </div>
-    <div class="receipt-content" #receiptContent>
-      <div *ngFor="let field of fields" class="receipt-field">
-        <span class="receipt-label">{{ field.label }}:</span> 
-        <span class="receipt-value">{{ field.value }}</span>
+          <div class="button-container">
+            <button mat-raised-button color="accent" (click)="downloadReceipt()">
+              <mat-icon>picture_as_pdf</mat-icon>
+              Download Receipt <!-- כפתור להורדת הקבלה למחשב -->
+            </button>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="receipt-footer">
-      <div class="receipt-logo">
-        <img src="../../../assets/pic/logo.png" alt="Receipt Logo">
-      </div>
-      <div class="receipt-message">
-        <p>Thank you for your payment!</p>
-      </div>
-      <!-- כפתור להורדת הקבלה למחשב -->
-      <div class="button-container">
-        <button mat-raised-button color="accent" (click)="downloadReceipt()">
-          <mat-icon>picture_as_pdf</mat-icon>
-          Download Receipt
-        </button>
-      </div>
-    </div>
-  </div>
-  
+</div>

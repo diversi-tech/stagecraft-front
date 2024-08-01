@@ -1,5 +1,5 @@
 <input type="file" class="file-input" (change)="onChange($event)" #fileUpload style="display: none;" />
-
+<!-- <button (click)="fileUpload.click()">Choose File</button> -->
 <div *ngIf="file">
   <!-- <section class="file-info">
     Video details:
@@ -8,4 +8,5 @@
       <li>Type: {{ file.type }}</li>
     </ul>
   </section> -->
+  <button (click)="saveFile()">Save File to Cloud</button>
 </div>

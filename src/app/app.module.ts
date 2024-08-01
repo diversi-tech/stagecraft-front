@@ -83,7 +83,6 @@ import { VidioComponent } from './components/video/vidio.component';
     BuyCoursComponent,
     PaymentComponent,
     PaymentSuccessDialogComponent,
-
     FileUploadComponent,
     UploadingFileComponent,
     UploadingVideoComponent,

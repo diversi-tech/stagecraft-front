@@ -29,14 +29,18 @@ export class LoginComponent implements OnInit {
   }
 
   checkUser(): void {
-    if (this.userForm.valid) {
+    
+    if (this.userForm.valid) {  
       this.userService.checkIfUserExists(this.userForm.value as users).subscribe(
         exists => {
+          const myUser = exists.userExists;
           if (exists==-1) {
             this.router.navigate(['/signup']);
            
           } else {
-            this.userService.GetUserById(exists).subscribe(user => {
+            debugger
+            this.userService.GetUserById(myUser.value).subscribe(user => {
+              debugger
               this.userService.currentUser=user
               // לדוגמה מתוך קומפוננטת התחברות
 this.userService.setUser(user);

@@ -20,8 +20,8 @@ import { CourseOverviewComponent } from './components/course-overview/course-ove
 import { LessonComponent } from './components/lesson/lesson.component';
 import { AdminCoursForUserComponent } from './components/admin-cours-for-user/admin-cours-for-user.component';
 import { AchievementsComponent } from './components/achievements/achievements.component';
-import { ForumComponent } from './components/forum/forum.component';
-import { AdminForumComponent } from './components/admin-forum/admin-forum.component';
+//import { ForumComponent } from './components/forum/forum.component';
+//import { AdminForumComponent } from './components/admin-forum/admin-forum.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
 import { AdminAddCourseForUserComponent } from './components/admin-add-course-for-user/admin-add-course-for-user.component';
@@ -52,6 +52,8 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
 import { UploadingFileComponent } from './components/uploading-file/uploading-file.component';
 import { UploadingVideoComponent } from './components/uploading-video/uploading-video.component';
 import { VidioComponent } from './components/video/vidio.component';
+import { MyAdminForumComponent } from './components/my-admin-forum/my-admin-forum.component';
+import { MyForumComponent } from './components/my-forum/my-forum.component';
 
 
 
@@ -70,8 +72,6 @@ import { VidioComponent } from './components/video/vidio.component';
     CourseOverviewComponent,
     LessonComponent,
     AdminCoursForUserComponent,
-    ForumComponent,
-    AdminForumComponent,
     AchievementsComponent,
     SignupComponent,
     CourseDetailsComponent,
@@ -86,7 +86,10 @@ import { VidioComponent } from './components/video/vidio.component';
     FileUploadComponent,
     UploadingFileComponent,
     UploadingVideoComponent,
-    VidioComponent
+    VidioComponent,
+    MyForumComponent,
+    MyAdminForumComponent
+  
   
     
   ],

@@ -7,7 +7,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserCoursesComponent } from './components/user-courses/user-courses.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CourseListComponent } from './components/course-list/course-list.component';
 import { progressbarComponent } from './components/progressbar/progressbar.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
@@ -54,6 +54,7 @@ import { UploadingVideoComponent } from './components/uploading-video/uploading-
 import { VidioComponent } from './components/video/vidio.component';
 import { MyAdminForumComponent } from './components/my-admin-forum/my-admin-forum.component';
 import { MyForumComponent } from './components/my-forum/my-forum.component';
+import { TokenInterceptor } from './interceptors/token.interceptor';
 
 
 
@@ -126,7 +127,10 @@ import { MyForumComponent } from './components/my-forum/my-forum.component';
        
      
   ],
-  providers: [TranscriptionService],
+  providers: [
+    TranscriptionService,
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
   
   

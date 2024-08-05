@@ -25,6 +25,6 @@ export class userService {
   saveUsers(users: users[]): Observable<any> {
     return this.http.post(`${this.baseUrl}`, users);
   }
-
+  
 
 }

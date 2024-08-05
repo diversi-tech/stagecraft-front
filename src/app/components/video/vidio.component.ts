@@ -13,7 +13,7 @@ export class VidioComponent implements OnInit, AfterViewInit {
   private videoId = 'unique-video-id'; // יש להשתמש ב-id ייחודי לכל סרטון
 @Input() currentVideoClass! : string;
   constructor(private videoWatchService: VideoWatchServiceService, private httpClient: HttpClient) { }
-  videoUrl = 'https://diversitech.stagecraft.s3.eu-north-1.amazonaws.com/ace3deb7-0c7c-4586-9152-8eaf64796272_1000059451.mp4'; // ה-URL שהתקבל
+  videoUrl = 'https://s3.eu-north-1.amazonaws.com/diversitech.stagecraft/ace3deb7-0c7c-4586-9152-8eaf64796272_1000059451.mp4'; // ה-URL שהתקבל
 
   ngOnInit() {
     // נוכל לוודא אם הסרטון נצפה קודם, אך איננו ניגשים ל-nativeElement כאן.
@@ -41,7 +41,7 @@ export class VidioComponent implements OnInit, AfterViewInit {
   }
 
   private loadVideo() {
-    const videoUrl = 'https://diversitech.stagecraft.s3.eu-north-1.amazonaws.com/ace3deb7-0c7c-4586-9152-8eaf64796272_1000059451.mp4'; // ה-URL שהתקבל מהשרת
+    const videoUrl = 'https://s3.eu-north-1.amazonaws.com/diversitech.stagecraft/ace3deb7-0c7c-4586-9152-8eaf64796272_1000059451.mp4'; // ה-URL שהתקבל מהשרת
 
     const httpOptions = {
       headers: new HttpHeaders({

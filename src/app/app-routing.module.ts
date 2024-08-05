@@ -7,8 +7,8 @@ import { progressbarComponent } from './components/progressbar/progressbar.compo
 import { TaskFilesComponent } from './components/task-files/task-files.component';
 import { UserCoursesComponent } from './components/user-courses/user-courses.component';
 import { AchievementsComponent } from './components/achievements/achievements.component';
-import { ForumComponent } from './components/forum/forum.component';
-import { AdminForumComponent } from './components/admin-forum/admin-forum.component';
+//import { ForumComponent } from './components/forum/forum.component';
+//import { AdminForumComponent } from './components/admin-forum/admin-forum.component';
 import { CourseOverviewComponent } from './components/course-overview/course-overview.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
@@ -19,7 +19,11 @@ import { AdminComponent } from './components/AdminEdit/admin.component';
 import { CourseLessonsComponent } from './course-lessons/course-lessons.component';
 import { BuyCoursComponent } from './components/buy-cours/buy-cours.component';
 import { PaymentComponent } from './components/payment/payment.component';
+
 import { AccessibilityMenuComponent } from './components/accessibility-menu/accessibility-menu.component';
+import { MyAdminForumComponent } from './components/my-admin-forum/my-admin-forum.component';
+import { MyForumComponent } from './components/my-forum/my-forum.component';
+
 
 const routes: Routes = [
   // {path:"myHome-שם שבחרתי",component:HomeComponentשם המחלקה של הקומפוננטה}
@@ -30,9 +34,15 @@ const routes: Routes = [
 {path:"taskFiles",component:TaskFilesComponent},
 {path:"Payment",component:PaymentComponent},
 {path:"userCourses",component:UserCoursesComponent},
-{ path: 'forum', component: ForumComponent },
+{ path: 'forum', component: MyForumComponent },
 { path: 'signup', component: SignupComponent },
-{ path: 'admin-forum', component: AdminForumComponent },
+
+//{ path: 'admin-forum', component: AdminForumComponent },
+
+{ path: 'admin-forum', component: MyAdminForumComponent },
+// { path: '', redirectTo: '/forum', pathMatch: 'full' },
+// { path: '**', redirectTo: '/forum' },
+
 { path: 'Achievements', component: AchievementsComponent },
 { path: 'myCourse', component: CourseOverviewComponent },
 {path:'task-files',component:TaskFilesComponent},

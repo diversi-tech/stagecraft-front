@@ -1,0 +1,93 @@
+<!-- <div class="forum-container">
+  <h2>פורום</h2>
+
+  <div class="question-form">
+    <h3>מה יש לך לומר?.....</h3>
+    <form (ngSubmit)="AddQuestion()">
+      <div>
+        <input type="text" id="question" [(ngModel)]="newQuestion.text" name="question" required placeholder="שאלה">
+      </div>
+      <button type="submit" class="btn btn-outline-success" mat-raised-button>שליחה</button>
+    </form>
+  </div>
+  <div class="questions-list" *ngIf="questionList$ | async as data">
+    <h3>שאלות</h3>
+    <div *ngFor="let question1 of data">
+
+      <p><strong>{{ question1.text }}</strong></p>
+      <div *ngFor="let answer of question1.answers" class="answer">
+        <p><strong>{{ answer.text }}</strong></p>
+      </div>
+      <form>
+        <input type="text" id="answer" [(ngModel)]="newAnswer.text" name="answer" placeholder="תשובה" required>
+         <p><input type="file" (change)="onFileSelected($event, question)" multiple mat-raised-button> -->
+        <!-- <button (ngSubmit)="AddAnswer()" type="submit" class="btn btn-outline-success" mat-raised-button>שליחה</button>
+      </form> -->
+      
+
+      <!-- <div class="questions-list" *ngIf="questionList$ | async as data">
+          <h3>תשובות</h3>
+          <div *ngFor="let question1 of data">
+            <div class="question">
+              <p><strong>{{ question1.text }}</strong></p>
+            </div>
+          </div>
+        </div> -->
+      <!-- <div class="answers-list" *ngIf="answerList$ | async as data"> -->
+      <!-- <h3>תשובות</h3> -->
+      <!-- <div *ngFor="let answer of data">
+            <p><strong>{{answer.text}}</strong></p>
+          </div>
+        </div> -->
+      <!-- <div class="answers-list" *ngIf="answerList$ | async as data">
+          <div *ngFor="let answer of question1.answers" class="answer">
+            <p>{{ answer.text }}ggg</p> -->
+      <!-- <div *ngIf="answer.Files && answer.Files.length > 0"> -->
+      <!-- <p>Files:</p>
+              <ul>
+                <li *ngFor="let file of answer.Files">
+                  <a [href]="file.FileUrl" download>{{ file.FileName }}</a>
+                </li>
+              </ul> -->
+      <!-- </div> -->
+
+      <!-- </div>
+        </div> -->
+      
+    <!-- </div>
+  </div>
+</div> -->
+<div class="forum-container">
+  <h2>פורום</h2>
+
+  <div class="question-form">
+    <h3>מה יש לך לומר?.....</h3>
+    <form (ngSubmit)="AddQuestion()">
+      <div>
+        <input type="text" id="question" [(ngModel)]="newQuestion.text" name="question" required placeholder="שאלה">
+      </div>
+      <button type="submit" class="btn btn-outline-success" mat-raised-button>שליחה</button>
+    </form>
+  </div>
+
+  <div class="questions-list" *ngIf="questionList$ | async as questions">
+    <h3>שאלות</h3>
+    <div *ngFor="let question of questions">
+      <p><strong>{{ question.text }}</strong></p>
+      
+      <form *ngIf="question.questionId !== undefined" (ngSubmit)="AddAnswer(question.questionId)">
+        <input type="text" [id]="'answer' + question.questionId" [(ngModel)]="newAnswer.text" name="answer" placeholder="תשובה" required>
+
+
+        <button type="submit" class="btn btn-outline-success" mat-raised-button>שליחה</button>
+      </form>
+      <h3>תשובות</h3>
+      <div *ngFor="let answer of question.answers" class="answer">
+        <p><strong>{{ answer.text }}</strong></p>
+        <h1>***</h1>
+      </div>
+      <h1>----------------</h1>
+      
+    </div>
+  </div>
+</div>

@@ -9,20 +9,6 @@ import { adminService } from 'src/app/service/admin.service';
   styleUrls: ['./admin-search-user.component.css']
 })
 export class AdminSearchUserComponent {
-
-  
-    isHebrew(text: string): boolean {
-      // בודק אם כל התווים בטקסט הם אותיות עבריות
-      const hebrewRegex = /^[\u0590-\u05FF]+$/;
-      return hebrewRegex.test(text);
-    }
-    toUpperCaseIfEnglish(text: string): string {
-      // אם השם באנגלית, להמיר לאותיות גדולות
-      if (!this.isHebrew(text)) {
-        return text.toUpperCase();
-      }
-      return text;
-    }
     constructor(public adminService: adminService,public router: Router){}
     filteredUsers:Array<users>=new Array();
     searchTerm: string = "";
@@ -39,11 +25,11 @@ export class AdminSearchUserComponent {
     }
   onSearchTermChange() {
   debugger
-    const searchValue =this.toUpperCaseIfEnglish(this.searchTerm);
+    const searchValue =this.adminService.toUpperCaseIfEnglish(this.searchTerm);
     this.filteredUsers = this.adminService.userList.filter((user: users) => {
       return (
-        this.toUpperCaseIfEnglish(user?.name??"").includes(searchValue)  ||
-      this.toUpperCaseIfEnglish(user.email).includes(searchValue)
+        this.adminService.toUpperCaseIfEnglish(user?.name??"").includes(searchValue)  ||
+      this.adminService.toUpperCaseIfEnglish(user.email).includes(searchValue)
       );
     });
   }

@@ -1,3 +1,144 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* CSS מוטמע לתפריט נגישות וכפתור */
+/* סגנון לכפתור הנגישות */
+#accessibility-btn {
+  position: fixed; /* מיקום קבוע של הכפתור */
+  bottom: 20px; /* מרחק של 20 פיקסלים מהתחתית */
+  left: 20px; /* מרחק של 20 פיקסלים מהשמאל */
+  background-color: #000; /* צבע רקע שחור */
+  border: none; /* ללא גבול */
+  border-radius: 50%; /* פינות מעוגלות */
+  width: 50px; /* רוחב של 50 פיקסלים */
+  height: 50px; /* גובה של 50 פיקסלים */
+  cursor: pointer; /* סמן יד */
+  z-index: 1000; /* קידמת שכבה גבוהה */
+}
+
+#accessibility-btn img {
+  width: 100%; /* רוחב תמונה 100% */
+  height: 100%; /* גובה תמונה 100% */
+}
+
+/* סגנון לתפריט הנגישות */
+#accessibility-menu {
+  position: fixed; /* מיקום קבוע של התפריט */
+  bottom: 80px; /* מרחק של 80 פיקסלים מהתחתית */
+  left: 20px; /* מרחק של 20 פיקסלים מהשמאל */
+  background-color: #fff; /* צבע רקע לבן */
+  border: 1px solid #000; /* גבול שחור */
+  border-radius: 5px; /* פינות מעוגלות */
+  padding: 10px; /* ריווח פנימי של 10 פיקסלים */
+  display: none; /* הסתרת התפריט */
+  flex-direction: column; /* כיוון תצוגה של התפריט */
+  gap: 10px; /* ריווח בין אלמנטים */
+  z-index: 1000; /* קידמת שכבה גבוהה */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* הצללה */
+}
+
+.hidden {
+  display: none; /* הסתרה */
+}
+
+button {
+  padding: 10px; /* ריווח פנימי של 10 פיקסלים */
+  font-size: 16px; /* גודל גופן 16 פיקסלים */
+  background-color: #3f51b5; /* צבע רקע כחול */
+  color: #fff; /* צבע טקסט לבן */
+  border: none; /* ללא גבול */
+  border-radius: 5px; /* פינות מעוגלות */
+  cursor: pointer; /* סמן יד */
+  transition: background-color 0.3s ease; /* מעבר צבע רקע */
+  display: flex; /* תצוגה גמישה */
+  align-items: center; /* יישור לרוחב */
+  gap: 8px; /* ריווח בין אייקון לטקסט */
+}
+
+button:hover {
+  background-color: #3851f5; /* צבע רקע בזמן ריחוף */
+}
+
+.high-contrast {
+  background-color: #000 !important; /* צבע רקע שחור */
+  color: #fff !important; /* צבע טקסט לבן */
+}
+
+.high-contrast h1, .high-contrast h2, .high-contrast h3 {
+  color: #ff0 !important; /* צבע טקסט צהוב לכותרות */
+}
+
+.high-contrast div {
+  color: rgb(216, 0, 0) !important; /* צבע טקסט צהוב לכותרות */
+}
+
+.high-contrast p {
+  color: #fff !important; /* צבע טקסט לבן */
+  background-color: #000 !important; /* צבע רקע שחור */
+  font-size: 1.25em !important; /* גודל טקסט מוגדל */
+  padding: 10px !important; /* ריווח פנימי */
+  border: 2px solid #fff !important; /* גבול לבן */
+}
+
+.high-contrast .nav-link {
+  color: #ff0 !important; /* צבע טקסט צהוב */
+  font-size: 1.25em !important; /* גודל טקסט מוגדל */
+}
+
+.high-contrast .btn-primary {
+  background-color: #ff0 !important; /* צבע רקע צהוב */
+  color: #000 !important; /* צבע טקסט שחור */
+  font-size: 1.25em !important; /* גודל טקסט מוגדל */
+  padding: 15px 30px !important; /* ריווח פנימי */
+}
+
+.high-contrast * {
+  color: #fff !important; /* צבע טקסט לבן */
+}
+
+.high-contrast .black-text {
+  color: #000 !important; /* טקסט שחור */
+}
+html, body {
+    font-size: 1em; /* גודל פונט בסיסי */
+}
+
+nav, .menu-link, a, button, span, p, li, h1, h2, h3, h4, h5, h6 {
+    font-size: inherit; /* יירשו את גודל הפונט מהגדרת הבסיס */
+    line-height: 1.2; /* שמירה על ריווח תקין בין השורות */
+}
+
+
+
+
+#accessibility-menu {
+    position: fixed; /* מיקום קבוע של התפריט */
+    bottom: 80px; /* מרחק של 80 פיקסלים מהתחתית */
+    left: 20px; /* מרחק של 20 פיקסלים מהשמאל */
+    background-color: #fff; /* צבע רקע לבן */
+    border: 1px solid #000; /* גבול שחור */
+    border-radius: 5px; /* פינות מעוגלות */
+    padding: 10px; /* ריווח פנימי של 10 פיקסלים */
+    display: none; /* הסתרת התפריט */
+    flex-direction: column; /* כיוון תצוגה של התפריט */
+    gap: 10px; /* ריווח בין אלמנטים */
+    z-index: 1000; /* קידמת שכבה גבוהה */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* הצללה */
+    overflow-y: auto; /* גלילה אנכית במידת הצורך */
+    max-height: 90vh; /* מגבלת גובה של התפריט */
+    max-width: 250px; /* הגבלת רוחב התפריט */
+}
+
+/* מחלקת CSS להדגשת כותרות */
+.highlight-headings h1,
+.highlight-headings h2,
+.highlight-headings h3,
+.highlight-headings h4,
+.highlight-headings h5,
+.highlight-headings h6 {
+  background-color: yellow; /* צבע רקע צהוב להדגשה */
+  color: black; /* צבע טקסט שחור להדגשה */
+  padding: 5px; /* מרווח מסביב לטקסט */
+  border-radius: 5px; /* פינות מעוגלות */
+}

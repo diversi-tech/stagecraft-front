@@ -14,7 +14,6 @@ import { FeedbackComponent } from './components/feedback/feedback.component';
 import { TaskFilesComponent } from './components/task-files/task-files.component';
 import { VideoTranscriptionComponent } from './components/video-transcription/video-transcription.component';
 import { TranscriptionService } from './service/transcription.service';
-// import { CourseService } from './service/course.service'; 
 import { AdminCustomerApprovalComponent } from './components/admin-customer-approval/admin-customer-approval.component';
 import { CourseOverviewComponent } from './components/course-overview/course-overview.component';
 import { LessonComponent } from './components/lesson/lesson.component';
@@ -52,7 +51,8 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
 import { UploadingFileComponent } from './components/uploading-file/uploading-file.component';
 import { UploadingVideoComponent } from './components/uploading-video/uploading-video.component';
 import { VidioComponent } from './components/video/vidio.component';
-
+import { AccessibilityMenuComponent } from './components/accessibility-menu/accessibility-menu.component';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -86,7 +86,8 @@ import { VidioComponent } from './components/video/vidio.component';
     FileUploadComponent,
     UploadingFileComponent,
     UploadingVideoComponent,
-    VidioComponent
+    VidioComponent,
+    AccessibilityMenuComponent
   
     
   ],
@@ -120,6 +121,8 @@ import { VidioComponent } from './components/video/vidio.component';
     MatListModule,
     MatFormFieldModule,  
        MatInputModule,
+       MatSelectModule,
+       MatButtonModule,
        
      
   ],

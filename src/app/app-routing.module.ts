@@ -19,6 +19,7 @@ import { AdminComponent } from './components/AdminEdit/admin.component';
 import { CourseLessonsComponent } from './course-lessons/course-lessons.component';
 import { BuyCoursComponent } from './components/buy-cours/buy-cours.component';
 import { PaymentComponent } from './components/payment/payment.component';
+import { AccessibilityMenuComponent } from './components/accessibility-menu/accessibility-menu.component';
 
 const routes: Routes = [
   // {path:"myHome-שם שבחרתי",component:HomeComponentשם המחלקה של הקומפוננטה}
@@ -32,8 +33,6 @@ const routes: Routes = [
 { path: 'forum', component: ForumComponent },
 { path: 'signup', component: SignupComponent },
 { path: 'admin-forum', component: AdminForumComponent },
-// { path: '', redirectTo: '/forum', pathMatch: 'full' },
-// { path: '**', redirectTo: '/forum' },
 { path: 'Achievements', component: AchievementsComponent },
 { path: 'myCourse', component: CourseOverviewComponent },
 {path:'task-files',component:TaskFilesComponent},
@@ -42,14 +41,15 @@ const routes: Routes = [
 { path: 'course/:id', component: CourseDetailsComponent },
 { path: 'serchUser',component:AdminSearchUserComponent},
 {path:'adminCourse',component:AdminAddCourseForUserComponent},
-
 {path:"addCourse/:code/:name",component:AdminAddCourseForUserComponent},
 {path:"login",component:LoginComponent},
 {path:"AdminCourses", component:AdminComponent},
 // { path: '', component: CourseOverviewComponent },
+// { path: '', redirectTo: '/forum', pathMatch: 'full' },
+// { path: '**', redirectTo: '/forum' },
 { path: 'mewcourse/:id', component: CourseLessonsComponent },
-{path:"buyCours/:id", component:BuyCoursComponent}
-
+{path:"buyCours/:id", component:BuyCoursComponent},
+{path:"AccessibilityMenuComponent", component:AccessibilityMenuComponent}
 ];
 
 @NgModule({

@@ -55,6 +55,7 @@ import { VidioComponent } from './components/video/vidio.component';
 import { MyAdminForumComponent } from './components/my-admin-forum/my-admin-forum.component';
 import { MyForumComponent } from './components/my-forum/my-forum.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { NoAccessComponent } from './components/no-access/no-access.component';
 
 
 
@@ -89,7 +90,8 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     UploadingVideoComponent,
     VidioComponent,
     MyForumComponent,
-    MyAdminForumComponent
+    MyAdminForumComponent,
+    NoAccessComponent
   
   
     

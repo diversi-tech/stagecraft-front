@@ -21,6 +21,8 @@ import { BuyCoursComponent } from './components/buy-cours/buy-cours.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { MyForumComponent } from './components/my-forum/my-forum.component';
 import { MyAdminForumComponent } from './components/my-admin-forum/my-admin-forum.component';
+import { AdminGuard } from './auth/admin.guard';
+import { NoAccessComponent } from './components/no-access/no-access.component';
 
 const routes: Routes = [
   // {path:"myHome-שם שבחרתי",component:HomeComponentשם המחלקה של הקומפוננטה}
@@ -50,9 +52,10 @@ const routes: Routes = [
 {path:"AdminCourses", component:AdminComponent},
 // { path: '', component: CourseOverviewComponent },
 { path: 'mewcourse/:id', component: CourseLessonsComponent },
-{path:"buyCours/:id", component:BuyCoursComponent}
-
-];
+{path:"buyCours/:id", component:BuyCoursComponent},
+{ path: 'admin', component: AdminComponent, canActivate: [AdminGuard] },
+{ path: 'no-access', component: NoAccessComponent },
+{ path: '**', redirectTo: '/no-access' }]; // נתיב ברירת מחדל במקרה של נתיב לא ידוע
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

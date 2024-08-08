@@ -19,10 +19,13 @@ import { AdminComponent } from './components/AdminEdit/admin.component';
 import { CourseLessonsComponent } from './course-lessons/course-lessons.component';
 import { BuyCoursComponent } from './components/buy-cours/buy-cours.component';
 import { PaymentComponent } from './components/payment/payment.component';
-import { MyForumComponent } from './components/my-forum/my-forum.component';
+
+import { AccessibilityMenuComponent } from './components/accessibility-menu/accessibility-menu.component';
 import { MyAdminForumComponent } from './components/my-admin-forum/my-admin-forum.component';
-import { AdminGuard } from './auth/admin.guard';
+import { MyForumComponent } from './components/my-forum/my-forum.component';
 import { NoAccessComponent } from './components/no-access/no-access.component';
+import { AdminGuard } from './auth/admin.guard';
+
 
 const routes: Routes = [
   // {path:"myHome-שם שבחרתי",component:HomeComponentשם המחלקה של הקומפוננטה}
@@ -35,9 +38,13 @@ const routes: Routes = [
 {path:"userCourses",component:UserCoursesComponent},
 { path: 'forum', component: MyForumComponent },
 { path: 'signup', component: SignupComponent },
+
+//{ path: 'admin-forum', component: AdminForumComponent },
+
 { path: 'admin-forum', component: MyAdminForumComponent },
 // { path: '', redirectTo: '/forum', pathMatch: 'full' },
 // { path: '**', redirectTo: '/forum' },
+
 { path: 'Achievements', component: AchievementsComponent },
 { path: 'myCourse', component: CourseOverviewComponent },
 {path:'task-files',component:TaskFilesComponent},
@@ -46,16 +53,20 @@ const routes: Routes = [
 { path: 'course/:id', component: CourseDetailsComponent },
 { path: 'serchUser',component:AdminSearchUserComponent},
 {path:'adminCourse',component:AdminAddCourseForUserComponent},
-
 {path:"addCourse/:code/:name",component:AdminAddCourseForUserComponent},
 {path:"login",component:LoginComponent},
 {path:"AdminCourses", component:AdminComponent},
 // { path: '', component: CourseOverviewComponent },
+// { path: '', redirectTo: '/forum', pathMatch: 'full' },
+// { path: '**', redirectTo: '/forum' },
 { path: 'mewcourse/:id', component: CourseLessonsComponent },
 {path:"buyCours/:id", component:BuyCoursComponent},
 { path: 'admin', component: AdminComponent, canActivate: [AdminGuard] },
 { path: 'no-access', component: NoAccessComponent },
-{ path: '**', redirectTo: '/no-access' }]; // נתיב ברירת מחדל במקרה של נתיב לא ידוע
+{ path: '**', redirectTo: '/no-access' },// נתיב ברירת מחדל במקרה של נתיב לא ידוע
+
+{path:"AccessibilityMenuComponent", component:AccessibilityMenuComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

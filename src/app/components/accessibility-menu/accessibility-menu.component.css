@@ -1,0 +1,34 @@
+/* .accessibility-button {
+    position: relative;
+  }
+  
+  .reading-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    animation: fadeInOut 3s infinite;
+  }
+  
+  @keyframes fadeInOut {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  
+  .invert-colors {
+    filter: invert(1);
+  }
+  
+  .enlarge-text {
+    font-size: 1.5em;
+  }
+  
+  .enlarge-pointer * {
+    cursor: url('../../../assets/pic/נגישות.jpg') auto;
+  }
+  
+  /* Customize your large cursor image */
+   /* */ 

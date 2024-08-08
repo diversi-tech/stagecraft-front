@@ -1,0 +1,18 @@
+<!-- video-transcript.component.html -->
+<!-- <div class="video-transcript-container">
+    <video [src]="videoUrl" controls></video>
+    <pre class="transcript-text">{{ transcriptText }}</pre>
+  </div> -->
+  <div class="video-transcript-container">
+  <div *ngIf="videoUrl">
+    <video #videoPlayer controls>
+      <source [src]="videoUrl" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  
+  <div class="transcript-container" *ngIf="subtitlesVisible && transcriptText">
+    <p>{{ displayedText }}</p>
+  </div>
+  
+  <button (click)="toggleSubtitles()">הצג/הסתר כיתוביות</button>

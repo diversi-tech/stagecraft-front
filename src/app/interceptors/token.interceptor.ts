@@ -7,7 +7,7 @@ import { catchError, switchMap } from 'rxjs/operators';
 export class TokenInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    debugger
+    
     const token = sessionStorage.getItem('authToken'); // השגת הטוקן מה-Session Storage
 
     let authReq = req;

@@ -251,6 +251,11 @@ function resetAccessibility() {
   localStorage.removeItem('headingsHighlighted'); // הסרת שמירת מצב ההדגשה מ-localStorage
   alert('כל הגדרות הנגישות אופסו'); // הודעה למשתמש שההגדרות אופסו
 }
+document.addEventListener('contextmenu', event => {
+  if (event.target.nodeName === 'VIDEO') {
+    event.preventDefault();
+  }
+});
 
   </script>
 </body>

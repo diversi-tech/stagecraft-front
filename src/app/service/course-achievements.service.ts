@@ -4,13 +4,14 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { course } from '../class/Course';
 import { Feedback } from '../class/Feedback';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class CourseAchievementsService {
 
 
-  private apiUrl = 'http://localhost:5128/api/'; // כתובת ה-API שלך
+  private apiUrl = `${environment.baseUrl}/`; // כתובת ה-API שלך
 
   constructor(private http: HttpClient) {}
 

@@ -1,0 +1,34 @@
+.no-access-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f8d7da;
+    color: #721c24;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .no-access-container h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .no-access-container p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+  
+  .no-access-container button {
+    background-color: #721c24;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .no-access-container button:hover {
+    background-color: #f5c6cb;
+  }

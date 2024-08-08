@@ -23,6 +23,8 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { AccessibilityMenuComponent } from './components/accessibility-menu/accessibility-menu.component';
 import { MyAdminForumComponent } from './components/my-admin-forum/my-admin-forum.component';
 import { MyForumComponent } from './components/my-forum/my-forum.component';
+import { NoAccessComponent } from './components/no-access/no-access.component';
+import { AdminGuard } from './auth/admin.guard';
 
 
 const routes: Routes = [
@@ -59,6 +61,10 @@ const routes: Routes = [
 // { path: '**', redirectTo: '/forum' },
 { path: 'mewcourse/:id', component: CourseLessonsComponent },
 {path:"buyCours/:id", component:BuyCoursComponent},
+{ path: 'admin', component: AdminComponent, canActivate: [AdminGuard] },
+{ path: 'no-access', component: NoAccessComponent },
+{ path: '**', redirectTo: '/no-access' },// נתיב ברירת מחדל במקרה של נתיב לא ידוע
+
 {path:"AccessibilityMenuComponent", component:AccessibilityMenuComponent}
 ];
 

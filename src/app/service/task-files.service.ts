@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskFileService {
-  private baseUrl = 'http://localhost:5128/api/Files/'; // שנה לכתובת ה-API שלך
+  private baseUrl = `${environment.baseUrl}/Files/`; // שנה לכתובת ה-API שלך
 
   constructor(private http: HttpClient) {}
 

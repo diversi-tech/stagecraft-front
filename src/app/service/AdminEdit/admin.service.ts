@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
  import { courses } from 'src/app/class/Admin';
 import { Observable } from 'rxjs';
 import { formatDate } from '@angular/common';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class AdminService {
   constructor(private http:HttpClient) { }
 
   //משתנה זה שומר את כתובת השרת הבסיסית
-  URL = "http://localhost:5128/api/Admin/"
+  URL = `${environment.baseUrl}/Admin/`
   GetAllAdminCourses():Observable<Array<courses>>
   {
     return this.http.get<Array<courses>>(this.URL+"GetAllAdminCourses");

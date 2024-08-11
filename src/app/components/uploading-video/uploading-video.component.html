@@ -1,12 +1,26 @@
 <input type="file" class="file-input" (change)="onChange($event)" #fileUpload style="display: none;" />
-<!-- <button (click)="fileUpload.click()">Choose File</button> -->
+<button (click)="fileUpload.click()">Choose File</button>
 <div *ngIf="file">
-  <!-- <section class="file-info">
+  <section class="file-info">
     Video details:
     <ul>
       <li>Name: {{ file.name }}</li>
       <li>Type: {{ file.type }}</li>
     </ul>
-  </section> -->
+  </section>
+  
+</div>
+<!-- כפתור לבחירת קובץ -->
+<!-- <button (click)="triggerFileInput()">Choose File</button>
+<input type="file" class="file-input" (change)="onChange($event)" #fileUpload style="display: none;" /> -->
+
+<!-- הצגת כפתור שמירה אם נבחר קובץ -->
+<div *ngIf="file">
   <button (click)="saveFile()">Save File to Cloud</button>
+</div>
+
+<!-- הצגת ה-URL המוחזר מהשירות -->
+<div *ngIf="status === 'success'">
+  <p>File uploaded successfully!</p>
+  <p>File URL: {{ fileUrl }}</p>
 </div>

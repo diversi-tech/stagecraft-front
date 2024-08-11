@@ -10,9 +10,11 @@ import { FileUploadService } from 'src/app/service/file-upload.service';
 export class UploadingVideoComponent {
   @Output() videoNameSelected = new EventEmitter<File>();
   @ViewChild('fileUpload', { static: false })
+  @Output() uploadSuccess = new EventEmitter<string>(); // הצהרה על אירוע uploadSuccess
   fileUpload!: ElementRef;
   status: "initial" | "uploading" | "success" | "fail" = "initial";
   file: File | null = null;
+  fileUrl: string | undefined = undefined; // שינוי null ל-undefined
 
   constructor(private http: HttpClient, private fileUploadService: FileUploadService) {}
 
@@ -45,15 +47,22 @@ export class UploadingVideoComponent {
   }
    // פונקציה לשמירת הקובץ בענן
    saveFile(): void {
+    alert("1")
     if (this.file) {
       this.fileUploadService.uploadFile(this.file).subscribe(
         response => {
           console.log('File uploaded successfully', response); // טיפול בהעלאה מוצלחת
-          // ניתן להוסיף לוגיקה נוספת אם נדרש, כמו הצגת הודעה למשתמש
-        },
+          this.status = "success";  
+          alert(this.status)        // ניתן להוסיף לוגיקה נוספת אם נדרש, כמו הצגת הודעה למשתמש
+        // כאן יש להניח שה-URL מוחזר מהשרת אחרי ההעלאה המוצלחת
+        this.fileUrl = response.url; 
+       alert( this.fileUrl )// וודא שהשדה `url` אכן קיים בתגובה
+       // שידור ה-URL לאיוונט כדי שקומפוננטות אחרות יוכלו להשתמש בו
+       this.uploadSuccess.emit(this.fileUrl);
+      },
         error => {
           console.error('Error uploading file', error); // טיפול בשגיאה בהעלאה
-        }
+          this.status = "fail";        }
       );
     } else {
       console.error('No file selected'); // הודעה במקרה שלא נבחר קובץ

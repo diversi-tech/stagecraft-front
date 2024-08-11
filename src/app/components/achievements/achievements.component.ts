@@ -23,6 +23,7 @@ export class AchievementsComponent implements OnInit { // הגדרת הקומפ�
   ngOnInit(): void { // פונקציה המופעלת בעת אתחול הקומפוננטה
     // שליפת כל הקורסים עבור המשתמש הנוכחי
     this.courseAchievementsService.getAllCoursesForUser(this.userId).subscribe(data => {
+      console.log(this.courses)
       this.courses = data; // שמירת הקורסים במערך
     });
   }

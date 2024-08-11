@@ -1,29 +1,26 @@
-
 .video-transcript-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-  }
-  
-  video {
-    width: 80%;
-    max-width: 800px;
-    margin-bottom: 20px;
-  }
-  
-  .transcript-text {
-    width: 80%;
-    max-width: 800px;
-    background-color: #f5f5f5;
-    padding: 10px;
-    border: 1px solid #ccc;
-    white-space: pre-wrap; /* לשמור על הפורמט המקורי */
-    overflow-y: auto;
-    max-height: 400px;
-  }
-  
-  .transcript-text {
-    position: relative;
-    z-index: 10; /* וודא שהשכבה מעל הוידאו */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top:35px; /* הקטנת המרווח העליון */
+}
+
+video {
+  width: 80%;
+  max-width: 800px;
+  margin-bottom: 5px; /* הקטנת המרווח התחתון */
+}
+
+.transcript-text {
+  width: 80%;
+  max-width: 800px;
+  background-color: #f5f5f5;
+  padding: 10px;
+  border: 1px solid #ccc;
+  white-space: pre-wrap; /* שמירת הפורמט המקורי */
+  overflow-y: auto;
+  max-height: 400px;
+  margin-top: 0; /* ביטול מרווח עליון */
+  position: relative;
+  z-index: 10; /* ווידוא שהשכבה מעל הוידאו */
 }

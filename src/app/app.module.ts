@@ -57,7 +57,7 @@ import { MatSelectModule } from '@angular/material/select';
 
 import { MyAdminForumComponent } from './components/my-admin-forum/my-admin-forum.component';
 import { MyForumComponent } from './components/my-forum/my-forum.component';
-import { TokenInterceptor } from './interceptors/token.interceptor';
+//import { TokenInterceptor } from './interceptors/token.interceptor';
 
 import { AdminTranscriptComponent } from './components/admin-transcript/admin-transcript.component';
 import { VideoTranscriptComponent } from './components/video-transcript/video-transcript.component';
@@ -149,8 +149,8 @@ VideoTranscriptComponent,
      
   ],
   providers: [
-    TranscriptionService,
-    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
+    // TranscriptionService,
+    // { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
   

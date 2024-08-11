@@ -5,6 +5,7 @@ interface TranscriptSegment {
   startTime: string;
   endTime: string;
   text: string;
+  
 }
 
 @Component({

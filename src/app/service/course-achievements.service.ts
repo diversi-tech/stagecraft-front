@@ -38,19 +38,19 @@ export class CourseAchievementsService {
     // );
   // }
 
-  getCoursesForUser(userId: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}user/${userId}`);
-  }
+  // getCoursesForUser(userId: number): Observable<any> {
+  //   return this.http.get(`${this.apiUrl}user/${userId}`);
+  // }
   
   getAllCoursesForUser(userId: number): Observable<any[]> {
-    debugger
-    return this.http.get<any[]>(`${this.apiUrl}Admin/GetAllCoursOfUser/${userId}`);
+console.log(userId)
+    return this.http.get<any[]>(`${this.apiUrl}Courses/GetCoursesByUserId/${userId}`);
   }
 
 
   GetCourseById(courseId: number): Observable<course>{
     
-   // console.log(`Calling API: ${this.apiUrl}GetCourseById/${courseId}`);
+   console.log(`Calling API: ${this.apiUrl}GetCourseById/${courseId}`);
    return this.http.get<course>(`${this.apiUrl}Courses/GetCourseById/${courseId}`);
 
   }

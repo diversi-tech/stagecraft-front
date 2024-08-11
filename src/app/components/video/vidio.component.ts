@@ -317,7 +317,7 @@ export class VidioComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     // טוען את הוידאו עבור שיעור 4 בקורס 100
-    this.loadVideo(100, 4);
+    this.loadVideo(100, 1);
   }
 
   loadVideo(courseId: number, lessonId: number): void {
